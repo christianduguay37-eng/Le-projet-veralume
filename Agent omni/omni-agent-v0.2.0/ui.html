@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMNI AGENT</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-deep: #0a0b0f;
+  --bg-panel: #12131a;
+  --bg-surface: #1a1b25;
+  --bg-hover: #222333;
+  --border: #2a2b3d;
+  --border-active: #3d3e55;
+  --text-primary: #e0e1ec;
+  --text-secondary: #8889a0;
+  --text-dim: #55566b;
+  --cyan: #00d4ff;
+  --cyan-dim: #00a4cc;
+  --cyan-glow: rgba(0, 212, 255, 0.15);
+  --magenta: #ff3daa;
+  --magenta-dim: #cc2d88;
+  --magenta-glow: rgba(255, 61, 170, 0.15);
+  --green: #00e676;
+  --green-dim: #00b35e;
+  --yellow: #ffd740;
+  --red: #ff5252;
+  --orange: #ff9100;
+  --phase-s: #00d4ff;
+  --phase-t: #7c4dff;
+  --phase-r: #ffd740;
+  --phase-i: #ff9100;
+  --phase-c: #00e676;
+  --radius: 8px;
+  --radius-sm: 4px;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Space Grotesk', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════ */
+/* Layout */
+/* ═══════════════════════════════════════ */
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  grid-template-rows: 48px 1fr;
+  height: 100vh;
+  gap: 1px;
+  background: var(--border);
+}
+
+/* ═══════════════════════════════════════ */
+/* Header */
+/* ═══════════════════════════════════════ */
+
+.header {
+  grid-column: 1 / -1;
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.logo span { color: var(--text-dim); font-weight: 400; }
+
+.substrate-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.substrate-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.substrate-dot.connected { background: var(--green); box-shadow: 0 0 6px var(--green); }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.header-btn:hover {
+  border-color: var(--cyan-dim);
+  color: var(--cyan);
+  background: var(--cyan-glow);
+}
+
+/* ═══════════════════════════════════════ */
+/* Chat Panel */
+/* ═══════════════════════════════════════ */
+
+.chat-panel {
+  background: var(--bg-deep);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scroll-behavior: smooth;
+}
+
+.messages::-webkit-scrollbar { width: 4px; }
+.messages::-webkit-scrollbar-track { background: transparent; }
+.messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.message {
+  display: flex;
+  gap: 12px;
+  max-width: 85%;
+  animation: msgIn 0.25s ease-out;
+}
+.message.user { align-self: flex-end; flex-direction: row-reverse; }
+.message.agent { align-self: flex-start; }
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.msg-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.message.user .msg-avatar {
+  background: var(--magenta-glow);
+  color: var(--magenta);
+  border: 1px solid var(--magenta-dim);
+}
+.message.agent .msg-avatar {
+  background: var(--cyan-glow);
+  color: var(--cyan);
+  border: 1px solid var(--cyan-dim);
+}
+
+.msg-content {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.message.user .msg-content {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.message.agent .msg-content {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.message.agent .msg-content.error {
+  border-color: var(--red);
+  background: rgba(255, 82, 82, 0.08);
+}
+.message.agent .msg-content.clarify {
+  border-color: var(--yellow);
+  background: rgba(255, 215, 64, 0.08);
+}
+
+.msg-content code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--bg-deep);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* Input area */
+.input-area {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.input-field {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  padding: 12px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  outline: none;
+  resize: none;
+  min-height: 44px;
+  max-height: 120px;
+  transition: border-color 0.15s;
+}
+.input-field:focus { border-color: var(--cyan-dim); }
+.input-field::placeholder { color: var(--text-dim); }
+
+.send-btn {
+  width: 44px; height: 44px;
+  border-radius: var(--radius);
+  border: 1px solid var(--cyan-dim);
+  background: var(--cyan-glow);
+  color: var(--cyan);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.send-btn:hover { background: var(--cyan-dim); color: var(--bg-deep); }
+.send-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.send-btn svg { width: 18px; height: 18px; }
+
+/* Processing indicator */
+.processing {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0 0;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+}
+.processing.active { display: flex; }
+
+.processing-dots span {
+  display: inline-block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: pulse 1.2s infinite;
+}
+.processing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.processing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulse {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+/* ═══════════════════════════════════════ */
+/* STRIC Panel (right sidebar) */
+/* ═══════════════════════════════════════ */
+
+.stric-panel {
+  background: var(--bg-panel);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-tab {
+  flex: 1;
+  padding: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-align: center;
+  color: var(--text-dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.panel-tab:hover { color: var(--text-secondary); }
+.panel-tab.active { color: var(--cyan); border-bottom-color: var(--cyan); }
+
+.panel-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+.panel-content::-webkit-scrollbar { width: 3px; }
+.panel-content::-webkit-scrollbar-thumb { background: var(--border); }
+
+/* STRIC Live */
+.stric-live {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stric-idle {
+  text-align: center;
+  padding: 40px 16px;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+.stric-idle .icon { font-size: 32px; margin-bottom: 12px; }
+
+.stric-event {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border-left: 3px solid var(--border);
+  animation: eventIn 0.2s ease-out;
+  font-size: 12px;
+}
+
+@keyframes eventIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.stric-event.phase-s { border-left-color: var(--phase-s); }
+.stric-event.phase-t { border-left-color: var(--phase-t); }
+.stric-event.phase-r { border-left-color: var(--phase-r); }
+.stric-event.phase-i { border-left-color: var(--phase-i); }
+.stric-event.phase-c { border-left-color: var(--phase-c); }
+.stric-event.decision { border-left-color: var(--green); background: rgba(0, 230, 118, 0.05); }
+.stric-event.error { border-left-color: var(--red); }
+.stric-event.learning { border-left-color: var(--magenta); background: var(--magenta-glow); }
+
+.event-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.event-text {
+  color: var(--text-secondary);
+  line-height: 1.4;
+  font-family: var(--font-mono);
+}
+.event-text strong { color: var(--text-primary); font-weight: 500; }
+
+/* Coherence bars */
+.coherence-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.coherence-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.coherence-label {
+  width: 36px;
+  color: var(--text-dim);
+  text-align: right;
+}
+
+.coherence-bar-bg {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-deep);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.coherence-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.coherence-bar-fill.pass { background: var(--green); }
+.coherence-bar-fill.warn { background: var(--yellow); }
+.coherence-bar-fill.fail { background: var(--red); }
+
+.coherence-value {
+  width: 30px;
+  text-align: right;
+  color: var(--text-dim);
+}
+
+/* Progress bar */
+.progress-bar-container {
+  margin-top: 4px;
+}
+
+.progress-bar-bg {
+  height: 8px;
+  background: var(--bg-deep);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan-dim), var(--cyan));
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* Status tab */
+.status-section {
+  margin-bottom: 16px;
+}
+
+.status-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  font-size: 12px;
+}
+
+.status-key { color: var(--text-secondary); }
+.status-value {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-size: 11px;
+}
+
+/* Memory tab */
+.memory-entry {
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.memory-entry .type {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.memory-entry .type.interaction { color: var(--cyan-dim); }
+.memory-entry .type.learning { color: var(--magenta); }
+.memory-entry .type.stric_trace { color: var(--yellow); }
+
+.memory-entry .content {
+  color: var(--text-secondary);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* Confirm dialog */
+.confirm-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.confirm-overlay.active { display: flex; }
+
+.confirm-dialog {
+  background: var(--bg-panel);
+  border: 1px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 480px;
+  width: 90%;
+}
+
+.confirm-dialog h3 {
+  color: var(--yellow);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.confirm-dialog p {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-bottom: 20px;
+  word-break: break-all;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.confirm-actions button {
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 12px;
+  font-family: var(--font-sans);
+}
+
+.btn-cancel {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+.btn-confirm {
+  background: var(--yellow);
+  color: var(--bg-deep);
+  border-color: var(--yellow) !important;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════ */
+/* Responsive */
+/* ═══════════════════════════════════════ */
+
+@media (max-width: 800px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: 48px 1fr auto;
+  }
+  .stric-panel {
+    max-height: 35vh;
+    border-top: 1px solid var(--border);
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo">OMNI <span>AGENT</span></div>
+      <div class="substrate-badge">
+        <div class="substrate-dot" id="substrateDot"></div>
+        <span id="substrateName">—</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="header-btn" onclick="requestStatus()">↻ Status</button>
+      <button class="header-btn" onclick="clearChat()">⌫ Clear</button>
+    </div>
+  </div>
+
+  <!-- Chat -->
+  <div class="chat-panel">
+    <div class="messages" id="messages">
+      <div class="stric-idle">
+        <div class="icon">◆</div>
+        <div>Agent Omni prêt. Double STRIC actif.</div>
+      </div>
+    </div>
+    <div class="input-area">
+      <div class="input-row">
+        <textarea class="input-field" id="inputField" 
+                  placeholder="Objectif ou question..." 
+                  rows="1"
+                  onkeydown="handleKeydown(event)"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"/>
+          </svg>
+        </button>
+      </div>
+      <div class="processing" id="processing">
+        <div class="processing-dots"><span></span><span></span><span></span></div>
+        <span id="processingText">Double STRIC en cours...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRIC Panel -->
+  <div class="stric-panel">
+    <div class="panel-tabs">
+      <button class="panel-tab active" onclick="switchTab('stric')">STRIC</button>
+      <button class="panel-tab" onclick="switchTab('status')">Status</button>
+      <button class="panel-tab" onclick="switchTab('memory')">Mémoire</button>
+    </div>
+    <div class="panel-content" id="panelContent">
+      <div id="tabStric" class="stric-live">
+        <div class="stric-idle" id="stricIdle">
+          <div class="icon">◇</div>
+          <div>En attente d'un objectif</div>
+        </div>
+      </div>
+      <div id="tabStatus" style="display:none"></div>
+      <div id="tabMemory" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm dialog -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-dialog">
+    <h3>⚠ Confirmation requise</h3>
+    <p id="confirmMessage"></p>
+    <div class="confirm-actions">
+      <button class="btn-cancel" onclick="respondConfirm(false)">Annuler</button>
+      <button class="btn-confirm" onclick="respondConfirm(true)">Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// WebSocket
+// ═══════════════════════════════════════
+
+let ws = null;
+let isProcessing = false;
+let currentStatus = null;
+
+function connect() {
+  const protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  ws = new WebSocket(`${protocol}//${location.host}/ws`);
+  
+  ws.onopen = () => {
+    console.log('WebSocket connected');
+    document.getElementById('substrateDot').classList.add('connected');
+  };
+  
+  ws.onclose = () => {
+    console.log('WebSocket disconnected, reconnecting...');
+    document.getElementById('substrateDot').classList.remove('connected');
+    setTimeout(connect, 2000);
+  };
+  
+  ws.onerror = (e) => console.error('WebSocket error', e);
+  
+  ws.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    handleMessage(data);
+  };
+}
+
+function handleMessage(data) {
+  switch (data.type) {
+    case 'status':
+      updateStatus(data.data);
+      break;
+    case 'stric_event':
+      handleSTRICEvent(data.event, data.data);
+      break;
+    case 'chat_response':
+      showAgentMessage(data.content, data);
+      setProcessing(false);
+      break;
+    case 'error':
+      showAgentMessage(data.content, { error: true });
+      setProcessing(false);
+      break;
+    case 'processing_start':
+      setProcessing(true);
+      clearSTRICEvents();
+      break;
+    case 'confirm_request':
+      showConfirm(data.message);
+      break;
+    case 'search_results':
+      showSearchResults(data.data);
+      break;
+    case 'trace':
+      showTrace(data.data);
+      break;
+  }
+}
+
+// ═══════════════════════════════════════
+// Chat
+// ═══════════════════════════════════════
+
+function sendMessage() {
+  const input = document.getElementById('inputField');
+  const text = input.value.trim();
+  if (!text || isProcessing) return;
+  
+  showUserMessage(text);
+  ws.send(JSON.stringify({ type: 'chat', content: text }));
+  input.value = '';
+  input.style.height = 'auto';
+}
+
+function handleKeydown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+  // Auto-resize
+  setTimeout(() => {
+    const el = e.target;
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+  }, 0);
+}
+
+function showUserMessage(text) {
+  const container = document.getElementById('messages');
+  // Remove idle message if present
+  const idle = container.querySelector('.stric-idle');
+  if (idle) idle.remove();
+  
+  const msg = document.createElement('div');
+  msg.className = 'message user';
+  msg.innerHTML = `
+    <div class="msg-avatar">C</div>
+    <div class="msg-content">${escapeHtml(text)}</div>
+  `;
+  container.appendChild(msg);
+  scrollToBottom();
+}
+
+function showAgentMessage(text, meta = {}) {
+  const container = document.getElementById('messages');
+  const msg = document.createElement('div');
+  msg.className = 'message agent';
+  
+  let extraClass = '';
+  if (meta.error) extraClass = ' error';
+  if (text && text.startsWith('[❓]')) extraClass = ' clarify';
+  
+  msg.innerHTML = `
+    <div class="msg-avatar">◆</div>
+    <div class="msg-content${extraClass}">${escapeHtml(text || '(pas de réponse)')}</div>
+  `;
+  container.appendChild(msg);
+  scrollToBottom();
+}
+
+function clearChat() {
+  const container = document.getElementById('messages');
+  container.innerHTML = `
+    <div class="stric-idle">
+      <div class="icon">◆</div>
+      <div>Chat effacé. Agent prêt.</div>
+    </div>
+  `;
+}
+
+function scrollToBottom() {
+  const el = document.getElementById('messages');
+  setTimeout(() => el.scrollTop = el.scrollHeight, 50);
+}
+
+function setProcessing(active) {
+  isProcessing = active;
+  document.getElementById('processing').classList.toggle('active', active);
+  document.getElementById('sendBtn').disabled = active;
+}
+
+// ═══════════════════════════════════════
+// STRIC Events
+// ═══════════════════════════════════════
+
+function clearSTRICEvents() {
+  const container = document.getElementById('tabStric');
+  container.innerHTML = '';
+  document.getElementById('stricIdle')?.remove();
+}
+
+function handleSTRICEvent(eventType, data) {
+  const container = document.getElementById('tabStric');
+  
+  const eventMap = {
+    'stric_i_start': () => addSTRICEvent('🔮', 'STRIC_i — planification', 'phase-s'),
+    'stric_i_phase': () => {
+      const phases = { S: '👁 observe', T: '🧠 structure', R: '📋 formule', I: '⚖ valide', C: '⚡ décide' };
+      const desc = phases[data.phase] || data.phase;
+      const attempt = data.attempt > 0 ? ` <strong>(#${data.attempt + 1})</strong>` : '';
+      addSTRICEvent('', `${desc}${attempt}`, `phase-${data.phase?.toLowerCase() || ''}`);
+    },
+    'stric_i_coherence': () => {
+      const el = addSTRICEvent('📊', `Cohérence ${data.passes ? '✓' : '✗'}`, data.passes ? 'decision' : 'error');
+      const bars = document.createElement('div');
+      bars.className = 'coherence-bars';
+      bars.innerHTML = coherenceBar('seq', data.seq) + coherenceBar('sem', data.sem) + coherenceBar('multi', data.multi);
+      el.appendChild(bars);
+    },
+    'stric_i_decision': () => {
+      const icons = { act: '✓ →', reformulate: '↻', escalate: '⬆', clarify: '❓' };
+      const labels = { act: 'exécution', reformulate: 'reformulation', escalate: 'escalade', clarify: 'clarification' };
+      addSTRICEvent(icons[data.decision] || '?', labels[data.decision] || data.decision, 'decision');
+    },
+    'stric_e_start': () => addSTRICEvent('⚡', `STRIC_e — ${data.total_steps} étapes`, 'phase-t'),
+    'stric_e_step': () => {
+      addSTRICEvent('▸', `[${data.step_num}/${data.total}] <strong>${data.action}</strong>`, 'phase-r');
+    },
+    'stric_e_result': () => {
+      if (data.preview) {
+        addSTRICEvent('', data.preview.substring(0, 80), '');
+      }
+    },
+    'stric_e_eval': () => {
+      const el = addSTRICEvent('📈', `Progression`, 'phase-i');
+      const bar = document.createElement('div');
+      bar.className = 'progress-bar-container';
+      bar.innerHTML = `<div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${data.progress_pct}%"></div></div>`;
+      el.appendChild(bar);
+    },
+    'synthesizing': () => addSTRICEvent('🔄', 'Synthèse...', 'phase-r'),
+    'learning': () => addSTRICEvent('💡', data.insight || '', 'learning'),
+    'complete': () => addSTRICEvent('✓', `${(data.duration_ms || 0).toFixed(0)}ms · ${data.calls || 0} appels`, 'decision'),
+  };
+  
+  const handler = eventMap[eventType];
+  if (handler) handler();
+  
+  // Update processing text
+  const procText = document.getElementById('processingText');
+  const textMap = {
+    'stric_i_start': 'Planification intérieure...',
+    'stric_i_phase': `Phase ${data.phase || ''}...`,
+    'stric_e_start': 'Exécution...',
+    'stric_e_step': `Étape ${data.step_num}/${data.total}...`,
+    'synthesizing': 'Synthèse...',
+  };
+  if (textMap[eventType]) procText.textContent = textMap[eventType];
+  
+  // Auto-scroll panel
+  const panel = document.getElementById('panelContent');
+  panel.scrollTop = panel.scrollHeight;
+}
+
+function addSTRICEvent(icon, text, className) {
+  const container = document.getElementById('tabStric');
+  const el = document.createElement('div');
+  el.className = `stric-event ${className}`;
+  el.innerHTML = `
+    <div class="event-icon">${icon}</div>
+    <div class="event-text">${text}</div>
+  `;
+  container.appendChild(el);
+  return el;
+}
+
+function coherenceBar(label, value) {
+  const pct = Math.round((value || 0) * 100);
+  const cls = value >= 0.7 ? 'pass' : value >= 0.4 ? 'warn' : 'fail';
+  return `
+    <div class="coherence-row">
+      <span class="coherence-label">${label}</span>
+      <div class="coherence-bar-bg">
+        <div class="coherence-bar-fill ${cls}" style="width:${pct}%"></div>
+      </div>
+      <span class="coherence-value">${(value || 0).toFixed(2)}</span>
+    </div>
+  `;
+}
+
+// ═══════════════════════════════════════
+// Tabs
+// ═══════════════════════════════════════
+
+function switchTab(tab) {
+  document.querySelectorAll('.panel-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  document.getElementById('tabStric').style.display = tab === 'stric' ? 'flex' : 'none';
+  document.getElementById('tabStatus').style.display = tab === 'status' ? 'block' : 'none';
+  document.getElementById('tabMemory').style.display = tab === 'memory' ? 'block' : 'none';
+  
+  if (tab === 'status') renderStatus();
+  if (tab === 'memory') requestMemory();
+}
+
+// ═══════════════════════════════════════
+// Status
+// ═══════════════════════════════════════
+
+function updateStatus(data) {
+  currentStatus = data;
+  
+  // Header
+  const dot = document.getElementById('substrateDot');
+  const name = document.getElementById('substrateName');
+  dot.classList.toggle('connected', data.substrat_available);
+  name.textContent = data.substrat_default || '—';
+  
+  renderStatus();
+}
+
+function renderStatus() {
+  if (!currentStatus) return;
+  const data = currentStatus;
+  const container = document.getElementById('tabStatus');
+  
+  let html = '';
+  
+  // Substrats
+  html += '<div class="status-section"><div class="status-title">Substrats</div>';
+  (data.substrates || []).forEach(s => {
+    const h = s.health || {};
+    const icon = h.is_degraded ? '🔴' : '🟢';
+    html += `
+      <div class="status-row">
+        <span class="status-key">${icon} ${s.name}</span>
+        <span class="status-value">${s.role}</span>
+      </div>
+      <div class="status-row">
+        <span class="status-key" style="padding-left:24px">latence / erreurs</span>
+        <span class="status-value">${(h.avg_latency_ms||0).toFixed(0)}ms · ${(h.error_rate||0).toFixed(1)}%</span>
+      </div>
+    `;
+  });
+  html += '</div>';
+  
+  // Outils
+  html += '<div class="status-section"><div class="status-title">Outils</div>';
+  (data.tools || []).forEach(t => {
+    html += `<div class="status-row"><span class="status-key">${t.name}</span><span class="status-value" style="font-size:10px">${(t.description||'').substring(0,40)}</span></div>`;
+  });
+  html += '</div>';
+  
+  // Mémoire
+  const mem = data.memory || {};
+  html += '<div class="status-section"><div class="status-title">Mémoire</div>';
+  html += `<div class="status-row"><span class="status-key">Entrées</span><span class="status-value">${mem.total_entries || 0}</span></div>`;
+  html += `<div class="status-row"><span class="status-key">Apprentissages</span><span class="status-value">${mem.learnings || 0}</span></div>`;
+  html += `<div class="status-row"><span class="status-key">Trajectoire</span><span class="status-value">${(mem.span_hours || 0).toFixed(1)}h</span></div>`;
+  html += `<div class="status-row"><span class="status-key">Fichiers</span><span class="status-value">${mem.files || 0}</span></div>`;
+  html += '</div>';
+  
+  container.innerHTML = html;
+}
+
+function requestStatus() {
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    ws.send(JSON.stringify({ type: 'get_status' }));
+  }
+}
+
+function requestMemory() {
+  // For now, render from status data
+  if (!currentStatus) return;
+  const container = document.getElementById('tabMemory');
+  const mem = currentStatus.memory || {};
+  
+  let html = `<div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">
+    ${mem.total_entries || 0} entrées · ${(mem.span_hours || 0).toFixed(1)}h de trajectoire
+  </div>`;
+  
+  // Types breakdown
+  const types = mem.by_type || {};
+  Object.entries(types).forEach(([type, count]) => {
+    html += `<div class="memory-entry"><span class="type ${type}">${type}</span><span class="content">${count} entrées</span></div>`;
+  });
+  
+  container.innerHTML = html;
+}
+
+// ═══════════════════════════════════════
+// Confirm
+// ═══════════════════════════════════════
+
+let confirmResolve = null;
+
+function showConfirm(message) {
+  document.getElementById('confirmMessage').textContent = message;
+  document.getElementById('confirmOverlay').classList.add('active');
+}
+
+function respondConfirm(confirmed) {
+  document.getElementById('confirmOverlay').classList.remove('active');
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    ws.send(JSON.stringify({ type: 'confirm_response', confirmed }));
+  }
+}
+
+// ═══════════════════════════════════════
+// Utils
+// ═══════════════════════════════════════
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// ═══════════════════════════════════════
+// Init
+// ═══════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', () => {
+  connect();
+  document.getElementById('inputField').focus();
+});
+</script>
+
+</body>
+</html>
