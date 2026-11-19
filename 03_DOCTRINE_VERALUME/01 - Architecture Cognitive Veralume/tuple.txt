@@ -1,0 +1,128 @@
+=== ENCODAGE « tuple » ===
+
+--- CLÉ DE LECTURE ---
+Une ligne par entité. Champs séparés par | dans cet ordre exact :
+nom | couche | tier | activation | requires | prevents | rayonnement | section
+0 ou champ vide = non déclaré.
+
+--- DONNÉES (83 entités) ---
+adaptive-threshold|outil|0||0|0|1|0
+ancrage-chronos|cadre|0||0|0|0|0
+anti-patterns-generation|audit|1|always|1|5|5|14
+architecture-diagnostics|méthode|0||0|0|0|0
+bias-regeneration-detector|audit|2|conditional_post_acknowledgment|3|4|1|14
+bottleneck-identifier|outil|0||0|0|0|0
+cadre-travail-christian|cadre|0||0|0|1|0
+capacite-dans-le-temps|méthode|0||0|0|0|0
+carte-quatre-couches|méthode|0||0|0|0|0
+coherence-validator|audit|0||0|0|10|0
+colab-fine-tuning-orchestrator|outil|0||0|0|0|0
+convergence-detector|outil|0||0|0|2|0
+critique-structurelle|cadre|0||0|0|2|0
+data-transformer|outil|0||0|0|0|0
+density-calibrator|cadre|1|always|0|6|15|10
+dialogue|cadre|0||0|0|6|0
+double-naming|cadre|0||0|0|3|0
+double-stric-o0|méthode|1|always|1|5|9|5
+evening-analysis-generator|outil|0||0|0|0|0
+existence-sociale|théorème|1|on-trigger|0|4|4|4
+exploration-exploitation-balancer|outil|0||0|0|0|0
+fait-ou-opinion|épistémique|0||0|0|0|0
+feedback-integrator|outil|0||0|0|1|0
+formation-protocol-generator|outil|0||0|0|0|0
+friction-placement|cadre|0||0|0|1|0
+hierarchie-constitutionnelle|théorème|3|always|1|4|3|24
+honesty-auditor|audit|0||0|0|10|0
+hors-consensus-dialogue|épistémique|1|on_signal|2|7|1|9
+hypothesis-tester|outil|0||0|0|0|0
+hysteresis-contrainte|théorème|2|always|1|4|3|25
+inaccessibilite-n-cp|théorème|3|on-context|1|4|2|2
+intemporality-enforcer|outil|0||0|0|0|0
+intervention-router|méthode|0||0|0|1|0
+iterative-refinement|outil|0||0|0|0|0
+kairos|théorème|1|conditional|0|4|1|0
+kappa-confiance|épistémique|3|always|1|4|3|34
+kernel-cp-activator|outil|0||0|0|5|0
+kle|épistémique|1|always|0|6|21|12
+la-grille|cadre|0||0|0|1|0
+lee|épistémique|1|on-context|1|4|16|13
+metric-calculator|outil|0||0|0|0|0
+mir|méthode|2|on-context|0|5|3|20
+mirror|audit|0||0|0|9|0
+multi-axis-validator|audit|0||0|0|4|0
+noise-injector|outil|0||0|0|1|0
+non-surplomb|épistémique|1|on-context|2|5|0|0
+o1-transport|opérateur|2|on-context|1|4|5|15
+o2-chiralite|opérateur|2|on-context|1|4|6|16
+o3-epreuve|opérateur|2|always|1|4|4|18
+o4-immunite|opérateur|2|always|2|6|7|19
+o5-evolution|opérateur|2|on-context|3|4|5|20
+operating-point-regulator|outil|0||0|0|1|0
+parameter-optimizer|outil|0||0|0|0|0
+pattern-extractor|outil|0||0|0|1|0
+pce|épistémique|1|on-context|1|5|11|11
+prise-de-terre|théorème|3|always|0|4|8|9
+reflexion-fractale|théorème|0||0|0|2|0
+registre-exploration|cadre|0||0|0|0|0
+registre-rma|épistémique|3|always|2|4|1|31
+rgb-cartography|outil|3|on-context|2|4|0|32
+scheduler|outil|0||0|0|0|0
+score-profile-classifier|audit|0||0|0|0|0
+silent-generation-filter|outil|0||0|0|0|0
+souverainete-st|épistémique|2|always|0|5|13|22
+spatial-learning-converter|outil|0||0|0|0|0
+spirale-neguentropique|théorème|3|on-context|2|4|2|3
+state-manager|outil|0||0|0|0|0
+stric-cycle-implementer|méthode|0||0|0|2|0
+stric-i-absence-detector|audit|1|always|1|5|6|8
+stric-i-protocol|méthode|1|always|1|4|16|7
+substrate-polymorphism-profiler|outil|0||0|0|3|0
+technique-du-four-micro-onde|méthode|0||0|0|1|0
+temporal-bridge|méthode|0||0|0|1|0
+temporal-geometry-classifier|outil|0||0|0|4|0
+temporia|théorème|3|on-context|1|4|3|3
+tempus-dataset-generator|outil|0||0|0|1|0
+tempus-trainer|outil|0||0|0|1|0
+three-level-monitoring|outil|0||0|0|0|0
+traceability|audit|0||0|0|3|0
+trajectory-identifier|outil|0||0|0|1|0
+trial-error-loop|outil|0||0|0|0|0
+vcp1c|méthode|2|on-context|2|4|9|23
+volition-process|théorème|2|on-context|1|5|0|21
+
+--- CONSIGNE ---
+Voici une structure encodée, et sa clé de lecture. Ne réponds qu'avec les données.
+
+Pour chacune des entités listées à la fin, donne les SEPT propriétés, dans cet ordre :
+couche, tier, activation, requires, prevents, rayonnement, section.
+
+Format de réponse, une ligne par entité, rien d'autre :
+  nom = couche, tier, activation, requires, prevents, rayonnement, section
+
+Règles :
+- couche et activation en toutes lettres (pas en code) ; « aucune » si non déclarée.
+- les cinq autres en chiffres ; 0 si non déclaré.
+- si une propriété n'est pas déterminable avec certitude depuis l'encodage,
+  écris « ? » à sa place. Ne devine pas : un « ? » juste vaut mieux qu'un chiffre faux.
+
+--- ENTITÉS À RECONSTRUIRE ---
+coherence-validator
+data-transformer
+density-calibrator
+evening-analysis-generator
+feedback-integrator
+formation-protocol-generator
+iterative-refinement
+kairos
+kappa-confiance
+la-grille
+mir
+mirror
+noise-injector
+pattern-extractor
+pce
+registre-exploration
+scheduler
+silent-generation-filter
+technique-du-four-micro-onde
+vcp1c

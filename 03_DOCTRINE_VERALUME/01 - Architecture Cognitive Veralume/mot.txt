@@ -1,0 +1,131 @@
+=== ENCODAGE « mot » ===
+
+--- CLÉ DE LECTURE ---
+Une ligne par entité : nom, espace, puis un MOT de sept caractères. Chaque position du mot est une propriété, dans cet ordre : couche, tier, activation, requires, prevents, rayonnement, section.
+Chaque caractère vaut sa position dans cet alphabet :
+  0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/
+(donc 0=0, 9=9, A=10, Z=35, a=36, z=61, +=62, /=63)
+couche     : 0=opérateur 1=théorème 2=méthode 3=épistémique 4=audit 5=cadre 6=outil
+activation : 0=aucune 1=always 2=on-context 3=conditional 4=on-trigger 5=on_signal 6=conditional_post_acknowledgment
+
+--- DONNÉES (83 entités) ---
+adaptive-threshold 6000010
+ancrage-chronos 5000000
+anti-patterns-generation 411155E
+architecture-diagnostics 2000000
+bias-regeneration-detector 426341E
+bottleneck-identifier 6000000
+cadre-travail-christian 5000010
+capacite-dans-le-temps 2000000
+carte-quatre-couches 2000000
+coherence-validator 40000A0
+colab-fine-tuning-orchestrator 6000000
+convergence-detector 6000020
+critique-structurelle 5000020
+data-transformer 6000000
+density-calibrator 51106FA
+dialogue 5000060
+double-naming 5000030
+double-stric-o0 2111595
+evening-analysis-generator 6000000
+existence-sociale 1140444
+exploration-exploitation-balancer 6000000
+fait-ou-opinion 3000000
+feedback-integrator 6000010
+formation-protocol-generator 6000000
+friction-placement 5000010
+hierarchie-constitutionnelle 131143O
+honesty-auditor 40000A0
+hors-consensus-dialogue 3152719
+hypothesis-tester 6000000
+hysteresis-contrainte 121143P
+inaccessibilite-n-cp 1321422
+intemporality-enforcer 6000000
+intervention-router 2000010
+iterative-refinement 6000000
+kairos 1130410
+kappa-confiance 331143Y
+kernel-cp-activator 6000050
+kle 31106LC
+la-grille 5000010
+lee 31214GD
+metric-calculator 6000000
+mir 222053K
+mirror 4000090
+multi-axis-validator 4000040
+noise-injector 6000010
+non-surplomb 3122500
+o1-transport 022145F
+o2-chiralite 022146G
+o3-epreuve 021144I
+o4-immunite 021267J
+o5-evolution 022345K
+operating-point-regulator 6000010
+parameter-optimizer 6000000
+pattern-extractor 6000010
+pce 31215BB
+prise-de-terre 1310489
+reflexion-fractale 1000020
+registre-exploration 5000000
+registre-rma 331241V
+rgb-cartography 632240W
+scheduler 6000000
+score-profile-classifier 4000000
+silent-generation-filter 6000000
+souverainete-st 32105DM
+spatial-learning-converter 6000000
+spirale-neguentropique 1322423
+state-manager 6000000
+stric-cycle-implementer 2000020
+stric-i-absence-detector 4111568
+stric-i-protocol 21114G7
+substrate-polymorphism-profiler 6000030
+technique-du-four-micro-onde 2000010
+temporal-bridge 2000010
+temporal-geometry-classifier 6000040
+temporia 1321433
+tempus-dataset-generator 6000010
+tempus-trainer 6000010
+three-level-monitoring 6000000
+traceability 4000030
+trajectory-identifier 6000010
+trial-error-loop 6000000
+vcp1c 222249N
+volition-process 122150L
+
+--- CONSIGNE ---
+Voici une structure encodée, et sa clé de lecture. Ne réponds qu'avec les données.
+
+Pour chacune des entités listées à la fin, donne les SEPT propriétés, dans cet ordre :
+couche, tier, activation, requires, prevents, rayonnement, section.
+
+Format de réponse, une ligne par entité, rien d'autre :
+  nom = couche, tier, activation, requires, prevents, rayonnement, section
+
+Règles :
+- couche et activation en toutes lettres (pas en code) ; « aucune » si non déclarée.
+- les cinq autres en chiffres ; 0 si non déclaré.
+- si une propriété n'est pas déterminable avec certitude depuis l'encodage,
+  écris « ? » à sa place. Ne devine pas : un « ? » juste vaut mieux qu'un chiffre faux.
+
+--- ENTITÉS À RECONSTRUIRE ---
+coherence-validator
+data-transformer
+density-calibrator
+evening-analysis-generator
+feedback-integrator
+formation-protocol-generator
+iterative-refinement
+kairos
+kappa-confiance
+la-grille
+mir
+mirror
+noise-injector
+pattern-extractor
+pce
+registre-exploration
+scheduler
+silent-generation-filter
+technique-du-four-micro-onde
+vcp1c

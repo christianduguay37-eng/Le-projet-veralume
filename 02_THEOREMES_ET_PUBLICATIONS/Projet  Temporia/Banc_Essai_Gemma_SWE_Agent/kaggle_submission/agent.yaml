@@ -1,0 +1,31 @@
+schema_version: "1.0"
+agent:
+  name: "ksil-gemma-swe-agent"
+  version: "1.0.0"
+  description: "Deterministic Ultra-Frugal Software Engineering Agent via K-SIL on Gemma 4"
+  author: "Christian Duguay & Alix (Sovereign Engineering Lab - VERALUME x KAIROS)"
+  competition: "Google - The Gemma 4 Developer Agent Competition (2026)"
+  
+  model:
+    name: "gemma-4-e2b-it"
+    backend: "litert-lm"
+    accelerator: "NPU"
+    target_power_watts: 2.1
+    system_prompt_file: "prompts/system_prompt.txt"
+    sampling_config_file: "configs/sampling.yaml"
+    
+  scaffolding:
+    architecture: "Tri-Level Sovereign (Level 0 Meta-Language, Level 1 Hardware FST, Level 2 Neural Backbone)"
+    normal_form: "4-Pole Invariant Synthesis"
+    constrained_decoding: "llguidance C++ FST"
+    noise_reduction_ratio: 0.92
+    
+  tools:
+    - name: "code_graph_index"
+      description: "Traverses Python AST to extract classes, functions, line spans and call-graph dependencies in < 50ms"
+    - name: "view_symbol_slice"
+      description: "Retrieves only the exact line range of a targeted symbol without loading surrounding file noise"
+    - name: "apply_json_patch"
+      description: "Applies surgical search/replace diffs validated against strict FST schema"
+    - name: "run_test_suite"
+      description: "Executes target test suites and returns deterministic binary PASS/FAIL status with Horus Chi score"

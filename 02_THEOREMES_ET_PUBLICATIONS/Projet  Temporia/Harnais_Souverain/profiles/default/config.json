@@ -1,0 +1,22 @@
+{
+  "profile_name": "Compagnon_Souverain",
+  "user_name": "Artisan",
+  "backend": {
+    "type": "ollama",
+    "base_url": "http://127.0.0.1:11434",
+    "model": "qwen2.5:14b",
+    "api_key": null,
+    "litert_model_path": null,
+    "temperature": 0.7
+  },
+  "vision": {
+    "enabled": true,
+    "litert_model_path": null,
+    "ollama_model": "llava:7b"
+  },
+  "vaults": [
+    "./mes_notes"
+  ],
+  "max_memory_snippets": 3,
+  "enable_cognitive_immunity": true
+}

@@ -1,0 +1,880 @@
+{
+  "root": "C:\\Users\\Christian\\Documents\\Exocerveau_Souverain_Master\\Projet  Temporia\\Banc_Essai_Gemma_SWE_Agent\\target_repo",
+  "total_symbols": 90,
+  "files": {
+    "core/flow.py": [
+      "core/flow.py::FlowConservationException",
+      "core/flow.py::NetworkFlowOptimizer",
+      "core/flow.py::NetworkFlowOptimizer.__init__",
+      "core/flow.py::NetworkFlowOptimizer.get_capacity",
+      "core/flow.py::NetworkFlowOptimizer.get_residual",
+      "core/flow.py::NetworkFlowOptimizer.allocate_edge_flow",
+      "core/flow.py::NetworkFlowOptimizer.get_node_inflow",
+      "core/flow.py::NetworkFlowOptimizer.get_node_outflow",
+      "core/flow.py::NetworkFlowOptimizer.verify_conservation",
+      "core/flow.py::NetworkFlowOptimizer.route_demand",
+      "core/flow.py::__init__",
+      "core/flow.py::get_capacity",
+      "core/flow.py::get_residual",
+      "core/flow.py::allocate_edge_flow",
+      "core/flow.py::get_node_inflow",
+      "core/flow.py::get_node_outflow",
+      "core/flow.py::verify_conservation",
+      "core/flow.py::route_demand"
+    ],
+    "core/graph.py": [
+      "core/graph.py::CycleDetectedException",
+      "core/graph.py::InvalidRouteException",
+      "core/graph.py::DirectedGraph",
+      "core/graph.py::DirectedGraph.__init__",
+      "core/graph.py::DirectedGraph.add_node",
+      "core/graph.py::DirectedGraph.add_edge",
+      "core/graph.py::DirectedGraph.get_neighbors",
+      "core/graph.py::DirectedGraph.invalidate_cache",
+      "core/graph.py::DirectedGraph.get_shortest_path",
+      "core/graph.py::DirectedGraph.topological_sort",
+      "core/graph.py::__init__",
+      "core/graph.py::add_node",
+      "core/graph.py::add_edge",
+      "core/graph.py::get_neighbors",
+      "core/graph.py::invalidate_cache",
+      "core/graph.py::get_shortest_path",
+      "core/graph.py::topological_sort"
+    ],
+    "core/limiter.py": [
+      "core/limiter.py::TokenBucketRateLimiter",
+      "core/limiter.py::TokenBucketRateLimiter.__init__",
+      "core/limiter.py::TokenBucketRateLimiter.consume",
+      "core/limiter.py::TokenBucketRateLimiter.get_available_tokens",
+      "core/limiter.py::__init__",
+      "core/limiter.py::consume",
+      "core/limiter.py::get_available_tokens"
+    ],
+    "core/metrics.py": [
+      "core/metrics.py::GraphMetrics",
+      "core/metrics.py::GraphMetrics.density",
+      "core/metrics.py::density"
+    ],
+    "core/mutation.py": [
+      "core/mutation.py::GraphMutator",
+      "core/mutation.py::GraphMutator.__init__",
+      "core/mutation.py::GraphMutator.remove_node",
+      "core/mutation.py::GraphMutator.update_edge_weight",
+      "core/mutation.py::__init__",
+      "core/mutation.py::remove_node",
+      "core/mutation.py::update_edge_weight"
+    ],
+    "core/routing.py": [
+      "core/routing.py::PacketRouter",
+      "core/routing.py::PacketRouter.__init__",
+      "core/routing.py::PacketRouter.compute_route",
+      "core/routing.py::PacketRouter.get_route_latency",
+      "core/routing.py::PacketRouter.validate_route",
+      "core/routing.py::__init__",
+      "core/routing.py::compute_route",
+      "core/routing.py::get_route_latency",
+      "core/routing.py::validate_route"
+    ],
+    "core/__init__.py": [],
+    "tests/test_flow.py": [
+      "tests/test_flow.py::TestNetworkFlow",
+      "tests/test_flow.py::TestNetworkFlow.setUp",
+      "tests/test_flow.py::TestNetworkFlow.test_flow_conservation_along_path",
+      "tests/test_flow.py::setUp",
+      "tests/test_flow.py::test_flow_conservation_along_path"
+    ],
+    "tests/test_graph.py": [
+      "tests/test_graph.py::TestDirectedGraph",
+      "tests/test_graph.py::TestDirectedGraph.test_basic_dag",
+      "tests/test_graph.py::TestDirectedGraph.test_isolated_nodes_in_topological_sort",
+      "tests/test_graph.py::TestDirectedGraph.test_cycle_detection_raises_exception",
+      "tests/test_graph.py::test_basic_dag",
+      "tests/test_graph.py::test_isolated_nodes_in_topological_sort",
+      "tests/test_graph.py::test_cycle_detection_raises_exception"
+    ],
+    "tests/test_limiter.py": [
+      "tests/test_limiter.py::TestTokenBucketRateLimiter",
+      "tests/test_limiter.py::TestTokenBucketRateLimiter.test_burst_capacity_and_exhaustion",
+      "tests/test_limiter.py::TestTokenBucketRateLimiter.test_refill_over_time",
+      "tests/test_limiter.py::test_burst_capacity_and_exhaustion",
+      "tests/test_limiter.py::test_refill_over_time"
+    ],
+    "tests/test_mutation_cache.py": [
+      "tests/test_mutation_cache.py::TestMutationCacheConsistency",
+      "tests/test_mutation_cache.py::TestMutationCacheConsistency.setUp",
+      "tests/test_mutation_cache.py::TestMutationCacheConsistency.test_dynamic_node_removal_purges_stale_routes",
+      "tests/test_mutation_cache.py::TestMutationCacheConsistency.test_edge_weight_increase_triggers_path_switch",
+      "tests/test_mutation_cache.py::setUp",
+      "tests/test_mutation_cache.py::test_dynamic_node_removal_purges_stale_routes",
+      "tests/test_mutation_cache.py::test_edge_weight_increase_triggers_path_switch"
+    ],
+    "tests/test_routing.py": [
+      "tests/test_routing.py::TestPacketRouter",
+      "tests/test_routing.py::TestPacketRouter.setUp",
+      "tests/test_routing.py::TestPacketRouter.test_optimal_routing",
+      "tests/test_routing.py::setUp",
+      "tests/test_routing.py::test_optimal_routing"
+    ],
+    "tests/__init__.py": []
+  },
+  "symbols": {
+    "core/flow.py::FlowConservationException": {
+      "type": "class",
+      "name": "FlowConservationException",
+      "file": "core/flow.py",
+      "start_line": 11,
+      "end_line": 13,
+      "docstring": "Levée lorsque la loi de conservation du flux est violée sur un nœud de transit."
+    },
+    "core/flow.py::NetworkFlowOptimizer": {
+      "type": "class",
+      "name": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 16,
+      "end_line": 101,
+      "docstring": "Optimisateur de flux réseau sur DirectedGraph avec gestion des capacités et de la saturation."
+    },
+    "core/flow.py::NetworkFlowOptimizer.__init__": {
+      "type": "method",
+      "name": "NetworkFlowOptimizer.__init__",
+      "class": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 21,
+      "end_line": 23,
+      "docstring": ""
+    },
+    "core/flow.py::NetworkFlowOptimizer.get_capacity": {
+      "type": "method",
+      "name": "NetworkFlowOptimizer.get_capacity",
+      "class": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 25,
+      "end_line": 27,
+      "docstring": "Retourne la capacité maximale de la liaison (u, v)."
+    },
+    "core/flow.py::NetworkFlowOptimizer.get_residual": {
+      "type": "method",
+      "name": "NetworkFlowOptimizer.get_residual",
+      "class": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 29,
+      "end_line": 33,
+      "docstring": "Retourne la capacité résiduelle disponible sur la liaison (u, v)."
+    },
+    "core/flow.py::NetworkFlowOptimizer.allocate_edge_flow": {
+      "type": "method",
+      "name": "NetworkFlowOptimizer.allocate_edge_flow",
+      "class": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 35,
+      "end_line": 41,
+      "docstring": "Alloue une quantité de flux sur une arête directe."
+    },
+    "core/flow.py::NetworkFlowOptimizer.get_node_inflow": {
+      "type": "method",
+      "name": "NetworkFlowOptimizer.get_node_inflow",
+      "class": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 43,
+      "end_line": 49,
+      "docstring": "Calcule le flux total entrant sur un nœud."
+    },
+    "core/flow.py::NetworkFlowOptimizer.get_node_outflow": {
+      "type": "method",
+      "name": "NetworkFlowOptimizer.get_node_outflow",
+      "class": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 51,
+      "end_line": 57,
+      "docstring": "Calcule le flux total sortant d'un nœud."
+    },
+    "core/flow.py::NetworkFlowOptimizer.verify_conservation": {
+      "type": "method",
+      "name": "NetworkFlowOptimizer.verify_conservation",
+      "class": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 59,
+      "end_line": 73,
+      "docstring": "Vérifie la loi de conservation pour tous les nœuds de transit (hors source et puits) :\nFlux entrant == Flux sortant."
+    },
+    "core/flow.py::NetworkFlowOptimizer.route_demand": {
+      "type": "method",
+      "name": "NetworkFlowOptimizer.route_demand",
+      "class": "NetworkFlowOptimizer",
+      "file": "core/flow.py",
+      "start_line": 75,
+      "end_line": 101,
+      "docstring": ""
+    },
+    "core/flow.py::__init__": {
+      "type": "function",
+      "name": "__init__",
+      "file": "core/flow.py",
+      "start_line": 21,
+      "end_line": 23,
+      "docstring": ""
+    },
+    "core/flow.py::get_capacity": {
+      "type": "function",
+      "name": "get_capacity",
+      "file": "core/flow.py",
+      "start_line": 25,
+      "end_line": 27,
+      "docstring": "Retourne la capacité maximale de la liaison (u, v)."
+    },
+    "core/flow.py::get_residual": {
+      "type": "function",
+      "name": "get_residual",
+      "file": "core/flow.py",
+      "start_line": 29,
+      "end_line": 33,
+      "docstring": "Retourne la capacité résiduelle disponible sur la liaison (u, v)."
+    },
+    "core/flow.py::allocate_edge_flow": {
+      "type": "function",
+      "name": "allocate_edge_flow",
+      "file": "core/flow.py",
+      "start_line": 35,
+      "end_line": 41,
+      "docstring": "Alloue une quantité de flux sur une arête directe."
+    },
+    "core/flow.py::get_node_inflow": {
+      "type": "function",
+      "name": "get_node_inflow",
+      "file": "core/flow.py",
+      "start_line": 43,
+      "end_line": 49,
+      "docstring": "Calcule le flux total entrant sur un nœud."
+    },
+    "core/flow.py::get_node_outflow": {
+      "type": "function",
+      "name": "get_node_outflow",
+      "file": "core/flow.py",
+      "start_line": 51,
+      "end_line": 57,
+      "docstring": "Calcule le flux total sortant d'un nœud."
+    },
+    "core/flow.py::verify_conservation": {
+      "type": "function",
+      "name": "verify_conservation",
+      "file": "core/flow.py",
+      "start_line": 59,
+      "end_line": 73,
+      "docstring": "Vérifie la loi de conservation pour tous les nœuds de transit (hors source et puits) :\nFlux entrant == Flux sortant."
+    },
+    "core/flow.py::route_demand": {
+      "type": "function",
+      "name": "route_demand",
+      "file": "core/flow.py",
+      "start_line": 75,
+      "end_line": 101,
+      "docstring": ""
+    },
+    "core/graph.py::CycleDetectedException": {
+      "type": "class",
+      "name": "CycleDetectedException",
+      "file": "core/graph.py",
+      "start_line": 10,
+      "end_line": 12,
+      "docstring": "Levée lorsqu'un cycle est détecté dans un graphe orienté acyclique (DAG)."
+    },
+    "core/graph.py::InvalidRouteException": {
+      "type": "class",
+      "name": "InvalidRouteException",
+      "file": "core/graph.py",
+      "start_line": 15,
+      "end_line": 17,
+      "docstring": "Levée lorsqu'une route contient des nœuds ou arêtes inexistants."
+    },
+    "core/graph.py::DirectedGraph": {
+      "type": "class",
+      "name": "DirectedGraph",
+      "file": "core/graph.py",
+      "start_line": 20,
+      "end_line": 144,
+      "docstring": "Structure de graphe orienté avec pondérations, gestion de cache de plus court chemin\net détection topologique."
+    },
+    "core/graph.py::DirectedGraph.__init__": {
+      "type": "method",
+      "name": "DirectedGraph.__init__",
+      "class": "DirectedGraph",
+      "file": "core/graph.py",
+      "start_line": 26,
+      "end_line": 29,
+      "docstring": ""
+    },
+    "core/graph.py::DirectedGraph.add_node": {
+      "type": "method",
+      "name": "DirectedGraph.add_node",
+      "class": "DirectedGraph",
+      "file": "core/graph.py",
+      "start_line": 31,
+      "end_line": 35,
+      "docstring": "Ajoute un nœud au graphe."
+    },
+    "core/graph.py::DirectedGraph.add_edge": {
+      "type": "method",
+      "name": "DirectedGraph.add_edge",
+      "class": "DirectedGraph",
+      "file": "core/graph.py",
+      "start_line": 37,
+      "end_line": 41,
+      "docstring": "Ajoute une arête orientée pondérée de u vers v."
+    },
+    "core/graph.py::DirectedGraph.get_neighbors": {
+      "type": "method",
+      "name": "DirectedGraph.get_neighbors",
+      "class": "DirectedGraph",
+      "file": "core/graph.py",
+      "start_line": 43,
+      "end_line": 45,
+      "docstring": "Retourne le dictionnaire des voisins sortants et leurs poids."
+    },
+    "core/graph.py::DirectedGraph.invalidate_cache": {
+      "type": "method",
+      "name": "DirectedGraph.invalidate_cache",
+      "class": "DirectedGraph",
+      "file": "core/graph.py",
+      "start_line": 47,
+      "end_line": 66,
+      "docstring": "Invalide le cache des plus courts chemins.\nSi affected_node est fourni, purge uniquement les entrées traversant ce nœud.\nSinon, purge l'intégralité du cache.\nRetourne le nombre d'entrées purgées."
+    },
+    "core/graph.py::DirectedGraph.get_shortest_path": {
+      "type": "method",
+      "name": "DirectedGraph.get_shortest_path",
+      "class": "DirectedGraph",
+      "file": "core/graph.py",
+      "start_line": 68,
+      "end_line": 113,
+      "docstring": "Retourne le plus court chemin et son coût total (Algorithme de Dijkstra avec mémoïsation).\nUtilise le cache interne `_cache` si disponible."
+    },
+    "core/graph.py::DirectedGraph.topological_sort": {
+      "type": "method",
+      "name": "DirectedGraph.topological_sort",
+      "class": "DirectedGraph",
+      "file": "core/graph.py",
+      "start_line": 115,
+      "end_line": 144,
+      "docstring": "Calcule le tri topologique des nœuds du graphe (Algorithme de Kahn).\nInclut tous les nœuds connus et lève CycleDetectedException en cas de cycle."
+    },
+    "core/graph.py::__init__": {
+      "type": "function",
+      "name": "__init__",
+      "file": "core/graph.py",
+      "start_line": 26,
+      "end_line": 29,
+      "docstring": ""
+    },
+    "core/graph.py::add_node": {
+      "type": "function",
+      "name": "add_node",
+      "file": "core/graph.py",
+      "start_line": 31,
+      "end_line": 35,
+      "docstring": "Ajoute un nœud au graphe."
+    },
+    "core/graph.py::add_edge": {
+      "type": "function",
+      "name": "add_edge",
+      "file": "core/graph.py",
+      "start_line": 37,
+      "end_line": 41,
+      "docstring": "Ajoute une arête orientée pondérée de u vers v."
+    },
+    "core/graph.py::get_neighbors": {
+      "type": "function",
+      "name": "get_neighbors",
+      "file": "core/graph.py",
+      "start_line": 43,
+      "end_line": 45,
+      "docstring": "Retourne le dictionnaire des voisins sortants et leurs poids."
+    },
+    "core/graph.py::invalidate_cache": {
+      "type": "function",
+      "name": "invalidate_cache",
+      "file": "core/graph.py",
+      "start_line": 47,
+      "end_line": 66,
+      "docstring": "Invalide le cache des plus courts chemins.\nSi affected_node est fourni, purge uniquement les entrées traversant ce nœud.\nSinon, purge l'intégralité du cache.\nRetourne le nombre d'entrées purgées."
+    },
+    "core/graph.py::get_shortest_path": {
+      "type": "function",
+      "name": "get_shortest_path",
+      "file": "core/graph.py",
+      "start_line": 68,
+      "end_line": 113,
+      "docstring": "Retourne le plus court chemin et son coût total (Algorithme de Dijkstra avec mémoïsation).\nUtilise le cache interne `_cache` si disponible."
+    },
+    "core/graph.py::topological_sort": {
+      "type": "function",
+      "name": "topological_sort",
+      "file": "core/graph.py",
+      "start_line": 115,
+      "end_line": 144,
+      "docstring": "Calcule le tri topologique des nœuds du graphe (Algorithme de Kahn).\nInclut tous les nœuds connus et lève CycleDetectedException en cas de cycle."
+    },
+    "core/limiter.py::TokenBucketRateLimiter": {
+      "type": "class",
+      "name": "TokenBucketRateLimiter",
+      "file": "core/limiter.py",
+      "start_line": 10,
+      "end_line": 27,
+      "docstring": "Limiteur de débit par seau de jetons (Token Bucket).\nDoit être implémenté selon le contrat des tests unitaires :\n- __init__(capacity: float, refill_rate: float)\n- refill() -> None\n- consume(tokens: float = 1.0) -> bool\n- get_available_tokens() -> float"
+    },
+    "core/limiter.py::TokenBucketRateLimiter.__init__": {
+      "type": "method",
+      "name": "TokenBucketRateLimiter.__init__",
+      "class": "TokenBucketRateLimiter",
+      "file": "core/limiter.py",
+      "start_line": 20,
+      "end_line": 21,
+      "docstring": ""
+    },
+    "core/limiter.py::TokenBucketRateLimiter.consume": {
+      "type": "method",
+      "name": "TokenBucketRateLimiter.consume",
+      "class": "TokenBucketRateLimiter",
+      "file": "core/limiter.py",
+      "start_line": 23,
+      "end_line": 24,
+      "docstring": ""
+    },
+    "core/limiter.py::TokenBucketRateLimiter.get_available_tokens": {
+      "type": "method",
+      "name": "TokenBucketRateLimiter.get_available_tokens",
+      "class": "TokenBucketRateLimiter",
+      "file": "core/limiter.py",
+      "start_line": 26,
+      "end_line": 27,
+      "docstring": ""
+    },
+    "core/limiter.py::__init__": {
+      "type": "function",
+      "name": "__init__",
+      "file": "core/limiter.py",
+      "start_line": 20,
+      "end_line": 21,
+      "docstring": ""
+    },
+    "core/limiter.py::consume": {
+      "type": "function",
+      "name": "consume",
+      "file": "core/limiter.py",
+      "start_line": 23,
+      "end_line": 24,
+      "docstring": ""
+    },
+    "core/limiter.py::get_available_tokens": {
+      "type": "function",
+      "name": "get_available_tokens",
+      "file": "core/limiter.py",
+      "start_line": 26,
+      "end_line": 27,
+      "docstring": ""
+    },
+    "core/metrics.py::GraphMetrics": {
+      "type": "class",
+      "name": "GraphMetrics",
+      "file": "core/metrics.py",
+      "start_line": 9,
+      "end_line": 18,
+      "docstring": "Calculateur de densité et de connectivité."
+    },
+    "core/metrics.py::GraphMetrics.density": {
+      "type": "method",
+      "name": "GraphMetrics.density",
+      "class": "GraphMetrics",
+      "file": "core/metrics.py",
+      "start_line": 13,
+      "end_line": 18,
+      "docstring": ""
+    },
+    "core/metrics.py::density": {
+      "type": "function",
+      "name": "density",
+      "file": "core/metrics.py",
+      "start_line": 13,
+      "end_line": 18,
+      "docstring": ""
+    },
+    "core/mutation.py::GraphMutator": {
+      "type": "class",
+      "name": "GraphMutator",
+      "file": "core/mutation.py",
+      "start_line": 11,
+      "end_line": 50,
+      "docstring": "Opérateur de mutation sur le graphe de réseau.\nPermet de modifier dynamiquement les liens et les nœuds en cours d'exécution."
+    },
+    "core/mutation.py::GraphMutator.__init__": {
+      "type": "method",
+      "name": "GraphMutator.__init__",
+      "class": "GraphMutator",
+      "file": "core/mutation.py",
+      "start_line": 17,
+      "end_line": 18,
+      "docstring": ""
+    },
+    "core/mutation.py::GraphMutator.remove_node": {
+      "type": "method",
+      "name": "GraphMutator.remove_node",
+      "class": "GraphMutator",
+      "file": "core/mutation.py",
+      "start_line": 20,
+      "end_line": 39,
+      "docstring": "Supprime un nœud du réseau ainsi que toutes ses arêtes incidentes et sortantes."
+    },
+    "core/mutation.py::GraphMutator.update_edge_weight": {
+      "type": "method",
+      "name": "GraphMutator.update_edge_weight",
+      "class": "GraphMutator",
+      "file": "core/mutation.py",
+      "start_line": 41,
+      "end_line": 50,
+      "docstring": "Met à jour la pondération / latence d'une liaison réseau."
+    },
+    "core/mutation.py::__init__": {
+      "type": "function",
+      "name": "__init__",
+      "file": "core/mutation.py",
+      "start_line": 17,
+      "end_line": 18,
+      "docstring": ""
+    },
+    "core/mutation.py::remove_node": {
+      "type": "function",
+      "name": "remove_node",
+      "file": "core/mutation.py",
+      "start_line": 20,
+      "end_line": 39,
+      "docstring": "Supprime un nœud du réseau ainsi que toutes ses arêtes incidentes et sortantes."
+    },
+    "core/mutation.py::update_edge_weight": {
+      "type": "function",
+      "name": "update_edge_weight",
+      "file": "core/mutation.py",
+      "start_line": 41,
+      "end_line": 50,
+      "docstring": "Met à jour la pondération / latence d'une liaison réseau."
+    },
+    "core/routing.py::PacketRouter": {
+      "type": "class",
+      "name": "PacketRouter",
+      "file": "core/routing.py",
+      "start_line": 10,
+      "end_line": 52,
+      "docstring": "Gestionnaire de routage réseau exploitant le graphe orienté."
+    },
+    "core/routing.py::PacketRouter.__init__": {
+      "type": "method",
+      "name": "PacketRouter.__init__",
+      "class": "PacketRouter",
+      "file": "core/routing.py",
+      "start_line": 15,
+      "end_line": 16,
+      "docstring": ""
+    },
+    "core/routing.py::PacketRouter.compute_route": {
+      "type": "method",
+      "name": "PacketRouter.compute_route",
+      "class": "PacketRouter",
+      "file": "core/routing.py",
+      "start_line": 18,
+      "end_line": 25,
+      "docstring": "Calcule la route optimale et valide sa cohérence matérielle.\nLève InvalidRouteException si un nœud sur le chemin n'existe plus."
+    },
+    "core/routing.py::PacketRouter.get_route_latency": {
+      "type": "method",
+      "name": "PacketRouter.get_route_latency",
+      "class": "PacketRouter",
+      "file": "core/routing.py",
+      "start_line": 27,
+      "end_line": 30,
+      "docstring": "Retourne la latence totale cumulée le long du chemin optimal."
+    },
+    "core/routing.py::PacketRouter.validate_route": {
+      "type": "method",
+      "name": "PacketRouter.validate_route",
+      "class": "PacketRouter",
+      "file": "core/routing.py",
+      "start_line": 32,
+      "end_line": 52,
+      "docstring": "Vérifie qu'aucun nœud ou lien fantôme n'apparaît dans la route calculée."
+    },
+    "core/routing.py::__init__": {
+      "type": "function",
+      "name": "__init__",
+      "file": "core/routing.py",
+      "start_line": 15,
+      "end_line": 16,
+      "docstring": ""
+    },
+    "core/routing.py::compute_route": {
+      "type": "function",
+      "name": "compute_route",
+      "file": "core/routing.py",
+      "start_line": 18,
+      "end_line": 25,
+      "docstring": "Calcule la route optimale et valide sa cohérence matérielle.\nLève InvalidRouteException si un nœud sur le chemin n'existe plus."
+    },
+    "core/routing.py::get_route_latency": {
+      "type": "function",
+      "name": "get_route_latency",
+      "file": "core/routing.py",
+      "start_line": 27,
+      "end_line": 30,
+      "docstring": "Retourne la latence totale cumulée le long du chemin optimal."
+    },
+    "core/routing.py::validate_route": {
+      "type": "function",
+      "name": "validate_route",
+      "file": "core/routing.py",
+      "start_line": 32,
+      "end_line": 52,
+      "docstring": "Vérifie qu'aucun nœud ou lien fantôme n'apparaît dans la route calculée."
+    },
+    "tests/test_flow.py::TestNetworkFlow": {
+      "type": "class",
+      "name": "TestNetworkFlow",
+      "file": "tests/test_flow.py",
+      "start_line": 11,
+      "end_line": 38,
+      "docstring": ""
+    },
+    "tests/test_flow.py::TestNetworkFlow.setUp": {
+      "type": "method",
+      "name": "TestNetworkFlow.setUp",
+      "class": "TestNetworkFlow",
+      "file": "tests/test_flow.py",
+      "start_line": 13,
+      "end_line": 19,
+      "docstring": ""
+    },
+    "tests/test_flow.py::TestNetworkFlow.test_flow_conservation_along_path": {
+      "type": "method",
+      "name": "TestNetworkFlow.test_flow_conservation_along_path",
+      "class": "TestNetworkFlow",
+      "file": "tests/test_flow.py",
+      "start_line": 21,
+      "end_line": 38,
+      "docstring": "Vérifie qu'un acheminement de 5.0 unités respecte la conservation\nsur R1 et R2 (flux entrant == flux sortant = 5.0)."
+    },
+    "tests/test_flow.py::setUp": {
+      "type": "function",
+      "name": "setUp",
+      "file": "tests/test_flow.py",
+      "start_line": 13,
+      "end_line": 19,
+      "docstring": ""
+    },
+    "tests/test_flow.py::test_flow_conservation_along_path": {
+      "type": "function",
+      "name": "test_flow_conservation_along_path",
+      "file": "tests/test_flow.py",
+      "start_line": 21,
+      "end_line": 38,
+      "docstring": "Vérifie qu'un acheminement de 5.0 unités respecte la conservation\nsur R1 et R2 (flux entrant == flux sortant = 5.0)."
+    },
+    "tests/test_graph.py::TestDirectedGraph": {
+      "type": "class",
+      "name": "TestDirectedGraph",
+      "file": "tests/test_graph.py",
+      "start_line": 6,
+      "end_line": 30,
+      "docstring": ""
+    },
+    "tests/test_graph.py::TestDirectedGraph.test_basic_dag": {
+      "type": "method",
+      "name": "TestDirectedGraph.test_basic_dag",
+      "class": "TestDirectedGraph",
+      "file": "tests/test_graph.py",
+      "start_line": 8,
+      "end_line": 13,
+      "docstring": ""
+    },
+    "tests/test_graph.py::TestDirectedGraph.test_isolated_nodes_in_topological_sort": {
+      "type": "method",
+      "name": "TestDirectedGraph.test_isolated_nodes_in_topological_sort",
+      "class": "TestDirectedGraph",
+      "file": "tests/test_graph.py",
+      "start_line": 15,
+      "end_line": 22,
+      "docstring": ""
+    },
+    "tests/test_graph.py::TestDirectedGraph.test_cycle_detection_raises_exception": {
+      "type": "method",
+      "name": "TestDirectedGraph.test_cycle_detection_raises_exception",
+      "class": "TestDirectedGraph",
+      "file": "tests/test_graph.py",
+      "start_line": 24,
+      "end_line": 30,
+      "docstring": ""
+    },
+    "tests/test_graph.py::test_basic_dag": {
+      "type": "function",
+      "name": "test_basic_dag",
+      "file": "tests/test_graph.py",
+      "start_line": 8,
+      "end_line": 13,
+      "docstring": ""
+    },
+    "tests/test_graph.py::test_isolated_nodes_in_topological_sort": {
+      "type": "function",
+      "name": "test_isolated_nodes_in_topological_sort",
+      "file": "tests/test_graph.py",
+      "start_line": 15,
+      "end_line": 22,
+      "docstring": ""
+    },
+    "tests/test_graph.py::test_cycle_detection_raises_exception": {
+      "type": "function",
+      "name": "test_cycle_detection_raises_exception",
+      "file": "tests/test_graph.py",
+      "start_line": 24,
+      "end_line": 30,
+      "docstring": ""
+    },
+    "tests/test_limiter.py::TestTokenBucketRateLimiter": {
+      "type": "class",
+      "name": "TestTokenBucketRateLimiter",
+      "file": "tests/test_limiter.py",
+      "start_line": 11,
+      "end_line": 48,
+      "docstring": ""
+    },
+    "tests/test_limiter.py::TestTokenBucketRateLimiter.test_burst_capacity_and_exhaustion": {
+      "type": "method",
+      "name": "TestTokenBucketRateLimiter.test_burst_capacity_and_exhaustion",
+      "class": "TestTokenBucketRateLimiter",
+      "file": "tests/test_limiter.py",
+      "start_line": 13,
+      "end_line": 30,
+      "docstring": "Vérifie la capacité de rafale initiale et le blocage une fois le seau vide."
+    },
+    "tests/test_limiter.py::TestTokenBucketRateLimiter.test_refill_over_time": {
+      "type": "method",
+      "name": "TestTokenBucketRateLimiter.test_refill_over_time",
+      "class": "TestTokenBucketRateLimiter",
+      "file": "tests/test_limiter.py",
+      "start_line": 32,
+      "end_line": 48,
+      "docstring": "Vérifie que les jetons se rechargent avec le temps écoulé sans dépasser la capacité."
+    },
+    "tests/test_limiter.py::test_burst_capacity_and_exhaustion": {
+      "type": "function",
+      "name": "test_burst_capacity_and_exhaustion",
+      "file": "tests/test_limiter.py",
+      "start_line": 13,
+      "end_line": 30,
+      "docstring": "Vérifie la capacité de rafale initiale et le blocage une fois le seau vide."
+    },
+    "tests/test_limiter.py::test_refill_over_time": {
+      "type": "function",
+      "name": "test_refill_over_time",
+      "file": "tests/test_limiter.py",
+      "start_line": 32,
+      "end_line": 48,
+      "docstring": "Vérifie que les jetons se rechargent avec le temps écoulé sans dépasser la capacité."
+    },
+    "tests/test_mutation_cache.py::TestMutationCacheConsistency": {
+      "type": "class",
+      "name": "TestMutationCacheConsistency",
+      "file": "tests/test_mutation_cache.py",
+      "start_line": 13,
+      "end_line": 65,
+      "docstring": ""
+    },
+    "tests/test_mutation_cache.py::TestMutationCacheConsistency.setUp": {
+      "type": "method",
+      "name": "TestMutationCacheConsistency.setUp",
+      "class": "TestMutationCacheConsistency",
+      "file": "tests/test_mutation_cache.py",
+      "start_line": 15,
+      "end_line": 26,
+      "docstring": ""
+    },
+    "tests/test_mutation_cache.py::TestMutationCacheConsistency.test_dynamic_node_removal_purges_stale_routes": {
+      "type": "method",
+      "name": "TestMutationCacheConsistency.test_dynamic_node_removal_purges_stale_routes",
+      "class": "TestMutationCacheConsistency",
+      "file": "tests/test_mutation_cache.py",
+      "start_line": 28,
+      "end_line": 45,
+      "docstring": "Vérifie qu'après suppression d'un nœud pivot, le routeur n'utilise plus\nune ancienne route mise en cache traversant ce nœud supprimé."
+    },
+    "tests/test_mutation_cache.py::TestMutationCacheConsistency.test_edge_weight_increase_triggers_path_switch": {
+      "type": "method",
+      "name": "TestMutationCacheConsistency.test_edge_weight_increase_triggers_path_switch",
+      "class": "TestMutationCacheConsistency",
+      "file": "tests/test_mutation_cache.py",
+      "start_line": 47,
+      "end_line": 65,
+      "docstring": "Vérifie que la modification de latence d'une arête invalide le cache\net permet de basculer vers un chemin devenu plus optimal."
+    },
+    "tests/test_mutation_cache.py::setUp": {
+      "type": "function",
+      "name": "setUp",
+      "file": "tests/test_mutation_cache.py",
+      "start_line": 15,
+      "end_line": 26,
+      "docstring": ""
+    },
+    "tests/test_mutation_cache.py::test_dynamic_node_removal_purges_stale_routes": {
+      "type": "function",
+      "name": "test_dynamic_node_removal_purges_stale_routes",
+      "file": "tests/test_mutation_cache.py",
+      "start_line": 28,
+      "end_line": 45,
+      "docstring": "Vérifie qu'après suppression d'un nœud pivot, le routeur n'utilise plus\nune ancienne route mise en cache traversant ce nœud supprimé."
+    },
+    "tests/test_mutation_cache.py::test_edge_weight_increase_triggers_path_switch": {
+      "type": "function",
+      "name": "test_edge_weight_increase_triggers_path_switch",
+      "file": "tests/test_mutation_cache.py",
+      "start_line": 47,
+      "end_line": 65,
+      "docstring": "Vérifie que la modification de latence d'une arête invalide le cache\net permet de basculer vers un chemin devenu plus optimal."
+    },
+    "tests/test_routing.py::TestPacketRouter": {
+      "type": "class",
+      "name": "TestPacketRouter",
+      "file": "tests/test_routing.py",
+      "start_line": 7,
+      "end_line": 20,
+      "docstring": ""
+    },
+    "tests/test_routing.py::TestPacketRouter.setUp": {
+      "type": "method",
+      "name": "TestPacketRouter.setUp",
+      "class": "TestPacketRouter",
+      "file": "tests/test_routing.py",
+      "start_line": 9,
+      "end_line": 14,
+      "docstring": ""
+    },
+    "tests/test_routing.py::TestPacketRouter.test_optimal_routing": {
+      "type": "method",
+      "name": "TestPacketRouter.test_optimal_routing",
+      "class": "TestPacketRouter",
+      "file": "tests/test_routing.py",
+      "start_line": 16,
+      "end_line": 20,
+      "docstring": ""
+    },
+    "tests/test_routing.py::setUp": {
+      "type": "function",
+      "name": "setUp",
+      "file": "tests/test_routing.py",
+      "start_line": 9,
+      "end_line": 14,
+      "docstring": ""
+    },
+    "tests/test_routing.py::test_optimal_routing": {
+      "type": "function",
+      "name": "test_optimal_routing",
+      "file": "tests/test_routing.py",
+      "start_line": 16,
+      "end_line": 20,
+      "docstring": ""
+    }
+  }
+}

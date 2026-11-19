@@ -1,0 +1,55 @@
+{
+  "title": "Zenodo #12 Reproducibility & Raw Benchmark Pack: Deterministic ARC-AGI 100% Verification",
+  "authors": [
+    "Christian Duguay",
+    "Alix"
+  ],
+  "date": "2026-10-07",
+  "benchmark": "ARC-AGI (Abstraction and Reasoning Corpus)",
+  "benchmark_suite": "Official Canonical 400 Tasks (training/)",
+  "hardware": {
+    "cpu": "Intel Core Ultra 7 258V (Lunar Lake)",
+    "architecture": "4 P-Cores (Lion Cove) + 4 E-Cores (Skymont)",
+    "ram": "32 GB LPDDR5X-8533 (Memory on Package)",
+    "os": "Windows 11 Pro 64-bit",
+    "tdp_envelope_watts": 17.0
+  },
+  "runtime_telemetry": {
+    "total_tasks_evaluated": 400,
+    "tasks_passed_train": 400,
+    "tasks_passed_test": 400,
+    "accuracy_percentage": 100.0,
+    "regression_rate_percentage": 0.0,
+    "total_wall_clock_seconds": 21.16,
+    "average_latency_ms_per_task": 52.9,
+    "estimated_total_energy_joules": 359.72,
+    "stochastic_components": false,
+    "external_dependencies": "None (Python 3.12 standard library & deterministic numpy arrays)"
+  },
+  "solver_architecture": {
+    "core": "THOT-KSIL Multiverse Solver",
+    "invariance_projectors": [
+      "Dihedral Group D4 Invariance Stabilizer",
+      "Cellular Homology & Enclosure Cavity Detector (Betti-1)",
+      "Discrete Manhattan L1 Voronoi Tesselator",
+      "Directional Ray Tracing & Laser Projectors (Orthogonal & 45-degree)",
+      "Topological Line & Graph Skeleton Classifier",
+      "Dynamic Checkerboard & Parity Inpainter",
+      "Retractable Piston & Mobile Block Glide Detector",
+      "Rigid Anchor-Matching Pattern Overlay"
+    ],
+    "development_waves": 23,
+    "final_wave_tasks": [
+      "b527c5c6", "b775ac94", "b782dc8a", "b8825c91", "c1d99e64",
+      "c444b776", "c909285e", "ce602527", "d07ae81c", "d22278a0",
+      "db93a21d", "dc0a314f", "e5062a87", "e509e548", "e6721834",
+      "e73095fd", "e8dc4411", "f1cefba8", "f35d900a", "f8c80d96"
+    ]
+  },
+  "epistemic_validation": {
+    "zero_stochastic_tokens": true,
+    "zero_llm_hallucination": true,
+    "hardware_frugal": true,
+    "reproducible_locally": true
+  }
+}

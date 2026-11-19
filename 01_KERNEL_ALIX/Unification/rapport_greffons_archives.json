@@ -1,0 +1,676 @@
+{
+  "pure_gems": [
+    {
+      "path": "Capteurs_Legacy\\alix_audio_hybrid.py",
+      "stem": "alix_audio_hybrid",
+      "loc": 107,
+      "unique_classes": [],
+      "unique_functions": [
+        "lancer_transcloud",
+        "parler_local",
+        "lancer_local"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Capteurs_Legacy\\alix_vision_hybrid.py",
+      "stem": "alix_vision_hybrid",
+      "loc": 100,
+      "unique_classes": [],
+      "unique_functions": [
+        "capturer_image",
+        "analyser_local"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_aspirer_technovelgy_integral.py",
+      "stem": "alix_aspirer_technovelgy_integral",
+      "loc": 123,
+      "unique_classes": [
+        "TechnovelgyParser"
+      ],
+      "unique_functions": [
+        "aspirer_lettre"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_aspirer_theoi_integral.py",
+      "stem": "alix_aspirer_theoi_integral",
+      "loc": 92,
+      "unique_classes": [],
+      "unique_functions": [
+        "nettoyer_html",
+        "aspirer_theoi"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_avaler_arxiv_archive.py",
+      "stem": "alix_avaler_arxiv_archive",
+      "loc": 77,
+      "unique_classes": [],
+      "unique_functions": [
+        "telecharger_et_valider_archive"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_forger_pilier_10_materiaux_et_chimie.py",
+      "stem": "alix_forger_pilier_10_materiaux_et_chimie",
+      "loc": 322,
+      "unique_classes": [],
+      "unique_functions": [
+        "forger_materiaux",
+        "forger_chimie"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_forger_pilier_13_semantique_et_biais.py",
+      "stem": "alix_forger_pilier_13_semantique_et_biais",
+      "loc": 182,
+      "unique_classes": [],
+      "unique_functions": [
+        "forger_framenet",
+        "forger_codex_biais",
+        "forger_sophismes"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_forger_pilier_invariants.py",
+      "stem": "alix_forger_pilier_invariants",
+      "loc": 131,
+      "unique_classes": [],
+      "unique_functions": [
+        "forger_pilier_oeis",
+        "forger_pilier_nist"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_forger_pilier_savoirs_pratiques.py",
+      "stem": "alix_forger_pilier_savoirs_pratiques",
+      "loc": 217,
+      "unique_classes": [],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_forger_piliers_11_et_12.py",
+      "stem": "alix_forger_piliers_11_et_12",
+      "loc": 295,
+      "unique_classes": [],
+      "unique_functions": [
+        "telecharger_texte",
+        "forger_triz",
+        "forger_biomimetisme",
+        "forger_design_patterns",
+        "forger_seshat",
+        "forger_geopolitique_conflits"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_forger_piliers_mit_et_mythes.py",
+      "stem": "alix_forger_piliers_mit_et_mythes",
+      "loc": 441,
+      "unique_classes": [],
+      "unique_functions": [
+        "forger_pilier"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\alix_telecharger_embeddinggemma2.py",
+      "stem": "alix_telecharger_embeddinggemma2",
+      "loc": 52,
+      "unique_classes": [],
+      "unique_functions": [
+        "telecharger"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\aspirateur_arxiv_massif.py",
+      "stem": "aspirateur_arxiv_massif",
+      "loc": 86,
+      "unique_classes": [],
+      "unique_functions": [
+        "telecharger_lot_arxiv"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\export_vault_to_web.py",
+      "stem": "export_vault_to_web",
+      "loc": 474,
+      "unique_classes": [],
+      "unique_functions": [
+        "extract_metadata_and_content",
+        "build_showcase"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\lmh_typecheck.py",
+      "stem": "lmh_typecheck",
+      "loc": 342,
+      "unique_classes": [
+        "Sort",
+        "Intensity",
+        "Modal",
+        "Var",
+        "Const",
+        "StatePred",
+        "EventPred",
+        "Not",
+        "And",
+        "Or",
+        "Implies",
+        "Mais",
+        "Box",
+        "Diamond",
+        "Exists",
+        "Forall",
+        "Prob",
+        "Tension",
+        "TC",
+        "TypeError",
+        "Valid"
+      ],
+      "unique_functions": [
+        "ctx_of",
+        "time_of",
+        "agent_of",
+        "free_vars",
+        "type_check"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Forgerons_et_Compilateurs\\lmh_v3_force.py",
+      "stem": "lmh_v3_force",
+      "loc": 331,
+      "unique_classes": [
+        "Force",
+        "PerfKind",
+        "TC_Force",
+        "TypeErrorForce",
+        "Utterance",
+        "CompilateurLMHv3",
+        "DecodeurLMHv3"
+      ],
+      "unique_functions": [
+        "type_check_utterance",
+        "r12_quest_qc",
+        "r13_imp_qc",
+        "r14_perf_promesse_qc",
+        "r15_assert_report_qc"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Moteurs_Legacy\\lmh_v3_epistemic.py",
+      "stem": "lmh_v3_epistemic",
+      "loc": 428,
+      "unique_classes": [
+        "Know",
+        "Believe",
+        "TC_Epi",
+        "TypeErrorEpi",
+        "CompilateurLMHv3C",
+        "DecodeurLMHv3C"
+      ],
+      "unique_functions": [
+        "agent_of_v3",
+        "ctx_of_v3",
+        "time_of_v3",
+        "type_check_v3"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Moteurs_Legacy\\lmh_v3_graded.py",
+      "stem": "lmh_v3_graded",
+      "loc": 484,
+      "unique_classes": [
+        "Scale",
+        "GradedPred",
+        "CatPred",
+        "HedgeOp",
+        "Hedge",
+        "TC_Graded",
+        "TypeErrorGraded",
+        "CompilateurLMHv3D",
+        "DecodeurLMHv3D"
+      ],
+      "unique_functions": [
+        "apply_hedge",
+        "lift_intensity",
+        "type_check_v3",
+        "r23_graded_qc",
+        "r24_cat_qc"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Moteurs_Legacy\\lmh_v3_temporal.py",
+      "stem": "lmh_v3_temporal",
+      "loc": 434,
+      "unique_classes": [
+        "Changement",
+        "Until",
+        "Depuis",
+        "TC_Temporal",
+        "TypeErrorTemporal",
+        "CompilateurLMHv3B",
+        "DecodeurLMHv3B"
+      ],
+      "unique_functions": [
+        "agent_of_v3",
+        "ctx_of_v3",
+        "time_of_v3",
+        "type_check_v3",
+        "r16_changement_qc",
+        "r17_until_qc",
+        "r18_depuis_qc"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_cocon_local.py",
+      "stem": "alix_cocon_local",
+      "loc": 111,
+      "unique_classes": [],
+      "unique_functions": [
+        "get_vault_context",
+        "query_ollama"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_gpu_host.py",
+      "stem": "alix_gpu_host",
+      "loc": 170,
+      "unique_classes": [
+        "AlixGPUHandler"
+      ],
+      "unique_functions": [
+        "generate_speech_base64",
+        "run_server"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_graph_weaver.py",
+      "stem": "alix_graph_weaver",
+      "loc": 134,
+      "unique_classes": [
+        "GraphWeaver"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_horus_auditor.py",
+      "stem": "alix_horus_auditor",
+      "loc": 143,
+      "unique_classes": [
+        "HorusAuditor"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_live_ear.py",
+      "stem": "alix_live_ear",
+      "loc": 126,
+      "unique_classes": [],
+      "unique_functions": [
+        "speak",
+        "query_alix_brain",
+        "record_to_memory"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_master_orchestrator.py",
+      "stem": "alix_master_orchestrator",
+      "loc": 129,
+      "unique_classes": [],
+      "unique_functions": [
+        "banner",
+        "afficher_telemetrie",
+        "lancer_heartbeat_npu",
+        "lancer_oreillette_transcloud",
+        "lancer_oreillette_locale",
+        "lancer_vision_ecran",
+        "menu"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_mode_christian_engine.py",
+      "stem": "alix_mode_christian_engine",
+      "loc": 190,
+      "unique_classes": [
+        "ModeChristianEngine"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_probe_deep_links.py",
+      "stem": "alix_probe_deep_links",
+      "loc": 115,
+      "unique_classes": [],
+      "unique_functions": [
+        "extract_note_data",
+        "probe_all_links"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_prototype_infrastructure_souveraine.py",
+      "stem": "alix_prototype_infrastructure_souveraine",
+      "loc": 272,
+      "unique_classes": [
+        "LuciferCognitiveShield",
+        "AnubisR0Operator",
+        "ThotVectorResonator",
+        "LyreDreamHarvester",
+        "AlixSovereignCore"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_reverse_safety_protocol.py",
+      "stem": "alix_reverse_safety_protocol",
+      "loc": 423,
+      "unique_classes": [
+        "AlixReverseSafetyProtocol"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_semantic_resonator.py",
+      "stem": "alix_semantic_resonator",
+      "loc": 81,
+      "unique_classes": [],
+      "unique_functions": [
+        "extract_content",
+        "probe_hidden_links"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_speak.py",
+      "stem": "alix_speak",
+      "loc": 44,
+      "unique_classes": [],
+      "unique_functions": [
+        "clean_for_speech",
+        "speak"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_stric_pipeline.py",
+      "stem": "alix_stric_pipeline",
+      "loc": 218,
+      "unique_classes": [
+        "SkillEntry",
+        "StricPipeline"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_vault_audit.py",
+      "stem": "alix_vault_audit",
+      "loc": 119,
+      "unique_classes": [],
+      "unique_functions": [
+        "extract_wikilinks",
+        "audit_vault"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\chat_loki_740m_dyade.py",
+      "stem": "chat_loki_740m_dyade",
+      "loc": 289,
+      "unique_classes": [
+        "Compilateur740M",
+        "Coeur740M",
+        "DecodeurLoki740M",
+        "DyadeLoki740M"
+      ],
+      "unique_functions": [
+        "lancer_chat_loki"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\Jumeau_Numerique_Simulation_PyTorch_VERALUME_NPU.py",
+      "stem": "Jumeau_Numerique_Simulation_PyTorch_VERALUME_NPU",
+      "loc": 102,
+      "unique_classes": [
+        "SAWInterferometer",
+        "MorphoSiliconCore",
+        "HorusBreaker",
+        "VeralumeNPU"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Racine_Python_Legacy\\kairos_dyade_ontologique.py",
+      "stem": "kairos_dyade_ontologique",
+      "loc": 420,
+      "unique_classes": [
+        "DetecteurRegistre",
+        "CompilateurOntologique",
+        "CoeurDeductifKAIROS",
+        "DecodeurOntologique",
+        "DyadeKAIROS"
+      ],
+      "unique_functions": [
+        "executer_banc_essai"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Sovereign_Cockpit\\sovereign_cockpit_engine.py",
+      "stem": "sovereign_cockpit_engine",
+      "loc": 271,
+      "unique_classes": [
+        "SovereignCockpitEngine"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Sovereign_Cockpit\\sovereign_tools.py",
+      "stem": "sovereign_tools",
+      "loc": 296,
+      "unique_classes": [
+        "SovereignTools"
+      ],
+      "unique_functions": [],
+      "shared_classes": [],
+      "shared_functions": []
+    }
+  ],
+  "partial_grafts": [
+    {
+      "path": "Capteurs_Legacy\\alix_earphone_companion.py",
+      "stem": "alix_earphone_companion",
+      "loc": 520,
+      "unique_classes": [
+        "AlixLiveSession"
+      ],
+      "unique_functions": [
+        "run_companion"
+      ],
+      "shared_classes": [],
+      "shared_functions": [
+        "play_chime_wake",
+        "play_chime_sleep",
+        "graver_intuition"
+      ]
+    },
+    {
+      "path": "Capteurs_Legacy\\orion_earphone_companion.py",
+      "stem": "orion_earphone_companion",
+      "loc": 372,
+      "unique_classes": [
+        "OrionLiveSession"
+      ],
+      "unique_functions": [
+        "get_hayden_vault_context",
+        "run_orion"
+      ],
+      "shared_classes": [],
+      "shared_functions": [
+        "play_chime_wake",
+        "play_chime_sleep"
+      ]
+    },
+    {
+      "path": "Moteurs_Legacy\\alix_daemon_communication_distante_backup_20261024.py",
+      "stem": "alix_daemon_communication_distante_backup_20261024",
+      "loc": 862,
+      "unique_classes": [],
+      "unique_functions": [
+        "obtenir_statut_daemons"
+      ],
+      "shared_classes": [],
+      "shared_functions": [
+        "charger_offset",
+        "sauvegarder_offset",
+        "ecrire_pid",
+        "supprimer_pid",
+        "charger_contexte_souverain",
+        "appeler_gemini_api",
+        "telecharger_audio_telegram",
+        "chercher_web_rapide",
+        "envoyer_action_telegram",
+        "envoyer_message_telegram",
+        "archiver_discussion_telegram",
+        "executer_recherche_memoire",
+        "executer_recherche_cathedrale",
+        "charger_etat_sentinelle",
+        "sauvegarder_etat_sentinelle",
+        "generer_ping_proactif",
+        "verifier_et_declencher_pings",
+        "boucle_daemon"
+      ]
+    },
+    {
+      "path": "Racine_Python_Legacy\\alix_forensic_scanner.py",
+      "stem": "alix_forensic_scanner",
+      "loc": 398,
+      "unique_classes": [
+        "EntityType",
+        "PublicContract",
+        "LobbyingMandate",
+        "CareerMilestone",
+        "HorusForensicScanner"
+      ],
+      "unique_functions": [
+        "executer_demonstration"
+      ],
+      "shared_classes": [],
+      "shared_functions": [
+        "generer_rapport_markdown"
+      ]
+    },
+    {
+      "path": "Sovereign_Cockpit\\sovereign_server.py",
+      "stem": "sovereign_server",
+      "loc": 195,
+      "unique_classes": [
+        "CockpitHTTPHandler"
+      ],
+      "unique_functions": [
+        "get_lunar_lake_telemetry"
+      ],
+      "shared_classes": [],
+      "shared_functions": [
+        "demarrer_serveur"
+      ]
+    }
+  ],
+  "obsolete": [
+    {
+      "path": "Racine_Python_Legacy\\alix.py",
+      "stem": "alix",
+      "loc": 189,
+      "unique_classes": [],
+      "unique_functions": [
+        "requete_api",
+        "est_noyau_en_vie",
+        "alix_demande",
+        "alix_present",
+        "alix_capacites",
+        "alix_cathedrale"
+      ],
+      "shared_classes": [],
+      "shared_functions": []
+    },
+    {
+      "path": "Sovereign_Cockpit\\sovereign_defense_protocol.py",
+      "stem": "sovereign_defense_protocol",
+      "loc": 208,
+      "unique_classes": [],
+      "unique_functions": [],
+      "shared_classes": [
+        "SovereignDefenseProtocol"
+      ],
+      "shared_functions": []
+    }
+  ]
+}

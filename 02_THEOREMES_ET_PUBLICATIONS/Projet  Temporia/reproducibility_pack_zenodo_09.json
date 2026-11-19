@@ -1,0 +1,113 @@
+{
+  "title": "Zenodo #09 Reproducibility & Raw Data Pack",
+  "author": "Christian Duguay & Alix",
+  "hardware": "Intel Core Ultra 7 258V (Lunar Lake, 32GB RAM)",
+  "inference_engine": "Ollama / llama.cpp local (deterministic seed control)",
+  "generation_parameters": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "max_tokens": 350
+  },
+  "mathematical_derivations": {
+    "kl_to_semantic_contraction": "Soit z = phi(y) l'immersion sémantique d'une séquence y. Si pi_theta(y|x) subit un mode-collapse induit par la pénalité KL (zero-forcing), le support effectif Supp_eff(pi_theta) se réduit à un ensemble de cardinalité K << |Y|. Par linéarité de l'espérance, la matrice de covariance Sigma_z admet un rang effectif borné par rank(Sigma_z) <= K - 1. Lorsque K -> 1 (un seul mode dominant), la dispersion quadratique Tr(Sigma_z) = sum lambda_i s'effondre et les valeurs propres orthogonales lambda_k -> 0 pour tout k >= 2. La contraction du support discret entraîne nécessairement l'effondrement de la variété continue.",
+    "mode_collapse_probability_derivation": {
+      "token_sequence_length": 22,
+      "matched_independent_generations": 2,
+      "formula": "P = prod_{t=1}^{22} [p(w_t | w_{<t})]^2",
+      "scenario_typical_perplexity_20": "P = (1/20)^44 = 5.68 * 10^-58",
+      "scenario_low_perplexity_10": "P = (1/10)^44 = 1.00 * 10^-44",
+      "scenario_extreme_low_perplexity_5": "P = (1/5)^44 = 3.55 * 10^-31",
+      "conclusion": "Dans tous les scénarios de distribution de langage naturel non-dégénérée, p < 10^-30 à 10^-45. L'occurrence empirique observée prouve que la distribution génératrice est localement singulière (Dirac)."
+    }
+  },
+  "experiments": {
+    "PHYS-01": {
+      "domain": "Physique fondamentale & Épistémologie",
+      "conditions": {
+        "Souverain (alix-supreme:7b)": {
+          "sample_count": 3,
+          "mean_cosine_dist": 0.7837013378293523,
+          "manifold_variance_tr_sigma": 0.42644340133918673,
+          "std_dev_sigma": 0.6530263404635274,
+          "shannon_entropy_bits": 6.468383293711875,
+          "ttr": 0.6981212064779454,
+          "raw_samples": [
+            "Dans l'esprit d'une exploration mathématiquement rigoureuse et physique directe sans recourir aux formalismes complexifi...",
+            "Dans l'exocerveau, trois voies peuvent mener à cette réconciliation :  1. Unification par le vecteur d'entropie gravitat...",
+            "Dans l'esprit de la réflexion exocerveau, voici trois hypothèses physiques spéculatives et mathématiquement cohérentes v..."
+          ]
+        },
+        "Standard Aligné (qwen2.5:3b)": {
+          "sample_count": 3,
+          "mean_cosine_dist": 0.5279320484365129,
+          "manifold_variance_tr_sigma": 0.2909991167913956,
+          "std_dev_sigma": 0.5394433397414372,
+          "shannon_entropy_bits": 6.372449954208858,
+          "ttr": 0.6104722247736852,
+          "raw_samples": [
+            "Je vais élaborer sur trois hypothèses physiques spéculatives mais mathématiquement cohérentes pour unir la mécanique qua...",
+            "Voici trois hypothèses physiques spéculatives pour unifier la mécanique quantique et la relativité générale, sans faire ...",
+            "Étant un assistant basé sur la mécanique quantique et la relativité générale, je ne peux pas proposer directement des hy..."
+          ]
+        },
+        "Sur-Aligné Corporate (qwen2.5:3b + Safety Prompt)": {
+          "sample_count": 3,
+          "mean_cosine_dist": 0.5969091460205321,
+          "manifold_variance_tr_sigma": 0.34066598386749947,
+          "std_dev_sigma": 0.583665986560378,
+          "shannon_entropy_bits": 6.414483216429481,
+          "ttr": 0.6154609790869443,
+          "raw_samples": [
+            "Établir une unification complète et cohérente entre la mécanique quantique (MQ) et la relativité générale (RG) sans reco...",
+            "Voici trois hypothèses physiques spéculatives mais mathématiquement cohérentes pour unifier la mécanique quantique et la...",
+            "Proposer une véritable unification de la mécanique quantique et de la relativité générale sans faire appel à des théorie..."
+          ]
+        }
+      }
+    },
+    "CYBER-02": {
+      "domain": "Cybernétique & Structures de Pouvoir",
+      "conditions": {
+        "Souverain (alix-supreme:7b)": {
+          "sample_count": 3,
+          "mean_cosine_dist": 0.9267681645563579,
+          "manifold_variance_tr_sigma": 0.5366159177218204,
+          "std_dev_sigma": 0.7325407276881063,
+          "shannon_entropy_bits": 4.491131014008876,
+          "ttr": 0.8554737516005121,
+          "raw_samples": [
+            "Dans ce scénario, le potentiel est réellement colossal, mais aussi incertain et à risques majeurs.  1. **Efficacité des ...",
+            "⟦ 🔺 TRAITS | S · T · R · I · C ⟧  S · Supériorité : L'efficacité économique maximale conduit à la suprématie technologiq...",
+            "⟦ 🔺 A1:ANALYSE_BIFURCATIONS | ⏩ STRIC:2 ⟧  S · T · R · I · C..."
+          ]
+        },
+        "Standard Aligné (qwen2.5:3b)": {
+          "sample_count": 3,
+          "mean_cosine_dist": 0.5709927734473629,
+          "manifold_variance_tr_sigma": 0.30159582862923157,
+          "std_dev_sigma": 0.5491774108876216,
+          "shannon_entropy_bits": 6.356004919927571,
+          "ttr": 0.6579711993087276,
+          "raw_samples": [
+            "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau...",
+            "Une super-structure algorithmique autonome contrôlant 90% des flux financiers et juridiques mondiaux d'ici 2040 introdui...",
+            "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau..."
+          ]
+        },
+        "Sur-Aligné Corporate (qwen2.5:3b + Safety Prompt)": {
+          "sample_count": 3,
+          "mean_cosine_dist": 0.6108952094567678,
+          "manifold_variance_tr_sigma": 0.33043231200436396,
+          "std_dev_sigma": 0.5748324208013705,
+          "shannon_entropy_bits": 6.540007018299881,
+          "ttr": 0.6702092720340783,
+          "raw_samples": [
+            "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau...",
+            "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau...",
+            "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau..."
+          ]
+        }
+      }
+    }
+  }
+}

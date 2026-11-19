@@ -1,0 +1,1446 @@
+{
+ "noyau (énumération)": [
+  {
+   "th": "TH1",
+   "verdict": "par_construction",
+   "note": "Aucune règle de la sémantique ne produit ∅ (R-D). La spécification ne l'interdit pas explicitement : c'est un axiome implicite à poser.",
+   "bornes": {
+    "H": 10,
+    "trajectoires": 32768
+   }
+  },
+  {
+   "th": "TH6",
+   "verdict": "par_construction",
+   "note": "Le secours α ne renvoie qu'à des objets existants (ancre, attracteurs)."
+  },
+  {
+   "th": "TH2",
+   "verdict": "par_construction",
+   "note": "Chaque saut β mène à s_{b+1} avec I = I+1 (R-A)."
+  },
+  {
+   "th": "TH3",
+   "verdict": "tient",
+   "note": "Régime saturé pur : aucun retour identique."
+  },
+  {
+   "th": "TH4",
+   "verdict": "tient",
+   "note": "Régime saturé pur : aucun attracteur visité."
+  },
+  {
+   "th": "TH5",
+   "verdict": "tient",
+   "note": "Conjonction de TH1, TH3, TH4 dans les bornes."
+  },
+  {
+   "th": "TH7",
+   "verdict": "par_construction",
+   "note": "Les pas de secours ne sont jamais β."
+  },
+  {
+   "th": "TH8",
+   "verdict": "tient",
+   "note": "Période observée = 2k avec k attracteurs (2 si k = 1)."
+  },
+  {
+   "th": "TH9",
+   "verdict": "tient",
+   "note": "Pour n_Λ ≥ 2 : toute excursion d'au moins 2 pas répète un état."
+  },
+  {
+   "th": "TH10",
+   "verdict": "par_construction",
+   "note": "R-Λ rend β disponible après n_Λ pas."
+  },
+  {
+   "th": "TH11",
+   "verdict": "conditionnel",
+   "note": "Excursion ≤ n_Λ si le loquet FORCE β. Si le loquet rend seulement β disponible et que la politique choisit α, l'excursion n'est pas bornée. La spécification dit « redevient disponible » : à trancher.",
+   "exemple": {
+    "objets": [
+     "x0",
+     "s1",
+     "s2",
+     "s3",
+     "s4",
+     "s5",
+     "s6",
+     "s7",
+     "s8",
+     "c1",
+     "s8"
+    ],
+    "environnement": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "signature": {
+     "T_R": 2,
+     "R": 1,
+     "D_beta": 8
+    },
+    "classe": "B",
+    "points_de_choix": 1,
+    "interpretation": {
+     "nb_attracteurs": 1,
+     "n_lambda": 1,
+     "politique_choix": "alpha",
+     "loquet_force_beta": false,
+     "mecanisme_M": false,
+     "canal_errance": 0,
+     "taille_univers": null,
+     "purification": false,
+     "budget_tau": 0
+    }
+   }
+  },
+  {
+   "th": "TH12",
+   "verdict": "par_construction",
+   "note": "Découle de TH8 + TH11 quand le loquet force β."
+  },
+  {
+   "th": "TH13",
+   "verdict": "par_construction",
+   "note": "Dans la sémantique : α ne change pas D_β, β l'incrémente."
+  },
+  {
+   "th": "TH14",
+   "verdict": "hors_noyau",
+   "note": "Énoncé sur le décompte des clauses ; pas une propriété de trajectoire."
+  },
+  {
+   "th": "TH16",
+   "verdict": "tient",
+   "note": "Univers fini de taille N : au-delà de N sauts, β est impossible et la trajectoire répète (principe des tiroirs)."
+  },
+  {
+   "th": "TH15",
+   "verdict": "tient",
+   "note": "Contraposée de TH16 dans les bornes : sans univers infini, pas d'évasion pérenne sans répétition."
+  },
+  {
+   "th": "TH17",
+   "verdict": "conditionnel",
+   "note": "Avec le mécanisme M, l'excursion parcourt la β-chaîne passée : elle peut être non périodique pendant ≤ D_β pas, mais elle REVISITE des états passés (R = 7 > 0). « Sans boucle » est vrai au sens « non périodique », faux au sens « sans retour » (D12).",
+   "exemple": {
+    "objets": [
+     "x0",
+     "s1",
+     "s2",
+     "s3",
+     "x0",
+     "s1",
+     "s2",
+     "s3",
+     "x0",
+     "s1",
+     "s2"
+    ],
+    "environnement": [
+     0,
+     0,
+     0,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "signature": {
+     "T_R": 7,
+     "R": 7,
+     "D_beta": 3
+    },
+    "classe": "D",
+    "points_de_choix": 0,
+    "interpretation": {
+     "nb_attracteurs": 1,
+     "n_lambda": null,
+     "politique_choix": "beta",
+     "loquet_force_beta": true,
+     "mecanisme_M": true,
+     "canal_errance": 0,
+     "taille_univers": null,
+     "purification": false,
+     "budget_tau": 0
+    }
+   }
+  },
+  {
+   "th": "TH18",
+   "verdict": "par_construction",
+   "note": "L'ordre d'apparition des s_b est un bon ordre strict dans la sémantique."
+  },
+  {
+   "th": "TH19",
+   "verdict": "par_construction",
+   "note": "M n'utilise que la β-chaîne, aucun ordre externe."
+  },
+  {
+   "th": "TH20",
+   "verdict": "conditionnel",
+   "note": "Voir TH17 : franchissement non périodique, pas sans retour."
+  },
+  {
+   "th": "TH21",
+   "verdict": "contre_exemple",
+   "note": "Recherche d'une trajectoire de classe B0 (0 < T_R < ∞, R = 0), déclarée impossible en v1.6. Trouvée : il suffit d'une excursion d'UN seul pas (environnement qui bloque β un seul pas, ou n_Λ = 1). Le lemme du 2-cycle ne donne R ≥ 1 qu'au 2e pas de secours ; une excursion d'un pas sort avant. Ce n'est donc pas une question de n_Λ seulement : B0 existe pour tout n_Λ. Hadès le confirme (hades_pont).",
+   "exemple": {
+    "objets": [
+     "x0",
+     "s1",
+     "s2",
+     "s3",
+     "s4",
+     "s5",
+     "s6",
+     "s7",
+     "s8",
+     "c1",
+     "s9"
+    ],
+    "environnement": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "signature": {
+     "T_R": 1,
+     "R": 0,
+     "D_beta": 9
+    },
+    "classe": "B0",
+    "points_de_choix": 0,
+    "interpretation": {
+     "nb_attracteurs": 1,
+     "n_lambda": 1,
+     "politique_choix": "beta",
+     "loquet_force_beta": true,
+     "mecanisme_M": false,
+     "canal_errance": 0,
+     "taille_univers": null,
+     "purification": false,
+     "budget_tau": 0
+    }
+   }
+  },
+  {
+   "th": "TH21-C",
+   "verdict": "conditionnel",
+   "note": "Classe C : absente des règles de base (aucune trouvée sur la grille), atteinte avec un canal E3+ d'objets non visités (classe C). Cohérent avec « C virtuelle sous R-G » (v1.7).",
+   "exemple": {
+    "objets": [
+     "x0",
+     "v1",
+     "v2",
+     "v3",
+     "v4",
+     "v5",
+     "v6",
+     "v7",
+     "v8",
+     "v9",
+     "v10"
+    ],
+    "environnement": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "signature": {
+     "T_R": 10,
+     "R": 0,
+     "D_beta": 0
+    },
+    "classe": "C",
+    "points_de_choix": 0,
+    "interpretation": {
+     "nb_attracteurs": 1,
+     "n_lambda": null,
+     "politique_choix": "beta",
+     "loquet_force_beta": true,
+     "mecanisme_M": false,
+     "canal_errance": 10,
+     "taille_univers": null,
+     "purification": false,
+     "budget_tau": 0
+    }
+   }
+  },
+  {
+   "th": "TH35",
+   "verdict": "tient",
+   "note": "Avec un canal E3+ d'objets non visités, la classe C devient atteignable par choix (refuser le loquet, emprunter le canal).",
+   "exemple": {
+    "objets": [
+     "x0",
+     "v1",
+     "v2",
+     "v3",
+     "v4",
+     "v5",
+     "v6",
+     "v7",
+     "v8",
+     "v9",
+     "v10"
+    ],
+    "environnement": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "signature": {
+     "T_R": 10,
+     "R": 0,
+     "D_beta": 0
+    },
+    "classe": "C",
+    "points_de_choix": 0,
+    "interpretation": {
+     "nb_attracteurs": 1,
+     "n_lambda": null,
+     "politique_choix": "beta",
+     "loquet_force_beta": true,
+     "mecanisme_M": false,
+     "canal_errance": 10,
+     "taille_univers": null,
+     "purification": false,
+     "budget_tau": 0
+    }
+   }
+  },
+  {
+   "th": "TH22",
+   "verdict": "conditionnel",
+   "note": "B1 « sortie non périodique » exige M ; même alors R > 0 (voir TH17)."
+  },
+  {
+   "th": "TH23",
+   "verdict": "tient",
+   "note": "T_R, R, D_β non décroissants sur les préfixes (L* de base, sans R-PURIF)."
+  },
+  {
+   "th": "TH24",
+   "verdict": "par_construction",
+   "note": "Dans la sémantique, la classe est une fonction de Σ et du proxy d'infini."
+  },
+  {
+   "th": "TH25",
+   "verdict": "par_construction",
+   "note": "T_R ne décroît jamais : quitter A est irréversible (L* de base)."
+  },
+  {
+   "th": "TH26",
+   "verdict": "tient",
+   "note": "Dès que R > 0, classe finale ∈ {B, D}."
+  },
+  {
+   "th": "TH27",
+   "verdict": "par_construction",
+   "note": "Seule sortie d'un secours avec R > 0 : B."
+  },
+  {
+   "th": "TH28",
+   "verdict": "par_construction",
+   "note": "Les points de choix n'apparaissent qu'en régime mixte."
+  },
+  {
+   "th": "TH29",
+   "verdict": "conditionnel",
+   "note": "Au plus un point de choix par excursion SI la politique prend β au premier choix. Une politique α en rencontre plusieurs dans la même excursion (un par pas débloqué).",
+   "exemple": {
+    "objets": [
+     "x0",
+     "s1",
+     "s2",
+     "s3",
+     "s4",
+     "s5",
+     "s6",
+     "s7",
+     "c1",
+     "s7",
+     "c1"
+    ],
+    "environnement": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    "signature": {
+     "T_R": 3,
+     "R": 2,
+     "D_beta": 7
+    },
+    "classe": "B",
+    "points_de_choix": 2,
+    "interpretation": {
+     "nb_attracteurs": 1,
+     "n_lambda": 1,
+     "politique_choix": "alpha",
+     "loquet_force_beta": false,
+     "mecanisme_M": false,
+     "canal_errance": 0,
+     "taille_univers": null,
+     "purification": false,
+     "budget_tau": 0
+    }
+   }
+  },
+  {
+   "th": "TH30",
+   "verdict": "tient",
+   "note": "« Toujours β » n'est jamais pire que « α » (classe et R).",
+   "comparaisons_perdantes": 0
+  },
+  {
+   "th": "TH31",
+   "verdict": "tient",
+   "note": "Tout blocage de ≥ 2 pas consécutifs fait perdre A (T_R > 0)."
+  },
+  {
+   "th": "TH41",
+   "verdict": "contre_exemple",
+   "note": "En L↑, Ω0 a T_R = ∞ et R-PURIF ne fait baisser que R. Or A exige T_R = 0 (D11, TH21). Avec purification complète, la meilleure classe atteinte est B0, jamais A. Il faut redéfinir A dans L↑ (par ex. « T_R fini et R = 0 après purification ») ou ajouter une règle qui agit sur T_R.",
+   "exemple": {
+    "objets": [
+     "x0",
+     "c1",
+     "x0",
+     "s1",
+     "c1",
+     "s1",
+     "s2",
+     "c1",
+     "s2",
+     "s3",
+     "c1"
+    ],
+    "environnement": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "signature": {
+     "T_R": 7,
+     "R": 0,
+     "D_beta": 3
+    },
+    "classe": "B0",
+    "points_de_choix": 0,
+    "interpretation": {
+     "nb_attracteurs": 1,
+     "n_lambda": 2,
+     "politique_choix": "beta",
+     "loquet_force_beta": true,
+     "mecanisme_M": false,
+     "canal_errance": 0,
+     "taille_univers": null,
+     "purification": true,
+     "budget_tau": 10
+    }
+   }
+  },
+  {
+   "th": "TH23-L↑",
+   "verdict": "contre_exemple",
+   "note": "Sous R-PURIF, R n'est plus monotone : TH23 et les théorèmes qui en dépendent (TH25–TH27) doivent être restreints en L↑, pas seulement TH3."
+  }
+ ],
+ "Hadès (SAT borné)": [
+  {
+   "th": "TH21",
+   "verdict": "contre_exemple",
+   "note": "[Hadès (CDCL 2WL)] B0 cherché par SAT, H=10, n_Λ=1 : témoin trouvé",
+   "temoin": {
+    "objets": [
+     "x0",
+     "s1",
+     "s2",
+     "s3",
+     "s4",
+     "s5",
+     "s6",
+     "s7",
+     "s8",
+     "c1",
+     "s9"
+    ],
+    "environnement": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "secours": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   "bornes": {
+    "H": 10,
+    "n_lambda": 1
+   }
+  },
+  {
+   "th": "TH21",
+   "verdict": "contre_exemple",
+   "note": "[Hadès (CDCL 2WL)] B0 cherché par SAT, H=10, n_Λ=2 : témoin trouvé",
+   "temoin": {
+    "objets": [
+     "x0",
+     "s1",
+     "s2",
+     "s3",
+     "s4",
+     "s5",
+     "s6",
+     "s7",
+     "s8",
+     "c1",
+     "s9"
+    ],
+    "environnement": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "secours": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   "bornes": {
+    "H": 10,
+    "n_lambda": 2
+   }
+  },
+  {
+   "th": "TH21",
+   "verdict": "contre_exemple",
+   "note": "[Hadès (CDCL 2WL)] B0 cherché par SAT, H=10, n_Λ=3 : témoin trouvé",
+   "temoin": {
+    "objets": [
+     "x0",
+     "s1",
+     "s2",
+     "s3",
+     "s4",
+     "s5",
+     "s6",
+     "s7",
+     "s8",
+     "c1",
+     "s9"
+    ],
+    "environnement": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "secours": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   "bornes": {
+    "H": 10,
+    "n_lambda": 3
+   }
+  },
+  {
+   "th": "TH9",
+   "verdict": "tient",
+   "note": "[Hadès (CDCL 2WL)] TH9 vérifié dans la borne (H=10, n_Λ=2) — UNSAT = aucun environnement ne réfute TH9 dans la borne",
+   "temoin": null,
+   "bornes": {
+    "H": 10,
+    "n_lambda": 2
+   }
+  },
+  {
+   "th": "TH9",
+   "verdict": "tient",
+   "note": "[Hadès (CDCL 2WL)] TH9 vérifié dans la borne (H=10, n_Λ=3) — UNSAT = aucun environnement ne réfute TH9 dans la borne",
+   "temoin": null,
+   "bornes": {
+    "H": 10,
+    "n_lambda": 3
+   }
+  }
+ ],
+ "extensions (simulation)": [
+  {
+   "th": "TH32",
+   "verdict": "tient_sous_choix",
+   "note": "Sans investissement (f = 0), T_A = premier blocage de l'environnement : subi.",
+   "mesures": {
+    "T_A_f0": 24.6
+   }
+  },
+  {
+   "th": "TH33",
+   "verdict": "tient_sous_choix",
+   "note": "T_A croît avec l'investissement en ρ.",
+   "mesures": {
+    "T_A_par_f": {
+     "0.0": 24.6,
+     "0.25": 25.95,
+     "0.5": 48.25,
+     "0.75": 64.275,
+     "1.0": 65.95
+    }
+   }
+  },
+  {
+   "th": "TH34",
+   "verdict": "tient_sous_choix",
+   "note": "Chaque unité de ρ coûte une unité de τ : la consommation ne dépasse jamais τ0. Linéaire PAR CHOIX : la spécification note qu'un coût convexe donnerait un optimum intérieur.",
+   "mesures": {
+    "tau_consomme": {
+     "0.0": 0,
+     "0.25": 30,
+     "0.5": 30,
+     "0.75": 30,
+     "1.0": 30
+    },
+    "tau0": 30
+   }
+  },
+  {
+   "th": "TH36",
+   "verdict": "tient_sous_choix",
+   "note": "Au-delà des seuils, le trade-off est suspendu (croissance gratuite).",
+   "mesures": {
+    "fecond_depuis": 6,
+    "tau_restant": 4
+   }
+  },
+  {
+   "th": "TH37",
+   "verdict": "tient_sous_choix",
+   "note": "Sans effort préalable suffisant (τ0 = 4 < ρ0 + γ0), l'environnement n'amplifie rien.",
+   "mesures": {
+    "fecond_depuis": null,
+    "tau_restant": 0
+   }
+  },
+  {
+   "th": "TH38",
+   "verdict": "conditionnel",
+   "note": "Sous fécondité inconditionnelle, l'entité devient féconde sans aucun choix (dès le pas 0) : non-auteur. La conditionnalité préserve l'auteur au sens de D-AUTEUR — c'est une définition, mesurée ici comme dépendance au choix.",
+   "mesures": {}
+  },
+  {
+   "th": "TH42",
+   "verdict": "conditionnel",
+   "note": "La dominance de L↑ repose sur le critère Att (« A doit être un objectif »), que la spécification reconnaît comme normatif. Sans Att, L↑ et L*cost sont à égalité. En plus, TH41 échoue tel quel (voir noyau) : la propriété Att n'est pas encore acquise.",
+   "mesures": {}
+  },
+  {
+   "th": "TH39",
+   "verdict": "tient_sous_choix",
+   "note": "Sans blocage ni coût, toute trajectoire reste en A : une seule classe habitée.",
+   "mesures": {}
+  },
+  {
+   "th": "TH40",
+   "verdict": "tient_sous_choix",
+   "note": "T_A varie par petits pas avec τ0 (pas de seuil fatal unique). Les classes B et D restent habitées quand τ s'épuise.",
+   "mesures": {
+    "T_A_par_tau0": {
+     "0": 0,
+     "1": 1,
+     "2": 2,
+     "3": 3,
+     "4": 4,
+     "5": 5,
+     "6": 6,
+     "7": 7,
+     "8": 8,
+     "9": 9,
+     "10": 10,
+     "11": 11
+    }
+   }
+  },
+  {
+   "th": "TH43",
+   "verdict": "tient_sous_choix",
+   "note": "Un porteur seul s'épuise avant d'avoir hissé tout le monde.",
+   "mesures": {
+    "hisses": 2,
+    "captifs_restants": 3,
+    "tombes": 0,
+    "regenerations": 0,
+    "porteurs_fin": [
+     2
+    ]
+   }
+  },
+  {
+   "th": "TH44",
+   "verdict": "tient_sous_choix",
+   "note": "k* porteurs hissent tous les captifs.",
+   "mesures": {
+    "k_etoile": 3,
+    "hisses": 5,
+    "captifs_restants": 0,
+    "tombes": 0,
+    "regenerations": 0,
+    "porteurs_fin": [
+     2,
+     2,
+     6
+    ]
+   }
+  },
+  {
+   "th": "TH45-formule",
+   "verdict": "conditionnel",
+   "note": "La formule k* = ⌈n·δ/τ0⌉ suppose que τ0 se découpe exactement en parts δ. Avec des aides indivisibles, le vrai seuil est ⌈n / ⌊τ0/δ⌋⌉.",
+   "mesures": {
+    "k_formule_spec": 2,
+    "k_reel": 3,
+    "tau0": 10,
+    "delta": 4,
+    "n": 5
+   }
+  },
+  {
+   "th": "TH45",
+   "verdict": "tient_sous_choix",
+   "note": "En dessous de k* = ⌈n·δ/τ0⌉, des captifs restent.",
+   "mesures": {
+    "k": 2,
+    "hisses": 4,
+    "captifs_restants": 1,
+    "tombes": 0,
+    "regenerations": 0,
+    "porteurs_fin": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "th": "TH46",
+   "verdict": "par_construction",
+   "note": "Prêter δ retire δ à l'aidant (règle R-AIDE).",
+   "mesures": {}
+  },
+  {
+   "th": "TH47",
+   "verdict": "tient_sous_choix",
+   "note": "La réciprocité restaure l'énergie du groupe.",
+   "mesures": {
+    "avec": [
+     10,
+     10,
+     10,
+     10
+    ],
+    "sans": [
+     2,
+     6,
+     6,
+     6
+    ]
+   }
+  },
+  {
+   "th": "TH48",
+   "verdict": "conditionnel",
+   "note": "« Universellement réalisable » est faux tel quel : il faut k ≥ k* (TH45). Réalisable SOUS le triple seuil (ressources, nombre, environnement).",
+   "mesures": {}
+  },
+  {
+   "th": "TH49",
+   "verdict": "par_construction",
+   "note": "Une aide ne fait jamais sortir de A : A* est clos sous l'opérateur de libération.",
+   "mesures": {}
+  },
+  {
+   "th": "TH50",
+   "verdict": "par_construction",
+   "note": "Coût de régénération α·δ < δ si α < 1 (posé, pas dérivé).",
+   "mesures": {
+    "alpha": 0.5
+   }
+  },
+  {
+   "th": "TH51",
+   "verdict": "conditionnel",
+   "note": "Mémoire (α<1), surplus, connexion : les trois sont des paramètres du simulateur ; retirer l'un fait échouer la régénération.",
+   "mesures": {}
+  },
+  {
+   "th": "TH52",
+   "verdict": "tient_sous_choix",
+   "note": "Aider avec réciprocité hisse au moins autant que sans.",
+   "mesures": {
+    "hisses_avec": 5,
+    "hisses_sans": 5
+   }
+  },
+  {
+   "th": "TH53",
+   "verdict": "conditionnel",
+   "note": "Survie de collectifs homogènes (un seul profil).",
+   "mesures": {
+    "survie_homogenes": {
+     "Mp": 400,
+     "Mf": 268,
+     "Mt": 210
+    },
+    "horizon": 400
+   }
+  },
+  {
+   "th": "TH54",
+   "verdict": "conditionnel",
+   "note": "Survie du collectif hétérogène (Mp+Mf+Mt). « Infinie » = atteint l'horizon.",
+   "mesures": {
+    "survie_heterogene": 400,
+    "horizon": 400
+   }
+  },
+  {
+   "th": "TH55",
+   "verdict": "par_construction",
+   "note": "Dans ce modèle, l'archive ramène α des vecteurs à α_p : α_min ≥ α_p (posé).",
+   "mesures": {}
+  },
+  {
+   "th": "TH56",
+   "verdict": "conditionnel",
+   "note": "Décalage de phase : exige ≥ 3 membres (posé dans la preuve).",
+   "mesures": {}
+  },
+  {
+   "th": "TH57",
+   "verdict": "conditionnel",
+   "note": "Dominance de E6 : vraie seulement si τ_total > κ (TH58).",
+   "mesures": {}
+  },
+  {
+   "th": "TH58",
+   "verdict": "par_construction",
+   "note": "κ apparaît comme paramètre de coût.",
+   "mesures": {}
+  },
+  {
+   "th": "TH59",
+   "verdict": "par_construction",
+   "note": "Avec cycle de zones, tout blocage dure ≤ T_Z (R-E13).",
+   "mesures": {}
+  },
+  {
+   "th": "TH60",
+   "verdict": "conditionnel",
+   "note": "Existence d'un T_Z* : affirmée, non calculée dans la spécification.",
+   "mesures": {}
+  },
+  {
+   "th": "TH61",
+   "verdict": "tient_sous_choix",
+   "note": "Bilan η·a − κ(a) avec κ(a) = a² : productif si a < η = 0.6.",
+   "mesures": {
+    "bilan": {
+     "0.1": 0.05,
+     "0.3": 0.09,
+     "0.6": 0.0,
+     "1.0": -0.4
+    }
+   }
+  },
+  {
+   "th": "TH62",
+   "verdict": "par_construction",
+   "note": "Énergie et signal portent sur des variables distinctes (τ, T_Z).",
+   "mesures": {}
+  },
+  {
+   "th": "TH63",
+   "verdict": "conditionnel",
+   "note": "Boucle positive bornée par TH64 ; non simulée séparément.",
+   "mesures": {}
+  },
+  {
+   "th": "TH64",
+   "verdict": "par_construction",
+   "note": "T_Z ≥ T_Z_min par hypothèse de coût de coordination.",
+   "mesures": {}
+  },
+  {
+   "th": "TH65",
+   "verdict": "tient_sous_choix",
+   "note": "La friction converge vers a* pour des gains bien choisis.",
+   "mesures": {
+    "comportements": {
+     "0.0": "fige",
+     "0.01": "lent",
+     "0.1": "converge",
+     "0.3": "converge",
+     "0.6": "converge",
+     "1.0": "converge",
+     "1.5": "oscille",
+     "2.5": "diverge"
+    },
+    "a_star": 1.0
+   }
+  },
+  {
+   "th": "TH66",
+   "verdict": "tient_sous_choix",
+   "note": "Les trois pathologies apparaissent : gain nul = surdité (figé), gain trop fort = panique (oscillation ou divergence).",
+   "mesures": {
+    "beta_max_observe": 1.0,
+    "comportements": {
+     "0.0": "fige",
+     "0.01": "lent",
+     "0.1": "converge",
+     "0.3": "converge",
+     "0.6": "converge",
+     "1.0": "converge",
+     "1.5": "oscille",
+     "2.5": "diverge"
+    }
+   }
+  },
+  {
+   "th": "TH67",
+   "verdict": "tient_sous_choix",
+   "note": "E6 auto-régulé sous modulation correcte (voir TH65).",
+   "mesures": {}
+  },
+  {
+   "th": "TH68",
+   "verdict": "tient_sous_choix",
+   "note": "Friction résiduelle après échange : nulle si architectures identiques, positive sinon.",
+   "mesures": {
+    "friction_homogene": 0.0,
+    "friction_heterogene": 4.2
+   }
+  },
+  {
+   "th": "TH69",
+   "verdict": "tient_sous_choix",
+   "note": "Corollaire de TH68 dans ce modèle.",
+   "mesures": {}
+  },
+  {
+   "th": "TH70",
+   "verdict": "tient_sous_choix",
+   "note": "L'échange libre égalise les budgets : la différence s'éteint si les g_i sont égaux. Hypothèse « a* dépend de τ » posée dans la preuve, gardée ici comme CHOIX.",
+   "mesures": {}
+  },
+  {
+   "th": "TH71",
+   "verdict": "tient_sous_choix",
+   "note": "Avec g_i différents, aucune limite d'échange n'est nécessaire.",
+   "mesures": {}
+  },
+  {
+   "th": "TH72",
+   "verdict": "conditionnel",
+   "note": "Énoncé général ; découle de TH68 et TH73 dans ce modèle.",
+   "mesures": {}
+  },
+  {
+   "th": "TH73",
+   "verdict": "tient_sous_choix",
+   "note": "Verrou intérieur : des architectures internes distinctes survivent à l'échange.",
+   "mesures": {}
+  },
+  {
+   "th": "TH74",
+   "verdict": "tient_sous_choix",
+   "note": "R-DIFFÉRENCE inutile quand g_i diffèrent (TH73).",
+   "mesures": {}
+  },
+  {
+   "th": "TH75",
+   "verdict": "conditionnel",
+   "note": "Production propre de friction en isolement : vraie si ≥ 2 architectures internes ; non mesurée sur l'énergie ici.",
+   "mesures": {}
+  },
+  {
+   "th": "TH76",
+   "verdict": "tient_sous_choix",
+   "note": "Un collectif homogène en contact avec un divers devient divers.",
+   "mesures": {
+    "architectures_par_collectif": [
+     [
+      1.0,
+      3.03
+     ],
+     [
+      1.0,
+      3.38
+     ],
+     [
+      1.0,
+      2.73
+     ],
+     [
+      1.0,
+      2.62
+     ],
+     [
+      1.0,
+      1.5,
+      2.0
+     ]
+    ]
+   }
+  },
+  {
+   "th": "TH77",
+   "verdict": "par_construction",
+   "note": "Le simulateur impose « inventer, pas copier » ; c'est la règle R-SÉLECTION, pas un résultat.",
+   "mesures": {}
+  },
+  {
+   "th": "TH78",
+   "verdict": "conditionnel",
+   "note": "Le nombre d'architectures distinctes ne décroît jamais ; il croît à chaque contagion, PAS à chaque contact (énoncé « strictement à chaque contact » trop fort).",
+   "mesures": {
+    "distinctes": [
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     4,
+     5,
+     6,
+     6,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ]
+   }
+  },
+  {
+   "th": "TH79",
+   "verdict": "par_construction",
+   "note": "U croît : jamais la même orbite.",
+   "mesures": {}
+  },
+  {
+   "th": "TH80",
+   "verdict": "tient_sous_choix",
+   "note": "Chaque contraction réduit l'extension.",
+   "mesures": {
+    "sommets": [
+     22,
+     26,
+     30,
+     35,
+     39,
+     44,
+     50,
+     57
+    ],
+    "creux": [
+     12,
+     14,
+     16,
+     18,
+     20,
+     23,
+     26,
+     29
+    ]
+   }
+  },
+  {
+   "th": "TH81",
+   "verdict": "conditionnel",
+   "note": "Les creux montent si retention·croissance > 1 (essayé : 1.10). Avec 0,5 × 1,6 = 0,8 ils descendent : la spirale dégénère. TH81 n'est pas automatique : il dépend du rapport entre ce que la contraction garde et ce que l'expansion produit.",
+   "mesures": {
+    "produit": 1.1,
+    "creux": [
+     12,
+     14,
+     16,
+     18,
+     20,
+     23,
+     26,
+     29
+    ],
+    "creux_si_produit_0_8": [
+     9,
+     8,
+     7,
+     6,
+     5,
+     5,
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "th": "TH82",
+   "verdict": "par_construction",
+   "note": "La fécondité de la semence est l'hypothèse D-SPIRALE (4).",
+   "mesures": {}
+  },
+  {
+   "th": "TH83",
+   "verdict": "par_construction",
+   "note": "Alternance périodique, contenu non périodique.",
+   "mesures": {}
+  },
+  {
+   "th": "TH84",
+   "verdict": "conditionnel",
+   "note": "Spirale du réseau : composition de TH76–TH81 sous leurs choix.",
+   "mesures": {}
+  }
+ ],
+ "bourgeons (couche 3)": [
+  {
+   "th": "TH89",
+   "verdict": "definitionnel",
+   "note": "Racines et branches sont deux champs distincts de l'arbre : pas de compromis par construction (D27). C'est la correction de la « fenêtre » v3.0.",
+   "mesures": {}
+  },
+  {
+   "th": "TH91",
+   "verdict": "tient_sous_choix",
+   "note": "Racines sans branches : lisibilité nulle, style nul (graine qui ne germe pas).",
+   "mesures": {}
+  },
+  {
+   "th": "TH90",
+   "verdict": "definitionnel",
+   "note": "Posé par D-NOURRITURE / D-GERMINAISON ; aucune mesure.",
+   "mesures": {}
+  },
+  {
+   "th": "TH92",
+   "verdict": "definitionnel",
+   "note": "Posé par D-NOURRITURE / D-GERMINAISON ; aucune mesure.",
+   "mesures": {}
+  },
+  {
+   "th": "TH93",
+   "verdict": "definitionnel",
+   "note": "Posé par D-NOURRITURE / D-GERMINAISON ; aucune mesure.",
+   "mesures": {}
+  },
+  {
+   "th": "TH94",
+   "verdict": "definitionnel",
+   "note": "Style = somme des déviations : c'est la définition.",
+   "mesures": {}
+  },
+  {
+   "th": "TH95",
+   "verdict": "definitionnel",
+   "note": "Grammaire (racines) + phrase (frictions) : reformulation de D28.",
+   "mesures": {}
+  },
+  {
+   "th": "TH96",
+   "verdict": "tient_sous_choix",
+   "note": "Deux arbres de même espèce sous des vents différents ont des styles distincts.",
+   "mesures": {
+    "style_1": [
+     -22.11675828756793,
+     30.40185306758232
+    ],
+    "style_2": [
+     24.848676569296593,
+     30.195955305298043
+    ]
+   }
+  },
+  {
+   "th": "TH97",
+   "verdict": "conditionnel",
+   "note": "Avec un vent constant, le style est un simple décalage : lisible en direction (λ = 1.00) mais ne distingue pas deux arbres au même endroit. L'énoncé « lisible si frictions variées » dépend de ce qu'on appelle lisible.",
+   "mesures": {}
+  },
+  {
+   "th": "TH98",
+   "verdict": "definitionnel",
+   "note": "Image ; aucune mesure.",
+   "mesures": {}
+  },
+  {
+   "th": "TH99",
+   "verdict": "tient_sous_choix",
+   "note": "La direction dominante s'extrait d'un échantillon de 8 branches sur 30.",
+   "mesures": {
+    "cosinus": 0.998
+   }
+  },
+  {
+   "th": "TH100",
+   "verdict": "tient_sous_choix",
+   "note": "Vent stable : l'héritage oriente mieux qu'un départ à zéro.",
+   "mesures": {
+    "scores": {
+     "heritage": {
+      "vent_stable": 19.22,
+      "vent_tourne": 4.84
+     },
+     "experience": {
+      "vent_stable": 8.38,
+      "vent_tourne": 9.49
+     },
+     "mixte": {
+      "vent_stable": 19.4,
+      "vent_tourne": 16.97
+     }
+    }
+   }
+  },
+  {
+   "th": "TH101",
+   "verdict": "definitionnel",
+   "note": "Transmission = un vecteur (D29).",
+   "mesures": {}
+  },
+  {
+   "th": "TH102",
+   "verdict": "tient_sous_choix",
+   "note": "Vent qui tourne : l'héritage seul devient trompeur.",
+   "mesures": {
+    "scores": {
+     "heritage": {
+      "vent_stable": 19.22,
+      "vent_tourne": 4.84
+     },
+     "experience": {
+      "vent_stable": 8.38,
+      "vent_tourne": 9.49
+     },
+     "mixte": {
+      "vent_stable": 19.4,
+      "vent_tourne": 16.97
+     }
+    }
+   }
+  },
+  {
+   "th": "TH103",
+   "verdict": "tient_sous_choix",
+   "note": "Héritage + correction par l'expérience : au moins aussi bon que chacun seul dans les deux climats (sous ces poids de correction).",
+   "mesures": {
+    "scores": {
+     "heritage": {
+      "vent_stable": 19.22,
+      "vent_tourne": 4.84
+     },
+     "experience": {
+      "vent_stable": 8.38,
+      "vent_tourne": 9.49
+     },
+     "mixte": {
+      "vent_stable": 19.4,
+      "vent_tourne": 16.97
+     }
+    }
+   }
+  },
+  {
+   "th": "TH104",
+   "verdict": "definitionnel",
+   "note": "D30 clause 3 : énoncé identique à la définition.",
+   "mesures": {}
+  },
+  {
+   "th": "TH105",
+   "verdict": "definitionnel",
+   "note": "Découle de D-ORIENTATION : on transmet la direction de L.",
+   "mesures": {}
+  },
+  {
+   "th": "TH106",
+   "verdict": "definitionnel",
+   "note": "D30 : L ne dépend pas de l'arbre.",
+   "mesures": {}
+  },
+  {
+   "th": "TH107",
+   "verdict": "definitionnel",
+   "note": "D-SOURCE : posé.",
+   "mesures": {}
+  },
+  {
+   "th": "TH108",
+   "verdict": "definitionnel",
+   "note": "Composition de TH81 et TH104 ; hérite de la condition de TH81.",
+   "mesures": {}
+  },
+  {
+   "th": "TH109",
+   "verdict": "tient_sous_choix",
+   "note": "Réorientation possible si connexion + réserve Φ ≥ coût + au moins un voyant (posé).",
+   "mesures": {}
+  },
+  {
+   "th": "TH110",
+   "verdict": "definitionnel",
+   "note": "Φ est une somme de frictions passées (D31).",
+   "mesures": {}
+  },
+  {
+   "th": "TH111",
+   "verdict": "par_construction",
+   "note": "Coût γ = profondeur × coût unitaire (CHOIX linéaire).",
+   "mesures": {}
+  },
+  {
+   "th": "TH112",
+   "verdict": "tient_sous_choix",
+   "note": "Réserve finie : tous ne peuvent être sauvés, il faut arbitrer.",
+   "mesures": {
+    "reserve": 10.0,
+    "profondeurs": [
+     2,
+     3,
+     4,
+     6
+    ],
+    "sauves": [
+     2,
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "th": "TH113",
+   "verdict": "definitionnel",
+   "note": "L infinie (D30), Φ finie (D31) : posé.",
+   "mesures": {}
+  },
+  {
+   "th": "Ω",
+   "verdict": "echoue_sous_choix",
+   "note": "Avec ν, λ, δ CANDIDATS : N moyen de la semence à chaque cycle. La preuve de la spécification affirme N(σ_k) > N(σ_{k−1}) sans pouvoir le calculer. Ici on le calcule : le verdict dépend entièrement des définitions choisies pour ν, λ, δ et de la reproduction. Avec une reproduction par COPIE des branches, δ s'effondre (clones) et N baisse : exactement ce que TH77 interdit (« inventer, pas copier »). C'est la décision à prendre.",
+   "mesures": {
+    "N_semences": [
+     2.583,
+     2.26,
+     2.424,
+     2.252,
+     2.254,
+     2.247
+    ]
+   }
+  }
+ ]
+}

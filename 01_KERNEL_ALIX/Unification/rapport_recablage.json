@@ -1,0 +1,42 @@
+{
+  "capacites\\capacite_langage_mathematique_lmh.py": [
+    "L.83: `from lmh_typecheck import Const, Sort, StatePred, Intensity, OK` -> `from alix.solveurs.lmh_typecheck import Const, Sort, StatePred, Intensity, OK`",
+    "L.84: `from lmh_v3_graded import type_check_v3` -> `from alix.solveurs.lmh_v3_graded import type_check_v3`",
+    "L.53: `from lmh_v3_graded import CompilateurLMHv3D, DecodeurLMHv3D` -> `from alix.solveurs.lmh_v3_graded import CompilateurLMHv3D, DecodeurLMHv3D`",
+    "L.62: `from lmh_typecheck import Const, Sort` -> `from alix.solveurs.lmh_typecheck import Const, Sort`"
+  ],
+  "capteurs\\alix_earphone_companion.py": [
+    "L.26: `from alix_engine import AlixEngine` -> `from alix.socle.alix_engine import AlixEngine`"
+  ],
+  "daemons\\sovereign_cockpit_engine.py": [
+    "L.25: `from sovereign_tools import SovereignTools` -> `from alix.daemons.sovereign_tools import SovereignTools`"
+  ],
+  "daemons\\sovereign_server.py": [
+    "L.29: `from sovereign_cockpit_engine import SovereignCockpitEngine, DEFAULT_PROVIDERS` -> `from alix.daemons.sovereign_cockpit_engine import SovereignCockpitEngine, DEFAULT_PROVIDERS`"
+  ],
+  "solveurs\\alix_convergence_trois_piliers.py": [
+    "L.45: `from alix_reverse_safety_protocol import auditer_texte, PSI_VIOLATION_RULES` -> `from alix.daemons.alix_reverse_safety_protocol import auditer_texte, PSI_VIOLATION_RULES`"
+  ],
+  "solveurs\\lmh_v3_epistemic.py": [
+    "L.445: `from lmh_v3_temporal import DecodeurLMHv3B` -> `from alix.solveurs.lmh_v3_temporal import DecodeurLMHv3B`",
+    "L.359: `from lmh_v3_temporal import CompilateurLMHv3B` -> `from alix.solveurs.lmh_v3_temporal import CompilateurLMHv3B`"
+  ],
+  "solveurs\\lmh_v3_force.py": [
+    "L.32: `from lmh_v3_temporal import type_check_v3 as type_check, agent_of_v3 as agent_of, ctx_of_v3 as ctx_of, time_of_v3 as time_of` -> `from alix.solveurs.lmh_v3_temporal import type_check_v3 as type_check, agent_of_v3 as agent_of, ctx_of_v3 as ctx_of, time_of_v3 as time_of`",
+    "L.33: `from alix_compilateur_lmh_quebecois import CompilateurLMHQuebecois, DecodeurQuebecoisLMH` -> `from alix.solveurs.alix_compilateur_lmh_quebecois import CompilateurLMHQuebecois, DecodeurQuebecoisLMH`"
+  ],
+  "solveurs\\lmh_v3_graded.py": [
+    "L.436: `from lmh_v3_epistemic import CompilateurLMHv3C` -> `from alix.solveurs.lmh_v3_epistemic import CompilateurLMHv3C`",
+    "L.525: `from lmh_v3_epistemic import DecodeurLMHv3C` -> `from alix.solveurs.lmh_v3_epistemic import DecodeurLMHv3C`"
+  ],
+  "solveurs\\lmh_v3_temporal.py": [
+    "L.448: `from alix_compilateur_lmh_quebecois import DecodeurQuebecoisLMH` -> `from alix.solveurs.alix_compilateur_lmh_quebecois import DecodeurQuebecoisLMH`",
+    "L.393: `from alix_compilateur_lmh_quebecois import CompilateurLMHQuebecois` -> `from alix.solveurs.alix_compilateur_lmh_quebecois import CompilateurLMHQuebecois`"
+  ],
+  "sondes\\alix_graph_weaver.py": [
+    "L.26: `from alix_engine import AlixEngine` -> `from alix.socle.alix_engine import AlixEngine`"
+  ],
+  "substrat\\alix_gpu_host.py": [
+    "L.38: `import alix_actuateurs_atelier as actuateurs` -> `from alix.solveurs import alix_actuateurs_atelier as actuateurs`"
+  ]
+}

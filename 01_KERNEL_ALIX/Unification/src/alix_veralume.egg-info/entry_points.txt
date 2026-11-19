@@ -1,0 +1,2 @@
+[console_scripts]
+alix-cli = alix.cli:main

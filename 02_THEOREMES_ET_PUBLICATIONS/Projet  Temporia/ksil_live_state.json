@@ -1,0 +1,17 @@
+{
+  "daemon": "KAIROS-SILICON",
+  "status": "RUNNING",
+  "last_pulse": "2026-09-30 18:49:27",
+  "soc": "Intel Core Ultra 7 258V (Lunar Lake)",
+  "hardware": {
+    "npu": "Intel AI Boost (48 TOPS, ~2W)",
+    "gpu": "Intel Arc 140V Xe2 (16GB, ~15W)",
+    "cpu": "Intel Core Ultra 7 258V Lion Cove (~20W)"
+  },
+  "metrics": {
+    "requests_processed": 1,
+    "early_exit_count": 0,
+    "avg_latency_ms": 4.19,
+    "uptime_seconds": 20.0
+  }
+}

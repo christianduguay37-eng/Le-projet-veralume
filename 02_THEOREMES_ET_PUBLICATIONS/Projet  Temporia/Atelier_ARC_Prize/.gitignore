@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+test_sub_train.json
+thot_solver_lib/
+submission*.json

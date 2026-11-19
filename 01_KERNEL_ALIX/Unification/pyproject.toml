@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alix-veralume"
+version = "1.1.0"
+description = "Architecture cognitive et moteurs unifiés Alix / VERALUME (paquet unique après rénovation du 2026-10-30)"
+readme = "README.md"
+requires-python = ">=3.12"  # f-strings PEP 701 utilisées dans 3 modules
+# Socle : ce qu'il faut pour que le noyau, la mémoire et les démons de base démarrent.
+dependencies = [
+    "numpy",
+    "scipy",
+    "pyarrow",
+    "pandas",
+    "requests",
+    "psutil",
+    "Pillow",
+]
+
+[project.optional-dependencies]
+# NPU / GPU Lunar Lake (Heimdall, Munin, EmbeddingGemma, Gemma 12B)
+npu = ["litert-lm", "openvino", "onnxruntime"]
+# Apprentissage et analyse
+ml = ["scikit-learn", "torch", "nltk", "huggingface-hub", "duckdb"]
+# Voix et audio (organisme vocal, larynx, oreille)
+audio = ["faster-whisper", "pyaudio", "PyAudioWPatch", "vosk", "edge-tts", "pyttsx3", "SpeechRecognition", "pygame", "sounddevice", "soundfile"]
+# Interfaces (sanctuaire, Orion mobile, cockpit)
+interfaces = ["websockets", "qrcode", "pyperclip", "keyboard"]
+# Cloud (Exploratrice du Ciel)
+cloud = ["openai"]
+tout = ["alix-veralume[npu,ml,audio,interfaces,cloud]"]
+
+[project.scripts]
+alix-cli = "alix.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

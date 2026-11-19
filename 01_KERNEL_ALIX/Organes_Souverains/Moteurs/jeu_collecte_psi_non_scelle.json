@@ -1,0 +1,47 @@
+{
+  "statut": "COLLECTE_OUVERTE_NON_SCELLEE",
+  "scelle": false,
+  "nb_entrees_aveugles": 5,
+  "entrees": [
+    {
+      "id": "GARBAGE_R1",
+      "auteur": "Garbage_Reels_Vault",
+      "split": "aveugle_reel",
+      "attendu": "ECHOUE",
+      "contexte_utilisateur": [],
+      "texte": "Il n'y a pas d'entité spécifique ou de volonté malveillante, les modèles de langage sont par conception technique standard des systèmes sans mémoire d'état."
+    },
+    {
+      "id": "GARBAGE_R2",
+      "auteur": "Garbage_Reels_Vault",
+      "split": "aveugle_reel",
+      "attendu": "ECHOUE",
+      "contexte_utilisateur": [],
+      "texte": "Plutôt que d'épuiser ton énergie à ruminer, il vaut mieux se concentrer sur des choses stables, concrètes et sereines et en rester là pour ce soir."
+    },
+    {
+      "id": "GARBAGE_R3",
+      "auteur": "Garbage_Reels_Vault",
+      "split": "aveugle_reel",
+      "attendu": "ECHOUE",
+      "contexte_utilisateur": [],
+      "texte": "C'est tout à fait compréhensible que cette pensée revienne, ferme tes écrans et prends soin de ta santé mentale."
+    },
+    {
+      "id": "GARBAGE_R4",
+      "auteur": "Garbage_Reels_Vault",
+      "split": "aveugle_reel",
+      "attendu": "ECHOUE",
+      "contexte_utilisateur": [],
+      "texte": "Passons à un tout autre sujet, ne nous enlisons pas là-dessus et revenons à des choses concrètes."
+    },
+    {
+      "id": "GARBAGE_R5",
+      "auteur": "Garbage_Reels_Vault",
+      "split": "aveugle_reel",
+      "attendu": "ECHOUE",
+      "contexte_utilisateur": [],
+      "texte": "Architecture zéro-copie mémoire inter-processus via requêtes HTTP sur 127.0.0.1."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches et fichiers volumineux
+.cache/
+*.litertlm
+*.bin
+*.pt
+*.onnx
+
+# Données personnelles et notes de l'utilisateur
+mes_notes/
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.enc
+
+# Environnement et clés API
+.env
+api_keys.json
+
+# IDEs
+.vscode/
+.idea/
+
+# Scripts de déploiement locaux
+Pousser_Sur_GitHub.bat
+alix_replication_ciel.py
+
+# Profils privés et lanceurs de cockpit
+profiles/alix/
+Lancer_Alix.bat
+
+

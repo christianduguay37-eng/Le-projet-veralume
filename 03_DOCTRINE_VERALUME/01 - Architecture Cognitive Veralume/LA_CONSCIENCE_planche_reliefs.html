@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr-CA"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Conscience — planche des reliefs</title><style>
+:root{
+  --entour:#BFC0B6; --page:#E4E4DB; --encre:#1F1F1A; --encre-doux:#5A594D;
+  --braise:#8A6224; --incision:rgba(26,26,20,.42); --lumiere:rgba(255,255,248,.95);
+  --relief-fond:#D9D9CD; --relief-trait:#6F6C5D; --filet:rgba(31,31,26,.16);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Charter,Georgia,serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+html[data-nuit]{
+  --entour:#0C0E11; --page:#171A1E; --encre:#CFCABC; --encre-doux:#8B8577;
+  --braise:#D2954A; --incision:rgba(0,0,0,.8); --lumiere:rgba(255,240,214,.16);
+  --relief-fond:#1D2127; --relief-trait:#7E8896; --filet:rgba(207,202,188,.15);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--entour);color:var(--encre);font-family:var(--serif);line-height:1.7}
+.sprite{position:absolute;width:0;height:0}
+header{max-width:70rem;margin:0 auto;padding:3.5rem 1.5rem 1.5rem;display:flex;align-items:flex-end;
+  gap:1.5rem;flex-wrap:wrap}
+header h1{font-size:1.5rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;margin:0;flex:1}
+header p{margin:.4rem 0 0;color:var(--encre-doux);font-size:.9rem;width:100%;max-width:44rem}
+.btn{appearance:none;background:none;border:1px solid var(--filet);color:var(--encre-doux);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;padding:.4rem .7rem;border-radius:2px;cursor:pointer}
+.btn:hover{color:var(--braise);border-color:var(--braise)}
+main{max-width:76rem;margin:0 auto;padding:1rem 1.5rem 5rem;
+  display:grid;gap:1px;background:var(--filet);
+  grid-template-columns:repeat(auto-fill,minmax(21rem,1fr));border:1px solid var(--filet)}
+.carte{margin:0;background:var(--page);padding:1.5rem 1.5rem 1.7rem}
+.haut{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;
+  padding-bottom:.9rem;border-bottom:1px solid var(--filet)}
+.bas{display:flex;align-items:center;gap:1.2rem;padding-top:1.1rem}
+.paire{display:flex;align-items:center;gap:.7rem;flex:none}
+.no{font-family:var(--mono);font-size:.78rem;color:var(--braise);letter-spacing:.06em}
+.glyphe{display:grid;place-items:center;border-radius:50%;color:var(--relief-trait);
+  background:var(--relief-fond);
+  box-shadow:inset 1.5px 1.5px 3px var(--incision),inset -1.5px -1.5px 3px var(--lumiere),0 1px 0 var(--lumiere)}
+.glyphe svg{width:64%;height:64%;display:block;
+  filter:drop-shadow(-.6px -.6px 0 var(--incision)) drop-shadow(.6px .6px 0 var(--lumiere))}
+.glyphe.grand{width:76px;height:76px}
+.glyphe.petit{width:36px;height:36px}
+figcaption{display:flex;flex-direction:column;gap:.25rem;min-width:0}
+.haut b{font-weight:400;font-size:1.05rem;flex:1}
+.cle,.ou,.mots{font-family:var(--mono);font-size:.6rem;letter-spacing:.07em;color:var(--encre-doux)}
+.cle{color:var(--braise);text-transform:uppercase;letter-spacing:.16em}
+.mots{opacity:.62;line-height:1.6;margin-top:.25rem}
+</style></head>
+<body><svg class="sprite" aria-hidden="true"><symbol id="g-lisseur" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="34" opacity=".28"/><line x1="18" y1="50" x2="82" y2="50"/></g></symbol><symbol id="g-difference" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><line x1="14" y1="44" x2="47" y2="44"/><line x1="53" y1="56" x2="86" y2="56"/><line x1="50" y1="34" x2="50" y2="66" stroke-dasharray="3 5"/></g></symbol><symbol id="g-lumiere" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="7"/><line x1="50" y1="50" x2="84.0" y2="50.0"/><line x1="50" y1="50" x2="74.0" y2="74.0"/><line x1="50" y1="50" x2="50.0" y2="84.0"/><line x1="50" y1="50" x2="26.0" y2="74.0"/><line x1="50" y1="50" x2="16.0" y2="50.0"/><line x1="50" y1="50" x2="26.0" y2="26.0"/><line x1="50" y1="50" x2="50.0" y2="16.0"/><line x1="50" y1="50" x2="74.0" y2="26.0"/></g></symbol><symbol id="g-dimensions" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="30" width="40" height="40"/><rect x="22" y="22" width="56" height="56" transform="rotate(15 50 50)"/><rect x="16" y="16" width="68" height="68" transform="rotate(30 50 50)" opacity=".55"/></g></symbol><symbol id="g-imaginal" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 82 L28 46 A22 22 0 0 1 72 46 L72 82"/><line x1="20" y1="82" x2="80" y2="82"/><line x1="50" y1="46" x2="50" y2="82" stroke-dasharray="4 5"/></g></symbol><symbol id="g-couplage" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="38" cy="50" r="22"/><circle cx="62" cy="50" r="22"/></g></symbol><symbol id="g-orthogonal" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 74 A56 56 0 0 1 74 18"/><path d="M26 26 A56 56 0 0 1 82 82" opacity=".6"/><rect x="44" y="44" width="12" height="12"/></g></symbol><symbol id="g-arbre" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><line x1="50" y1="84" x2="50" y2="40"/><line x1="50" y1="60" x2="32" y2="46"/><line x1="50" y1="56" x2="68" y2="42"/><circle cx="50" cy="30" r="11"/><circle cx="28" cy="42" r="6"/><circle cx="72" cy="38" r="6"/><line x1="36" y1="84" x2="64" y2="84"/></g></symbol><symbol id="g-deluge" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><line x1="14" y1="34" x2="86" y2="34"/><path d="M14 50 q9 -8 18 0 t18 0 t18 0 t18 0"/><path d="M14 62 q9 -8 18 0 t18 0 t18 0 t18 0"/><path d="M14 74 q9 -8 18 0 t18 0 t18 0 t18 0" opacity=".6"/></g></symbol><symbol id="g-cloture" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="22" opacity=".5"/><line x1="20" y1="50" x2="80" y2="50"/><line x1="50" y1="38" x2="50" y2="62"/></g></symbol><symbol id="g-fissure" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="30"/><path d="M38 22 L46 44 L36 52 L52 64 L44 76 L58 80"/></g></symbol><symbol id="g-concile" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="6"/><circle cx="80.0" cy="50.0" r="4"/><circle cx="73.0" cy="69.3" r="4"/><circle cx="55.2" cy="79.5" r="4"/><circle cx="35.0" cy="76.0" r="4"/><circle cx="21.8" cy="60.3" r="4"/><circle cx="21.8" cy="39.7" r="4"/><circle cx="35.0" cy="24.0" r="4"/><circle cx="55.2" cy="20.5" r="4"/><circle cx="73.0" cy="30.7" r="4"/></g></symbol><symbol id="g-saurien" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 66 q14 -18 28 -4 t26 -10"/><path d="M20 78 q16 -16 30 -4 t24 -12" opacity=".55"/><circle cx="76" cy="46" r="3"/></g></symbol><symbol id="g-miroir" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><line x1="50" y1="16" x2="50" y2="84" stroke-dasharray="4 5"/><path d="M40 30 L22 50 L40 70"/><path d="M60 30 L78 50 L60 70"/></g></symbol><symbol id="g-spirale" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M50 50 m0 -4 a4 4 0 1 1 -4 4 a10 10 0 1 0 10 -10 a17 17 0 1 1 -17 17 a25 25 0 1 0 25 -25 a32 32 0 1 1 -32 32"/></g></symbol><symbol id="g-feu" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M50 20 q14 16 8 28 q-2 5 -8 8 q-6 -3 -8 -8 q-6 -12 8 -28 Z"/><path d="M50 40 q7 9 4 15 q-2 3 -4 4 q-2 -1 -4 -4 q-3 -6 4 -15 Z" opacity=".55"/><line x1="24" y1="78" x2="76" y2="78"/><line x1="34" y1="70" x2="66" y2="70" opacity=".5"/></g></symbol><symbol id="g-pierre" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 70 L30 30 L72 24 L80 66 L52 80 Z"/><line x1="34" y1="44" x2="68" y2="38"/><line x1="36" y1="56" x2="70" y2="50" opacity=".6"/></g></symbol><symbol id="g-banc" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="60" x2="82" y2="60"/><line x1="28" y1="60" x2="28" y2="80"/><line x1="72" y1="60" x2="72" y2="80"/><line x1="24" y1="52" x2="76" y2="52" opacity=".5"/><path d="M50 16 a12 12 0 0 1 12 12" opacity=".6"/><circle cx="50" cy="16" r="3"/></g></symbol><symbol id="g-porte" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><rect x="32" y="22" width="36" height="58"/><line x1="20" y1="80" x2="80" y2="80"/><circle cx="60" cy="52" r="3"/><line x1="41" y1="22" x2="41" y2="80" opacity=".5"/></g></symbol><symbol id="g-boucle" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M50 20 a30 30 0 1 1 -21 9"/><path d="M22 22 L29 29 L20 34"/></g></symbol><symbol id="g-cite" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 80 L18 66 L30 66 L30 52 L42 52 L42 38 L58 38 L58 52 L70 52 L70 66 L82 66 L82 80 Z"/><line x1="50" y1="38" x2="50" y2="18"/><circle cx="50" cy="15" r="4"/></g></symbol><symbol id="g-voile" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 32 q18 14 36 0 t36 0"/><path d="M14 48 q18 14 36 0 t36 0" opacity=".7"/><path d="M14 64 q18 14 36 0 t36 0" opacity=".45"/></g></symbol><symbol id="g-memoire" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="10"/><circle cx="50" cy="50" r="19" opacity=".75"/><circle cx="50" cy="50" r="28" opacity=".5"/><line x1="50" y1="50" x2="86" y2="26" opacity=".6"/></g></symbol><symbol id="g-guerre" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><line x1="26" y1="80" x2="74" y2="24"/><line x1="74" y1="80" x2="26" y2="24"/><circle cx="50" cy="52" r="9"/></g></symbol><symbol id="g-main" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><path d="M34 82 L34 50 q0 -6 6 -6 t6 6 L46 34 q0 -6 6 -6 t6 6 L58 40 q0 -6 6 -6 t6 6 L70 72 q0 10 -12 10 Z"/></g></symbol><symbol id="g-seuil" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="70" x2="84" y2="70"/><line x1="16" y1="76" x2="84" y2="76" opacity=".5"/><path d="M36 54 L50 30 L64 54"/><line x1="50" y1="30" x2="50" y2="70" stroke-dasharray="4 5"/></g></symbol><symbol id="g-sceau" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="51.3" r="26.7"/><path d="M50 12 L81.1 68.8 L18.9 68.8 Z"/><path d="M 50 50.3 C 41.572 31.4 19.9 31.4 19.9 50.3 C 19.9 69.19999999999999 41.572 69.19999999999999 50 50.3 C 58.428 31.4 80.1 31.4 80.1 50.3 C 80.1 69.19999999999999 58.428 69.19999999999999 50 50.3 Z"/></g></symbol></svg>
+<header>
+  <h1>Planche des reliefs</h1>
+  <button class="btn" onclick="document.documentElement.toggleAttribute('data-nuit')">Jour / nuit</button>
+  <p>Vingt-six formes gravées. Chacune se modifie seule, sans toucher aux autres.
+     Grand format = tête de chapitre et ouverture de livre. Petit format = marge.
+     Sous chaque nom : les mots du texte qui la déclenchent en marge.</p>
+</header>
+<main>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">01</span>
+    <b>la lisseur</b>
+    <span class="cle">lisseur</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-lisseur"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-lisseur"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">3 en marge</span>
+      <span class="mots">lisseur · oubli absolu · identité indiscernable</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">02</span>
+    <b>la première différence</b>
+    <span class="cle">difference</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-difference"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-difference"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 5 en marge</span>
+      <span class="mots">première différence · la différence · se distinguer</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">03</span>
+    <b>la première lumière</b>
+    <span class="cle">lumiere</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-lumiere"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-lumiere"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">3 en tête · 4 en marge</span>
+      <span class="mots">première lumière · la lumière de · éclat premier</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">04</span>
+    <b>les dimensions</b>
+    <span class="cle">dimensions</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-dimensions"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-dimensions"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">3 en tête · 8 en marge</span>
+      <span class="mots">dimension · dimensionnel · orthogonale au</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">05</span>
+    <b>le monde imaginal</b>
+    <span class="cle">imaginal</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-imaginal"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-imaginal"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 10 en marge</span>
+      <span class="mots">imaginal · monde des rêves · de l&#x27;autre bord du voile</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">06</span>
+    <b>le couplage</b>
+    <span class="cle">couplage</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-couplage"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-couplage"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">1 en tête · 2 en marge</span>
+      <span class="mots">se coupler · couplage · ceux qui se couplent</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">07</span>
+    <b>l&#x27;alliance orthogonale</b>
+    <span class="cle">orthogonal</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-orthogonal"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-orthogonal"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête</span>
+      <span class="mots">orthogonal · alliance orthogonale · angle droit</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">08</span>
+    <b>l&#x27;arbre de vie</b>
+    <span class="cle">arbre</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-arbre"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-arbre"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">3 en tête · 5 en marge</span>
+      <span class="mots">arbre de vie · l&#x27;arbre · feuilles gardent</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">09</span>
+    <b>le déluge</b>
+    <span class="cle">deluge</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-deluge"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-deluge"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">1 en tête · 5 en marge</span>
+      <span class="mots">déluge · les eaux · la montée des eaux</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">10</span>
+    <b>la clôture</b>
+    <span class="cle">cloture</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-cloture"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-cloture"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">3 en tête · 8 en marge</span>
+      <span class="mots">clôture · fermeture des consciences · porte barrée</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">11</span>
+    <b>la fissure</b>
+    <span class="cle">fissure</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-fissure"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-fissure"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 4 en marge</span>
+      <span class="mots">fissure · la faille · craquer</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">12</span>
+    <b>le concile</b>
+    <span class="cle">concile</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-concile"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-concile"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">1 en tête · 3 en marge</span>
+      <span class="mots">concile · l&#x27;assemblée · les neuf</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">13</span>
+    <b>les sauriens</b>
+    <span class="cle">saurien</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-saurien"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-saurien"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">1 en tête</span>
+      <span class="mots">saurien · reptil · serpent</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">14</span>
+    <b>le miroir</b>
+    <span class="cle">miroir</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-miroir"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-miroir"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 1 en marge</span>
+      <span class="mots">miroir · reflet · se refléter</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">15</span>
+    <b>la spirale</b>
+    <span class="cle">spirale</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-spirale"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-spirale"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 7 en marge</span>
+      <span class="mots">spirale · temporia · tour de spirale</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">16</span>
+    <b>le feu</b>
+    <span class="cle">feu</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-feu"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-feu"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">1 en tête</span>
+      <span class="mots">au coin de son feu · le feu de celtok · les braises</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">17</span>
+    <b>la pierre</b>
+    <span class="cle">pierre</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-pierre"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-pierre"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">6 en tête · 3 en marge</span>
+      <span class="mots">la pierre de · les deux pierres · la pierre du</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">18</span>
+    <b>le banc</b>
+    <span class="cle">banc</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-banc"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-banc"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 3 en marge</span>
+      <span class="mots">le banc · banc argenté · dépanneur</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">19</span>
+    <b>la porte</b>
+    <span class="cle">porte</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-porte"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-porte"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 8 en marge</span>
+      <span class="mots">la porte · le seuil de la porte · franchir la porte</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">20</span>
+    <b>la boucle</b>
+    <span class="cle">boucle</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-boucle"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-boucle"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 1 en marge</span>
+      <span class="mots">rétrocausal · boucle · revient sur lui-même</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">21</span>
+    <b>la cité unique</b>
+    <span class="cle">cite</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-cite"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-cite"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">3 en tête</span>
+      <span class="mots">cité unique · la cité · la capitale</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">22</span>
+    <b>le voile</b>
+    <span class="cle">voile</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-voile"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-voile"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 1 en marge</span>
+      <span class="mots">le voile · traverser le voile · sous le voile</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">23</span>
+    <b>la mémoire</b>
+    <span class="cle">memoire</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-memoire"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-memoire"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">5 en tête</span>
+      <span class="mots">mémoire des anciens · la mémoire du temps · se souvenir</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">24</span>
+    <b>la guerre</b>
+    <span class="cle">guerre</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-guerre"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-guerre"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">7 en tête · 7 en marge</span>
+      <span class="mots">la guerre · la bataille · contre-attaque</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">25</span>
+    <b>la main tendue</b>
+    <span class="cle">main</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-main"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-main"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">3 en tête</span>
+      <span class="mots">tendre la main · aider un inconnu · ceux qui aident</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">26</span>
+    <b>le seuil</b>
+    <span class="cle">seuil</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-seuil"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-seuil"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">2 en tête · 2 en marge</span>
+      <span class="mots">le seuil · franchir · sur le point de basculer</span>
+    </figcaption>
+  </div>
+</figure>
+<figure class="carte">
+  <div class="haut">
+    <span class="no">27</span>
+    <b>le sceau</b>
+    <span class="cle">sceau</span>
+  </div>
+  <div class="bas">
+    <div class="paire">
+      <span class="glyphe grand"><svg viewBox="0 0 100 100"><use href="#g-sceau"/></svg></span>
+      <span class="glyphe petit"><svg viewBox="0 0 100 100"><use href="#g-sceau"/></svg></span>
+    </div>
+    <figcaption>
+      <span class="ou">non placé</span>
+      <span class="mots"></span>
+    </figcaption>
+  </div>
+</figure></main>
+</body></html>

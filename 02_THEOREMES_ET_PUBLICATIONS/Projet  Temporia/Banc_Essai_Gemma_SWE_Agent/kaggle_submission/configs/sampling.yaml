@@ -1,0 +1,35 @@
+sampling:
+  temperature: 0.1
+  top_p: 0.95
+  top_k: 40
+  max_output_tokens: 2048
+  repetition_penalty: 1.05
+  stop_sequences:
+    - "<end_of_turn>"
+    - "}"
+  grammar:
+    type: "json_schema"
+    enforce_fst: true
+    schema:
+      type: "object"
+      properties:
+        thought:
+          type: "string"
+        root_cause:
+          type: "string"
+        pole:
+          type: "string"
+          enum: ["SENTINEL_STATE", "ATOMIC_MUTATION", "INVARIANCE_PREDICATE", "STATE_TRANSITION"]
+        patches:
+          type: "array"
+          items:
+            type: "object"
+            properties:
+              file:
+                type: "string"
+              search:
+                type: "string"
+              replace:
+                type: "string"
+            required: ["file", "search", "replace"]
+      required: ["thought", "root_cause", "pole", "patches"]

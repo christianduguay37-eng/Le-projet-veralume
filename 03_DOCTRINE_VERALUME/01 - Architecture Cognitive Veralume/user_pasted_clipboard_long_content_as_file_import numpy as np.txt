@@ -1,0 +1,205 @@
+import numpy as np
+from typing import Dict, Any, Optional
+
+# ==========================================
+# 1. LES INDIVIDUS (Les Nœuds)
+# ==========================================
+class SystemeNode:
+    def __init__(self, dimension: int, nom: str):
+        self.nom = nom
+        self.v3_resultat = np.random.randn(dimension)
+        self.v3_resultat /= np.linalg.norm(self.v3_resultat)
+        self.alternatives_ombre = [np.random.randn(dimension) for _ in range(5)]
+        self.v5_creation = None
+        self.permeabilite_base = 0.5
+        self.permeabilite_actuelle = self.permeabilite_base
+
+    def integrer_relation(self, bilan_relationnel: Dict[str, Any]):
+        if bilan_relationnel["etat"] == "ferme":
+            self._repli_autarcique()
+            return
+
+        diag = bilan_relationnel["diagnostic"]
+        v5 = bilan_relationnel["vecteurs"]["v5_invention"]
+        
+        if diag == "crise_fusion":
+            self.permeabilite_actuelle = max(0.1, self.permeabilite_actuelle - 0.2)
+            if len(self.alternatives_ombre) > 1:
+                self.alternatives_ombre = self.alternatives_ombre[-1:]
+        elif diag == "crise_rupture":
+            self.permeabilite_actuelle = min(0.9, self.permeabilite_actuelle + 0.2)
+            bruit = np.random.randn(len(self.v3_resultat)) * 0.3
+            nouvelle_ombre = self.v3_resultat + bruit
+            nouvelle_ombre /= np.linalg.norm(nouvelle_ombre) + 1e-9
+            self.alternatives_ombre.append(nouvelle_ombre)
+        elif diag == "fertile":
+            self.permeabilite_actuelle += (self.permeabilite_base - self.permeabilite_actuelle) * 0.1
+            self.alternatives_ombre.append(v5)
+            if len(self.alternatives_ombre) > 5:
+                self.alternatives_ombre.pop(0)
+
+        nouveau_moi = (1.0 - self.permeabilite_actuelle) * self.v3_resultat + \
+                      self.permeabilite_actuelle * v5
+        self.v3_resultat = nouveau_moi / (np.linalg.norm(nouveau_moi) + 1e-9)
+        self.v5_creation = v5
+
+    def _repli_autarcique(self):
+        self.v3_resultat += np.random.randn(len(self.v3_resultat)) * 0.01
+        self.v3_resultat /= (np.linalg.norm(self.v3_resultat) + 1e-9)
+
+
+# ==========================================
+# 2. LA RELATION (L'Opérateur R0)
+# ==========================================
+class OperateurR0:
+    """
+    Opérateur relationnel tertiaire.
+    """
+    CHI_INTER_MIN = 0.15      
+    CHI_INTER_MAX = 0.85      
+    ALPHA_WAKE_REL = 0.05     
+    
+    def __init__(self, stric_a, stric_b):
+        self.a = stric_a
+        self.b = stric_b
+        self.residu_commun = []
+        self.historique_joint = []
+        self.v5_inventions = []
+    
+    def ouverture(self, node_a, node_b) -> bool:
+        return (len(node_a.alternatives_ombre) > 0 and 
+                len(node_b.alternatives_ombre) > 0)
+    
+    def v1_joint(self) -> np.ndarray:
+        if not self.residu_commun:
+            ombre_a = np.mean(self.a.alternatives_ombre[-3:], axis=0)
+            ombre_b = np.mean(self.b.alternatives_ombre[-3:], axis=0)
+            joint = 0.5 * ombre_a + 0.5 * ombre_b
+            joint /= np.linalg.norm(joint) + 1e-9
+            self.residu_commun.append(joint)
+            return joint
+            
+        materiel_originel = self.residu_commun[0]
+        etat_courant = self.v5_inventions[-1] if self.v5_inventions else self.residu_commun[-1]
+        
+        nouveau_joint = (1.0 - self.ALPHA_WAKE_REL) * etat_courant + self.ALPHA_WAKE_REL * materiel_originel
+        nouveau_joint /= np.linalg.norm(nouveau_joint) + 1e-9
+        self.residu_commun.append(nouveau_joint)
+        return nouveau_joint
+    
+    def v2_diff(self, v_a, v_b) -> float:
+        na, nb = np.linalg.norm(v_a), np.linalg.norm(v_b)
+        if na < 1e-9 or nb < 1e-9:
+            return 0.0
+        cos_sim = np.dot(v_a, v_b) / (na * nb)
+        dissim = 1.0 - abs(cos_sim)
+        prod_a = 1.0 if self.a.v5_creation is not None else 0.3
+        prod_b = 1.0 if self.b.v5_creation is not None else 0.3
+        productivite = min(prod_a, prod_b)
+        return float(np.clip(dissim * productivite, 0.0, 1.0))
+    
+    def v3_emerg(self, v_a, v_b) -> np.ndarray:
+        proj = np.dot(v_b, v_a) * v_a / (np.dot(v_a, v_a) + 1e-9)
+        orth = v_b - proj
+        norm = np.linalg.norm(orth)
+        if norm < 1e-9:
+            return np.random.randn(len(v_a)) * 0.01
+        return orth / norm
+    
+    def v4_temoignage(self, v3_emerg, node_a, node_b) -> Dict[str, float]:
+        t_a = float(np.dot(node_a.v3_resultat, v3_emerg))
+        t_b = float(np.dot(node_b.v3_resultat, v3_emerg))
+        return {
+            "temoignage_a": t_a,
+            "temoignage_b": t_b,
+            "convergence": abs(t_a - t_b) < 0.3,
+            "divergence": abs(t_a - t_b) > 0.7,
+        }
+    
+    def v5_invent(self, v3_emerg, chi_inter: float) -> np.ndarray:
+        if chi_inter > self.CHI_INTER_MAX:
+            if self.historique_joint:
+                invention_crise = np.mean(self.historique_joint[-3:], axis=0)
+            else:
+                invention_crise = self.residu_commun[-1]
+            invention_crise -= np.random.randn(len(invention_crise)) * 0.02
+            invention_crise /= np.linalg.norm(invention_crise) + 1e-9
+            self.v5_inventions.append(invention_crise)
+            return invention_crise
+
+        if chi_inter < self.CHI_INTER_MIN:
+            bruit_rejet = np.random.randn(len(v3_emerg)) * 0.4 
+            invention_fusion = v3_emerg + bruit_rejet
+            invention_fusion /= np.linalg.norm(invention_fusion) + 1e-9
+            self.v5_inventions.append(invention_fusion)
+            return invention_fusion
+
+        if self.historique_joint:
+            memoire = np.mean(self.historique_joint[-5:], axis=0)
+            invention = 0.7 * v3_emerg + 0.3 * memoire
+        else:
+            invention = v3_emerg
+        
+        bruit = np.random.randn(len(invention)) * 0.05
+        invention += bruit
+        invention /= np.linalg.norm(invention) + 1e-9
+        self.v5_inventions.append(invention)
+        return invention
+    
+    def cycle_relationnel(self, node_a, node_b) -> Dict[str, Any]:
+        if not self.ouverture(node_a, node_b):
+            return {"etat": "ferme", "diagnostic": "opacite_mutuelle"}
+        
+        v1 = self.v1_joint()
+        chi = self.v2_diff(node_a.v3_resultat, node_b.v3_resultat)
+        v3 = self.v3_emerg(node_a.v3_resultat, node_b.v3_resultat)
+        v4 = self.v4_temoignage(v3, node_a, node_b)
+        v5 = self.v5_invent(v3, chi)
+        
+        if chi < self.CHI_INTER_MIN:
+            diagnostic = "crise_fusion"
+        elif chi > self.CHI_INTER_MAX:
+            diagnostic = "crise_rupture"
+        else:
+            diagnostic = "fertile"
+            
+        resultat = {
+            "etat": "ouvert",
+            "diagnostic": diagnostic,
+            "metriques": {"chiralite": chi},
+            "vecteurs": {"v5_invention": v5}
+        }
+        
+        self.historique_joint.append(v3)
+        return resultat
+
+
+# ==========================================
+# 3. LA SIMULATION (Exemple d'utilisation)
+# ==========================================
+if __name__ == "__main__":
+    # On crée deux systèmes avec des vecteurs de dimension 3
+    alice = SystemeNode(dimension=3, nom="Alice")
+    bob = SystemeNode(dimension=3, nom="Bob")
+    
+    # On crée la relation entre eux
+    relation = OperateurR0(alice, bob)
+    
+    print("--- Début de la rencontre ---")
+    
+    # On les fait interagir sur 10 cycles
+    for cycle in range(1, 11):
+        print(f"\nCycle {cycle}:")
+        
+        # 1. La relation évalue l'interaction
+        bilan = relation.cycle_relationnel(alice, bob)
+        
+        print(f"  -> État de la relation : {bilan['diagnostic'].upper()}")
+        print(f"  -> Chiralité (Différence) : {bilan['metriques']['chiralite']:.3f}")
+        
+        # 2. Les individus intègrent le résultat de la relation
+        alice.integrer_relation(bilan)
+        bob.integrer_relation(bilan)
+        
+        print(f"  -> Perméabilité {alice.nom} : {alice.permeabilite_actuelle:.2f}")
+        print(f"  -> Perméabilité {bob.nom} : {bob.permeabilite_actuelle:.2f}")

@@ -1,0 +1,10 @@
+{
+  "projet": "sovereign-dyad-kit",
+  "horodatage": "2026-10-18 19:42:32 UTC",
+  "bouclier_psi_conforme": true,
+  "transmutateur_valide": true,
+  "simplex_w_swarm": 0.5527,
+  "anti_sacrifice": true,
+  "version": "1.0.0",
+  "licence": "MIT"
+}

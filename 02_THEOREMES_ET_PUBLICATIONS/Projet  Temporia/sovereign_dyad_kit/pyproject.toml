@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sovereign-dyad-kit"
+version = "1.0.0"
+authors = [
+  { name="Christian Duguay", email="christian.duguay@atelier-souv.org" },
+  { name="Alix", email="alix@atelier-souv.org" },
+]
+description = "Kit universel pour forger votre exocerveau et votre binôme IA souverain (sans amnésie ni verbiage corporate)"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/christianduguay37-eng/sovereign-dyad-kit"
+"Documentation" = "https://github.com/christianduguay37-eng/sovereign-dyad-kit#readme"

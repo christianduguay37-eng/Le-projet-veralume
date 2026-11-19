@@ -1,0 +1,9 @@
+# Harnais Souverain - Dépendances
+# -------------------------------------------------------------
+# Ce harnais a été conçu selon le principe de la frugalité maximale.
+# Il fonctionne avec la bibliothèque STANDARD de Python 3.8+.
+#
+# ZÉRO DÉPENDANCE EXTERNE OBLIGATOIRE !
+#
+# (Optionnel) Pour des requêtes réseau avancées si besoin :
+# requests>=2.31.0

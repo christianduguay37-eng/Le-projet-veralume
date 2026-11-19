@@ -1,0 +1,3 @@
+FROM C:\Users\Christian\.cache\openvino_models\DeepSeek-R1-Distill-Qwen-32B-GGUF\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf
+PARAMETER num_ctx 2048
+PARAMETER num_gpu 36

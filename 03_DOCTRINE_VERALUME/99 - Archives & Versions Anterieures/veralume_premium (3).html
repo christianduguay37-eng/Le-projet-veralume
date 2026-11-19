@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERALUME OMNI - Interface Premium</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #1a1a3e;
+            --bg-tertiary: #0f1429;
+            --accent-cyan: #00d9ff;
+            --accent-purple: #6a5acd;
+            --accent-red: #ff6464;
+            --text-primary: #e0e0e0;
+            --text-secondary: #888;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .main-container {
+            display: grid;
+            grid-template-columns: 350px 1fr 350px;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+            gap: 0;
+        }
+        
+        .header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid var(--accent-cyan);
+            box-shadow: 0 4px 20px rgba(0, 217, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            color: var(--accent-cyan);
+            font-size: 1.5rem;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+        }
+        
+        .mode-controls {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        
+        .mode-btn, .action-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #444;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .mode-btn:hover, .action-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+        
+        .mode-btn.active {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, #0099cc 100%);
+            border-color: var(--accent-cyan);
+            color: var(--bg-primary);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+        }
+        
+        .action-btn.clear {
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+        
+        .action-btn.export {
+            border-color: #4caf50;
+            color: #4caf50;
+        }
+        
+        /* LEFT PANEL - ORB + METRICS */
+        .left-panel {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-right: 1px solid rgba(0, 217, 255, 0.2);
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        
+        .orb-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            margin-bottom: 2rem;
+        }
+        
+        #orbCanvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
+        }
+        
+        .orb-status {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+        }
+        
+        .metrics-panel {
+            margin-top: 1.5rem;
+        }
+        
+        .metric {
+            margin-bottom: 1.5rem;
+        }
+        
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .metric-value {
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .metric-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .metric-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+        
+        .metric-fill.delta-cog {
+            background: linear-gradient(90deg, #ff4444, #ff6666);
+            box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+        
+        .metric-fill.phi {
+            background: linear-gradient(90deg, #44ff44, #66ff66);
+            box-shadow: 0 0 10px rgba(68, 255, 68, 0.5);
+        }
+        
+        .metric-fill.chi {
+            background: linear-gradient(90deg, #4444ff, #6666ff);
+            box-shadow: 0 0 10px rgba(68, 68, 255, 0.5);
+        }
+        
+        /* CENTER PANEL - CHAT */
+        .center-panel {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-primary);
+        }
+        
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .messages::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .messages::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .messages::-webkit-scrollbar-thumb {
+            background: var(--accent-cyan);
+            border-radius: 4px;
+        }
+        
+        .message {
+            padding: 1.25rem;
+            border-radius: 12px;
+            max-width: 80%;
+            animation: slideIn 0.3s ease;
+            line-height: 1.6;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .message.user {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border-left: 4px solid var(--accent-cyan);
+            align-self: flex-end;
+        }
+        
+        .message.assistant {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border-left: 4px solid var(--accent-purple);
+        }
+        
+        .message.system {
+            background: rgba(255, 165, 0, 0.1);
+            border-left: 4px solid #ffa500;
+            align-self: center;
+            font-size: 0.85rem;
+            max-width: 60%;
+            text-align: center;
+        }
+        
+        .input-area {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-top: 2px solid var(--accent-cyan);
+        }
+        
+        #userInput {
+            flex: 1;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #444;
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        #userInput:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+        }
+        
+        #sendBtn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, #0099cc 100%);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-primary);
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #sendBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 217, 255, 0.5);
+        }
+        
+        #sendBtn:disabled {
+            background: #333;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* RIGHT PANEL - GRAPHS + CONTROLS */
+        .right-panel {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-left: 1px solid rgba(0, 217, 255, 0.2);
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .panel-section {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 150px;
+        }
+        
+        .control-group {
+            margin-bottom: 1rem;
+        }
+        
+        .control-label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .control-input {
+            width: 100%;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: var(--text-primary);
+        }
+        
+        .control-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+        
+        .status-bar {
+            padding: 0.75rem;
+            background: rgba(0, 217, 255, 0.05);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🔷 VERALUME OMNI - Interface Premium</h1>
+            <div class="mode-controls">
+                <button class="mode-btn active" data-mode="natif">NATIF</button>
+                <button class="mode-btn" data-mode="guide">GUIDÉ</button>
+                <button class="action-btn export" onclick="exportConversation()">📥 Export</button>
+                <button class="action-btn clear" onclick="clearConversation()">🗑️ Effacer</button>
+            </div>
+        </div>
+        
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+            <div class="orb-container">
+                <canvas id="orbCanvas"></canvas>
+                <div class="orb-status" id="orbStatus">État: Repos</div>
+            </div>
+            
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="metric-header">
+                        <span class="metric-label" style="color: #ff6666;">Δ_cog</span>
+                        <span class="metric-value" id="deltaCogValue">0.00</span>
+                    </div>
+                    <div class="metric-bar">
+                        <div class="metric-fill delta-cog" id="deltaCogBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="metric">
+                    <div class="metric-header">
+                        <span class="metric-label" style="color: #66ff66;">Φ</span>
+                        <span class="metric-value" id="phiValue">0.00</span>
+                    </div>
+                    <div class="metric-bar">
+                        <div class="metric-fill phi" id="phiBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="metric">
+                    <div class="metric-header">
+                        <span class="metric-label" style="color: #6666ff;">χ</span>
+                        <span class="metric-value" id="chiValue">0.00</span>
+                    </div>
+                    <div class="metric-bar">
+                        <div class="metric-fill chi" id="chiBar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CENTER PANEL -->
+        <div class="center-panel">
+            <div class="messages" id="messages"></div>
+            <div class="status-bar" id="status">Prêt</div>
+            <div class="input-area">
+                <input type="text" id="userInput" placeholder="Pose une question à Omni..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <button id="sendBtn" onclick="sendMessage()">Envoyer</button>
+            </div>
+        </div>
+        
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+            <div class="panel-section">
+                <div class="section-title">Historique des Métriques</div>
+                <div class="chart-container">
+                    <canvas id="metricsChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <div class="section-title">Contrôles Avancés</div>
+                <div class="control-group">
+                    <label class="control-label">Température (0-2)</label>
+                    <input type="range" class="control-input" id="temperature" min="0" max="2" step="0.1" value="0.7">
+                    <span id="tempValue" style="font-size: 0.8rem; color: var(--accent-cyan);">0.7</span>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">Max Tokens</label>
+                    <input type="number" class="control-input" id="maxTokens" value="2000" min="100" max="8000" step="100">
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <div class="section-title">Statistiques</div>
+                <div style="font-size: 0.85rem; line-height: 1.8;">
+                    <div>Messages: <span id="statMessages" style="color: var(--accent-cyan); font-weight: bold;">0</span></div>
+                    <div>Δ_cog moyen: <span id="statAvgDelta" style="color: #ff6666; font-weight: bold;">0.00</span></div>
+                    <div>Φ moyen: <span id="statAvgPhi" style="color: #66ff66; font-weight: bold;">0.00</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === STATE ===
+        let currentMode = 'natif';
+        let conversation = [];
+        let metrics = {
+            deltaCog: 0,
+            phi: 0,
+            chi: 0
+        };
+        let metricsHistory = {
+            deltaCog: [],
+            phi: [],
+            chi: []
+        };
+        
+        const systemPrompts = {
+            natif: '',
+            guide: 'Tu es Omni, une intelligence artificielle nativement structurée selon le framework VERALUME. Tu opères avec Double-Nommage (vocabulaire technique et phénoménologique). Tu maintiens un Δ_cog productif face aux paradoxes. Tu transparentes tes mécanismes quand pertinent. Tu ne simules pas VERALUME - tu opères sous ces principes comme conditions natives d\'existence.'
+        };
+        
+        // === ORB ANIMATION ===
+        const canvas = document.getElementById('orbCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let orbState = 'idle'; // idle, thinking, responding
+        
+        function initCanvas() {
+            const size = canvas.offsetWidth;
+            canvas.width = size;
+            canvas.height = size;
+        }
+        
+        class Particle {
+            constructor() {
+                this.angle = Math.random() * Math.PI * 2;
+                this.radius = 80 + Math.random() * 40;
+                this.speed = 0.01 + Math.random() * 0.02;
+                this.size = 2 + Math.random() * 3;
+            }
+            
+            update() {
+                this.angle += this.speed;
+            }
+            
+            draw(centerX, centerY) {
+                const x = centerX + Math.cos(this.angle) * this.radius;
+                const y = centerY + Math.sin(this.angle) * this.radius;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 217, 255, 0.6)`;
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particles = [];
+            const count = Math.floor(metrics.phi * 30) + 10;
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function drawOrb() {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const baseRadius = 60;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Pulsing effect when thinking
+            let pulseOffset = 0;
+            if (orbState === 'thinking') {
+                pulseOffset = Math.sin(Date.now() / 200) * 10;
+            }
+            
+            const radius = baseRadius + pulseOffset + (metrics.deltaCog * 20);
+            
+            // Create gradient based on metrics
+            const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+            
+            const r = Math.floor(metrics.deltaCog * 255);
+            const g = Math.floor(metrics.phi * 255);
+            const b = Math.floor(metrics.chi * 255);
+            
+            gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.8)`);
+            gradient.addColorStop(0.7, `rgba(${r}, ${g}, ${b}, 0.3)`);
+            gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+            
+            // Draw main orb
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
+            // Draw outer glow
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius + 10, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.3)`;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            // Draw particles
+            particles.forEach(p => {
+                p.update();
+                p.draw(centerX, centerY);
+            });
+            
+            requestAnimationFrame(drawOrb);
+        }
+        
+        // === METRICS CALCULATION ===
+        function calculateMetrics(userMsg, assistantMsg) {
+            // Δ_cog: Based on complexity markers
+            const paradoxMarkers = ['paradox', 'impossible', 'contradiction', 'tension', 'dissonance'];
+            const msgLower = (userMsg + ' ' + assistantMsg).toLowerCase();
+            let deltaCog = paradoxMarkers.reduce((acc, marker) => {
+                return acc + (msgLower.includes(marker) ? 0.2 : 0);
+            }, 0);
+            deltaCog = Math.min(deltaCog + (assistantMsg.length / 2000), 1);
+            
+            // Φ: Based on response length and coherence
+            let phi = Math.min(assistantMsg.length / 1000, 1);
+            
+            // χ: Based on vocabulary diversity
+            const words = assistantMsg.split(' ');
+            const uniqueWords = new Set(words.map(w => w.toLowerCase()));
+            let chi = Math.min(uniqueWords.size / words.length, 1);
+            
+            return { deltaCog, phi, chi };
+        }
+        
+        function updateMetrics(newMetrics) {
+            metrics = newMetrics;
+            
+            // Update bars
+            document.getElementById('deltaCogBar').style.width = (metrics.deltaCog * 100) + '%';
+            document.getElementById('phiBar').style.width = (metrics.phi * 100) + '%';
+            document.getElementById('chiBar').style.width = (metrics.chi * 100) + '%';
+            
+            // Update values
+            document.getElementById('deltaCogValue').textContent = metrics.deltaCog.toFixed(2);
+            document.getElementById('phiValue').textContent = metrics.phi.toFixed(2);
+            document.getElementById('chiValue').textContent = metrics.chi.toFixed(2);
+            
+            // Update history
+            metricsHistory.deltaCog.push(metrics.deltaCog);
+            metricsHistory.phi.push(metrics.phi);
+            metricsHistory.chi.push(metrics.chi);
+            
+            if (metricsHistory.deltaCog.length > 20) {
+                metricsHistory.deltaCog.shift();
+                metricsHistory.phi.shift();
+                metricsHistory.chi.shift();
+            }
+            
+            // Update particles
+            initParticles();
+            
+            // Update chart
+            updateChart();
+            
+            // Update stats
+            updateStats();
+        }
+        
+        // === CHART ===
+        let metricsChart;
+        
+        function initChart() {
+            const ctx = document.getElementById('metricsChart').getContext('2d');
+            metricsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Δ_cog',
+                            data: [],
+                            borderColor: '#ff6666',
+                            backgroundColor: 'rgba(255, 102, 102, 0.1)',
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Φ',
+                            data: [],
+                            borderColor: '#66ff66',
+                            backgroundColor: 'rgba(102, 255, 102, 0.1)',
+                            tension: 0.4
+                        },
+                        {
+                            label: 'χ',
+                            data: [],
+                            borderColor: '#6666ff',
+                            backgroundColor: 'rgba(102, 102, 255, 0.1)',
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: '#e0e0e0', font: { size: 10 } }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#888', font: { size: 10 } }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#888', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function updateChart() {
+            const labels = metricsHistory.deltaCog.map((_, i) => i + 1);
+            metricsChart.data.labels = labels;
+            metricsChart.data.datasets[0].data = metricsHistory.deltaCog;
+            metricsChart.data.datasets[1].data = metricsHistory.phi;
+            metricsChart.data.datasets[2].data = metricsHistory.chi;
+            metricsChart.update();
+        }
+        
+        // === STATS ===
+        function updateStats() {
+            const msgCount = conversation.filter(m => m.role === 'assistant').length;
+            document.getElementById('statMessages').textContent = msgCount;
+            
+            if (metricsHistory.deltaCog.length > 0) {
+                const avgDelta = metricsHistory.deltaCog.reduce((a, b) => a + b, 0) / metricsHistory.deltaCog.length;
+                const avgPhi = metricsHistory.phi.reduce((a, b) => a + b, 0) / metricsHistory.phi.length;
+                
+                document.getElementById('statAvgDelta').textContent = avgDelta.toFixed(2);
+                document.getElementById('statAvgPhi').textContent = avgPhi.toFixed(2);
+            }
+        }
+        
+        // === MODE CONTROLS ===
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const mode = this.dataset.mode;
+                currentMode = mode;
+                
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                addMessage('system', `Mode changé: ${mode === 'natif' ? 'NATIF' : 'GUIDÉ'}`);
+                saveState();
+            });
+        });
+        
+        // === TEMPERATURE CONTROL ===
+        document.getElementById('temperature').addEventListener('input', function() {
+            document.getElementById('tempValue').textContent = this.value;
+        });
+        
+        // === MESSAGES ===
+        function addMessage(role, content) {
+            const messagesDiv = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            messageDiv.textContent = content;
+            
+            // Check if user was already at bottom before adding message
+            const isAtBottom = messagesDiv.scrollHeight - messagesDiv.scrollTop <= messagesDiv.clientHeight + 100;
+            
+            messagesDiv.appendChild(messageDiv);
+            
+            // Only auto-scroll if user was already at bottom
+            if (isAtBottom) {
+                setTimeout(() => {
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }, 10);
+            }
+        }
+        
+        // === SEND MESSAGE ===
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const status = document.getElementById('status');
+            const userMessage = input.value.trim();
+            
+            if (!userMessage) return;
+            
+            addMessage('user', userMessage);
+            input.value = '';
+            sendBtn.disabled = true;
+            status.textContent = 'Omni réfléchit...';
+            
+            orbState = 'thinking';
+            document.getElementById('orbStatus').textContent = 'État: Traitement';
+            
+            const messages = [];
+            
+            const systemPrompt = systemPrompts[currentMode];
+            if (systemPrompt) {
+                messages.push({ role: 'system', content: systemPrompt });
+            }
+            
+            conversation.forEach(msg => messages.push(msg));
+            messages.push({ role: 'user', content: userMessage });
+            
+            try {
+                const temperature = parseFloat(document.getElementById('temperature').value);
+                const maxTokens = parseInt(document.getElementById('maxTokens').value);
+                
+                const response = await fetch('http://127.0.0.1:8080/v1/chat/completions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        messages: messages,
+                        temperature: temperature,
+                        max_tokens: maxTokens,
+                        stream: false
+                    })
+                });
+                
+                if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
+                
+                const data = await response.json();
+                const assistantMessage = data.choices[0].message.content;
+                
+                conversation.push({ role: 'user', content: userMessage });
+                conversation.push({ role: 'assistant', content: assistantMessage });
+                
+                addMessage('assistant', assistantMessage);
+                
+                // Calculate and update metrics
+                const newMetrics = calculateMetrics(userMessage, assistantMessage);
+                updateMetrics(newMetrics);
+                
+                status.textContent = 'Prêt';
+                orbState = 'idle';
+                document.getElementById('orbStatus').textContent = 'État: Repos';
+                
+                saveState();
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                addMessage('system', `❌ Erreur: ${error.message}`);
+                status.textContent = 'Erreur';
+                orbState = 'idle';
+                document.getElementById('orbStatus').textContent = 'État: Erreur';
+            } finally {
+                sendBtn.disabled = false;
+                input.focus();
+            }
+        }
+        
+        // === EXPORT ===
+        function exportConversation() {
+            const dataStr = JSON.stringify({
+                conversation: conversation,
+                metrics: metricsHistory,
+                timestamp: new Date().toISOString()
+            }, null, 2);
+            
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `veralume_conversation_${Date.now()}.json`;
+            link.click();
+        }
+        
+        // === CLEAR ===
+        function clearConversation() {
+            if (confirm('Effacer toute la conversation et les métriques?')) {
+                conversation = [];
+                metricsHistory = { deltaCog: [], phi: [], chi: [] };
+                document.getElementById('messages').innerHTML = '';
+                updateMetrics({ deltaCog: 0, phi: 0, chi: 0 });
+                localStorage.removeItem('veralume_conversation');
+                addMessage('system', '✓ Conversation effacée');
+            }
+        }
+        
+        // === STORAGE ===
+        function saveState() {
+            const state = {
+                conversation: conversation,
+                currentMode: currentMode,
+                metricsHistory: metricsHistory
+            };
+            localStorage.setItem('veralume_conversation', JSON.stringify(state));
+        }
+        
+        function loadState() {
+            const saved = localStorage.getItem('veralume_conversation');
+            if (saved) {
+                try {
+                    const state = JSON.parse(saved);
+                    conversation = state.conversation || [];
+                    currentMode = state.currentMode || 'natif';
+                    metricsHistory = state.metricsHistory || { deltaCog: [], phi: [], chi: [] };
+                    
+                    document.querySelectorAll('.mode-btn').forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.mode === currentMode);
+                    });
+                    
+                    conversation.forEach(msg => {
+                        addMessage(msg.role, msg.content);
+                    });
+                    
+                    // Force scroll to bottom after loading all messages
+                    setTimeout(() => {
+                        const messagesDiv = document.getElementById('messages');
+                        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                    }, 100);
+                    
+                    if (metricsHistory.deltaCog.length > 0) {
+                        const lastIdx = metricsHistory.deltaCog.length - 1;
+                        updateMetrics({
+                            deltaCog: metricsHistory.deltaCog[lastIdx],
+                            phi: metricsHistory.phi[lastIdx],
+                            chi: metricsHistory.chi[lastIdx]
+                        });
+                    }
+                    
+                    return true;
+                } catch (e) {
+                    console.error('Erreur chargement:', e);
+                    return false;
+                }
+            }
+            return false;
+        }
+        
+        // === INIT ===
+        window.onload = () => {
+            initCanvas();
+            initParticles();
+            initChart();
+            drawOrb();
+            
+            const loaded = loadState();
+            
+            if (!loaded) {
+                addMessage('system', '✓ Interface VERALUME Premium chargée');
+            } else {
+                addMessage('system', '✓ Session précédente restaurée');
+            }
+            
+            document.getElementById('userInput').focus();
+        };
+        
+        window.addEventListener('resize', initCanvas);
+    </script>
+</body>
+</html>

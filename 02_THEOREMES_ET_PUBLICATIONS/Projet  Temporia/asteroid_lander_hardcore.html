@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTEROID LANDER // Hardcore Orbital & PID Edition</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+        body {
+            background-color: #020408;
+            color: #d1f7ff;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #game-container {
+            position: relative;
+            border: 2px solid #1a324a;
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.2), inset 0 0 40px rgba(0, 0, 0, 0.9);
+            border-radius: 6px;
+            background: radial-gradient(circle at 50% 50%, #060d18 0%, #010204 100%);
+        }
+        canvas { display: block; }
+        .instructions {
+            margin-top: 8px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #6a92b8;
+            display: flex;
+            gap: 20px;
+        }
+        .key { color: #00f0ff; font-weight: bold; }
+        .badge { color: #ffaa00; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <canvas id="canvas" width="1024" height="700"></canvas>
+</div>
+
+<div class="instructions">
+    <div><span class="key">[▲ / W]</span> Tuyère Principale</div>
+    <div><span class="key">[◀ ▶ / A D]</span> Couple Manuel</div>
+    <div><span class="key">[T]</span> SAS PID : <span class="badge" id="sas-status">STAB RATE</span></div>
+    <div><span class="key">[Z]</span> Aligner Zénith Local</div>
+    <div><span class="key">[ESPACE]</span> Nouveau Monde</div>
+</div>
+
+<script>
+/**
+ * 🪐 HARDCORE ASTEROID LANDER // ATELIER KAIROS × GOOGLE PEER ENGINE
+ * 
+ * 1. Gravité Newtonienne Radiale & Prédiction Orbitale RK2 en temps réel
+ * 2. Surface Polaire Déformable R(θ) en O(1) avec Fusion Thermique des Tuyères
+ * 3. Asservissement PID Réel (Pas d'amortissement de triche, RCS discret sous conservation de L)
+ */
+
+// --- 1. WEB AUDIO API SYNTH ---
+class AudioSubsystem {
+    constructor() {
+        this.ctx = null;
+        this.noiseGain = null;
+        this.rcsGain = null;
+        this.active = false;
+    }
+    init() {
+        if (this.ctx) return;
+        const AC = window.AudioContext || window.webkitAudioContext;
+        this.ctx = new AC();
+
+        // Moteur principal (Bruit blanc filtré passe-bas)
+        const bSize = this.ctx.sampleRate * 2;
+        const b = this.ctx.createBuffer(1, bSize, this.ctx.sampleRate);
+        const data = b.getChannelData(0);
+        for (let i = 0; i < bSize; i++) data[i] = Math.random() * 2 - 1;
+
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = b;
+        noise.loop = true;
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = 380;
+
+        this.noiseGain = this.ctx.createGain();
+        this.noiseGain.gain.setValueAtTime(0, this.ctx.currentTime);
+        noise.connect(filter);
+        filter.connect(this.noiseGain);
+        this.noiseGain.connect(this.ctx.destination);
+        noise.start(0);
+
+        // Bruit RCS (gaz froid à haute fréquence)
+        const rcsFilter = this.ctx.createBiquadFilter();
+        rcsFilter.type = 'bandpass';
+        rcsFilter.frequency.value = 1800;
+        this.rcsGain = this.ctx.createGain();
+        this.rcsGain.gain.setValueAtTime(0, this.ctx.currentTime);
+        noise.connect(rcsFilter);
+        rcsFilter.connect(this.rcsGain);
+        this.rcsGain.connect(this.ctx.destination);
+    }
+    setMainThrust(v) {
+        if (!this.ctx) return;
+        this.noiseGain.gain.setTargetAtTime(v ? 0.22 : 0, this.ctx.currentTime, 0.04);
+    }
+    pulseRCS(active) {
+        if (!this.ctx) return;
+        this.rcsGain.gain.setTargetAtTime(active ? 0.08 : 0, this.ctx.currentTime, 0.015);
+    }
+    crash() {
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const g = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(110, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(15, this.ctx.currentTime + 1.0);
+        g.gain.setValueAtTime(0.4, this.ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 1.0);
+        osc.connect(g);
+        g.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 1.0);
+    }
+    win() {
+        if (!this.ctx) return;
+        [220, 330, 440, 660].forEach((f, i) => {
+            const osc = this.ctx.createOscillator();
+            const g = this.ctx.createGain();
+            const t = this.ctx.currentTime + i * 0.1;
+            osc.frequency.setValueAtTime(f, t);
+            g.gain.setValueAtTime(0.12, t);
+            g.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
+            osc.connect(g);
+            g.connect(this.ctx.destination);
+            osc.start(t);
+            osc.stop(t + 0.35);
+        });
+    }
+}
+const audio = new AudioSubsystem();
+
+// --- 2. TERRAIN POLAIRE THERMO-DÉFORMABLE (Résolution de collision O(1)) ---
+class DeformableAsteroid {
+    constructor(cx, cy, baseRadius, samples = 360) {
+        this.cx = cx;
+        this.cy = cy;
+        this.baseRadius = baseRadius;
+        this.N = samples;
+        this.radii = new Float32Array(samples);
+        this.targetPads = []; // { angle, widthRad, label, scoreMult }
+        this.generate();
+    }
+
+    generate() {
+        this.targetPads = [];
+        // Harmoniques aléatoires pour créer un patatoïde géologique plausible
+        const oct1 = 4 + Math.floor(Math.random() * 3);
+        const oct2 = 8 + Math.floor(Math.random() * 4);
+        const oct3 = 19;
+
+        for (let i = 0; i < this.N; i++) {
+            const th = (i / this.N) * Math.PI * 2;
+            const h = Math.sin(th * oct1) * 24 + Math.sin(th * oct2) * 12 + Math.sin(th * oct3) * 6;
+            this.radii[i] = this.baseRadius + h;
+        }
+
+        // Raboter chirurgicalement deux zones planes pour l'atterrissage
+        this.createPad(Math.PI * 0.25, 0.16, "PAD ALPHA [2X]", 2);
+        this.createPad(Math.PI * 1.30, 0.10, "CRÊTE KAIROS [3X]", 3);
+    }
+
+    createPad(centerAngle, halfWidthRad, label, mult) {
+        const i0 = Math.floor(((centerAngle - halfWidthRad) / (Math.PI * 2)) * this.N);
+        const i1 = Math.ceil(((centerAngle + halfWidthRad) / (Math.PI * 2)) * this.N);
+        const midIdx = Math.floor((centerAngle / (Math.PI * 2)) * this.N);
+        const flatR = this.radii[((midIdx % this.N) + this.N) % this.N];
+
+        for (let i = i0; i <= i1; i++) {
+            const idx = ((i % this.N) + this.N) % this.N;
+            this.radii[idx] = flatR;
+        }
+        this.targetPads.push({ angle: centerAngle, halfWidth: halfWidthRad, r: flatR, label, mult });
+    }
+
+    // Récupère le rayon exact sous un angle arbitraire avec interpolation linéaire en O(1)
+    getRadiusAt(angle) {
+        let normTh = angle % (Math.PI * 2);
+        if (normTh < 0) normTh += Math.PI * 2;
+
+        const u = (normTh / (Math.PI * 2)) * this.N;
+        const i0 = Math.floor(u);
+        const i1 = (i0 + 1) % this.N;
+        const frac = u - i0;
+
+        return this.radii[i0] * (1 - frac) + this.radii[i1] * frac;
+    }
+
+    // Érosion thermique par les tuyères (Craterisation en temps réel)
+    meltSurface(impactX, impactY, thermalEnergy, particles) {
+        const dx = impactX - this.cx;
+        const dy = impactY - this.cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        let angle = Math.atan2(dy, dx);
+        if (angle < 0) angle += Math.PI * 2;
+
+        const surfaceR = this.getRadiusAt(angle);
+        // Si l'impact thermique est dans la couche limite du sol
+        if (Math.abs(dist - surfaceR) < 18) {
+            const centerIdx = Math.round((angle / (Math.PI * 2)) * this.N);
+            const meltSpread = 7; // Dispersion gaussienne sur les nœuds voisins
+
+            for (let k = -meltSpread; k <= meltSpread; k++) {
+                const idx = ((centerIdx + k) % this.N + this.N) % this.N;
+                const weight = Math.exp(-(k * k) / 8);
+                const meltAmount = thermalEnergy * weight * 0.35;
+
+                // Limiter l'érosion au noyau rocheux dur
+                if (this.radii[idx] > this.baseRadius * 0.5) {
+                    this.radii[idx] -= meltAmount;
+                }
+            }
+
+            // Éjection de magma / débris liquides
+            for (let p = 0; p < 2; p++) {
+                const pAng = angle + (Math.random() - 0.5) * 0.8;
+                const pSpeed = 0.8 + Math.random() * 2.2;
+                particles.push(new Particle(
+                    impactX, impactY,
+                    Math.cos(pAng) * pSpeed, Math.sin(pAng) * pSpeed,
+                    '#ff3300', 1.8, 18, 1, true
+                ));
+            }
+        }
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.cx, this.cy);
+
+        // Tracé du manteau rocheux patatoïde
+        ctx.beginPath();
+        for (let i = 0; i <= this.N; i++) {
+            const idx = i % this.N;
+            const th = (idx / this.N) * Math.PI * 2;
+            const r = this.radii[idx];
+            const x = Math.cos(th) * r;
+            const y = Math.sin(th) * r;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+
+        // Intérieur magmatique dense
+        const grad = ctx.createRadialGradient(0, 0, 10, 0, 0, this.baseRadius + 30);
+        grad.addColorStop(0, '#0f1826');
+        grad.addColorStop(0.75, '#070c14');
+        grad.addColorStop(1, '#020509');
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        ctx.strokeStyle = '#296b96';
+        ctx.lineWidth = 2.5;
+        ctx.shadowColor = '#00e1ff';
+        ctx.shadowBlur = 12;
+        ctx.stroke();
+
+        // Mettre en valeur les plateformes d'atterrissage
+        this.targetPads.forEach(pad => {
+            const startTh = pad.angle - pad.halfWidth;
+            const endTh = pad.angle + pad.halfWidth;
+
+            ctx.save();
+            ctx.beginPath();
+            const stepRad = (Math.PI * 2) / this.N;
+            for (let th = startTh; th <= endTh + 0.001; th += stepRad) {
+                const curR = this.getRadiusAt(th);
+                const px = Math.cos(th) * curR;
+                const py = Math.sin(th) * curR;
+                if (th === startTh) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+
+            ctx.strokeStyle = pad.mult === 3 ? '#ffcc00' : '#00ffaa';
+            ctx.lineWidth = 4;
+            ctx.shadowColor = pad.mult === 3 ? '#ffcc00' : '#00ffaa';
+            ctx.shadowBlur = 15;
+            ctx.stroke();
+
+            // Balises radio clignotantes aux extrémités
+            const bX = Math.cos(pad.angle) * (pad.r + 14);
+            const bY = Math.sin(pad.angle) * (pad.r + 14);
+            ctx.fillStyle = pad.mult === 3 ? '#ffcc00' : '#00ffaa';
+            ctx.font = 'bold 9px monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(pad.label, bX, bY);
+            ctx.restore();
+        });
+
+        // Cœur de masse
+        ctx.fillStyle = '#ffaa00';
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.arc(0, 0, 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+    }
+}
+
+// --- 3. SYSTÈME DE CONTRÔLE PID SANS TRICHE POUR LE SAS RCS ---
+class PIDController {
+    constructor(kp, ki, kd) {
+        this.kp = kp;
+        this.ki = ki;
+        this.kd = kd;
+        this.integral = 0;
+        this.lastError = 0;
+    }
+    reset() {
+        this.integral = 0;
+        this.lastError = 0;
+    }
+    compute(target, current, dt) {
+        const error = target - current;
+        this.integral += error * dt;
+        this.integral = Math.max(-1.5, Math.min(1.5, this.integral)); // Anti-windup
+        const derivative = (error - this.lastError) / dt;
+        this.lastError = error;
+        return this.kp * error + this.ki * this.integral + this.kd * derivative;
+    }
+}
+
+// --- 4. PARTICULES ---
+class Particle {
+    constructor(x, y, vx, vy, color, size, life, decay, isEmber = false) {
+        this.x = x; this.y = y; this.vx = vx; this.vy = vy;
+        this.color = color; this.size = size; this.life = life;
+        this.maxLife = life; this.decay = decay; this.isEmber = isEmber;
+    }
+    update() {
+        this.x += this.vx; this.y += this.vy;
+        this.life -= this.decay;
+    }
+    draw(ctx) {
+        const alpha = Math.max(0, this.life / this.maxLife);
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = this.isEmber ? 4 : 8;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+// --- 5. VAISSEAU ORBITAL & DYNAMIQUE DES CORPS RIGIDES ---
+class OrbitalLander {
+    constructor(x, y, asteroid) {
+        this.asteroid = asteroid;
+        this.spawn(x, y);
+        this.I = 4.2; // Moment d'inertie (kg.m²)
+        this.pid = new PIDController(1.8, 0.05, 0.9); // Accordé pour le kill-rate
+        this.sasMode = 'RATE'; // 'OFF', 'RATE', 'ZENITH'
+    }
+
+    spawn(x, y) {
+        this.x = x; this.y = y;
+        // Vélocité orbitale circulaire tangentielle v = sqrt(GM / r)
+        const dx = x - this.asteroid.cx;
+        const dy = y - this.asteroid.cy;
+        const r = Math.sqrt(dx * dx + dy * dy);
+        const GM = 145000;
+        const vOrbit = Math.sqrt(GM / r) * 0.92;
+
+        // Tangente horaire
+        this.vx = -(dy / r) * vOrbit;
+        this.vy = (dx / r) * vOrbit;
+
+        this.angle = Math.atan2(dy, dx) + Math.PI / 2; // Nez orienté prograde
+        this.omega = 0; // Vitesse angulaire (rad/s)
+        this.fuel = 1200;
+        this.state = 'FLYING';
+        this.lastRCS = { left: false, right: false };
+    }
+
+    update(dt, keys, particles) {
+        if (this.state !== 'FLYING') return;
+
+        const dx = this.x - this.asteroid.cx;
+        const dy = this.y - this.asteroid.cy;
+        const r = Math.sqrt(dx * dx + dy * dy);
+
+        // A. GRAVITÉ RADIALE NEWTONIENNE : a = -GM / r² * r_hat
+        const GM = 145000;
+        const gMag = GM / (r * r + 100);
+        const ax_grav = -(dx / r) * gMag;
+        const ay_grav = -(dy / r) * gMag;
+
+        this.vx += ax_grav * dt;
+        this.vy += ay_grav * dt;
+
+        // B. TUYÈRE PRINCIPALE & FUSION THERMIQUE
+        let isMainThrust = false;
+        if (keys.up && this.fuel > 0) {
+            isMainThrust = true;
+            this.fuel = Math.max(0, this.fuel - 1.4);
+            const thrustF = 0.95;
+            const thrustAx = Math.sin(this.angle) * thrustF;
+            const thrustAy = -Math.cos(this.angle) * thrustF;
+
+            this.vx += thrustAx * dt;
+            this.vy += thrustAy * dt;
+
+            // Panache d'éjection thermique
+            const nozDist = 14;
+            const nozX = this.x - Math.sin(this.angle) * nozDist;
+            const nozY = this.y + Math.cos(this.angle) * nozDist;
+
+            const plumeLen = 22;
+            const impactX = nozX - Math.sin(this.angle) * plumeLen;
+            const impactY = nozY + Math.cos(this.angle) * plumeLen;
+
+            // Appel au moteur de fusion thermique sur le terrain !
+            this.asteroid.meltSurface(impactX, impactY, 0.45, particles);
+
+            for (let i = 0; i < 4; i++) {
+                const spread = (Math.random() - 0.5) * 0.4;
+                const pSpeed = 3.5 + Math.random() * 4.5;
+                const pvx = -Math.sin(this.angle + spread) * pSpeed + this.vx * 0.3;
+                const pvy = Math.cos(this.angle + spread) * pSpeed + this.vy * 0.3;
+                particles.push(new Particle(nozX, nozY, pvx, pvy, '#00ffff', 2.0, 22, 1));
+            }
+        }
+        audio.setMainThrust(isMainThrust);
+
+        // C. COUPLE & ASSERVISSEMENT PID RCS (CONSERVATION DU MOMENT CINÉTIQUE)
+        let torque = 0;
+        const rcsPower = 0.28;
+        this.lastRCS = { left: false, right: false };
+
+        if (keys.left && this.fuel > 0) {
+            torque -= rcsPower;
+            this.fuel -= 0.35;
+            this.lastRCS.right = true; // Tuyère droite pousse pour tourner à gauche
+        } else if (keys.right && this.fuel > 0) {
+            torque += rcsPower;
+            this.fuel -= 0.35;
+            this.lastRCS.left = true;
+        } else if (this.sasMode !== 'OFF' && this.fuel > 0) {
+            // ASSERVISSEMENT PID ACTIF
+            let target = 0;
+            let current = this.omega;
+
+            if (this.sasMode === 'ZENITH') {
+                // Aligner le toit du vaisseau avec le vecteur zénith local (opposé au centre astéroïde)
+                const zenithAngle = Math.atan2(dy, dx) + Math.PI / 2;
+                // Calcul du plus court écart angulaire sur le cercle
+                let diff = (zenithAngle - this.angle) % (Math.PI * 2);
+                if (diff < -Math.PI) diff += Math.PI * 2;
+                if (diff > Math.PI) diff -= Math.PI * 2;
+                target = diff * 2.2; // Consigne de vitesse angulaire proportionnelle
+            }
+
+            const pidSignal = this.pid.compute(target, current, dt);
+
+            // Modulation d'impulsion RCS (Deadzone & Bang-Bang discret)
+            if (Math.abs(pidSignal) > 0.04) {
+                if (pidSignal > 0) {
+                    torque += rcsPower * Math.min(1.0, pidSignal);
+                    this.fuel -= 0.25;
+                    this.lastRCS.left = true;
+                } else {
+                    torque -= rcsPower * Math.min(1.0, -pidSignal);
+                    this.fuel -= 0.25;
+                    this.lastRCS.right = true;
+                }
+            }
+        }
+
+        audio.pulseRCS(this.lastRCS.left || this.lastRCS.right);
+
+        // Émission visuelle des micro-jets RCS
+        if (this.lastRCS.left) {
+            const rx = this.x - Math.cos(this.angle) * 9;
+            const ry = this.y - Math.sin(this.angle) * 9;
+            particles.push(new Particle(rx, ry, -Math.cos(this.angle) * 2.5, -Math.sin(this.angle) * 2.5, '#ffffff', 1.2, 8, 1));
+        }
+        if (this.lastRCS.right) {
+            const lx = this.x + Math.cos(this.angle) * 9;
+            const ly = this.y + Math.sin(this.angle) * 9;
+            particles.push(new Particle(lx, ly, Math.cos(this.angle) * 2.5, Math.sin(this.angle) * 2.5, '#ffffff', 1.2, 8, 1));
+        }
+
+        // Lois fondamentales de rotation rigide : dω/dt = τ / I
+        const alpha = torque / this.I;
+        this.omega += alpha * dt;
+        // ZÉRO amortissement magique (omega *= 0.9 banni ! Conservation de L = I*omega)
+        this.angle += this.omega * dt;
+
+        // D. Translation par inertie
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
+    }
+
+    draw(ctx) {
+        if (this.state === 'CRASHED') return;
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+
+        ctx.strokeStyle = '#ffffff';
+        ctx.fillStyle = '#0a1a2b';
+        ctx.lineWidth = 1.8;
+        ctx.shadowColor = '#00f0ff';
+        ctx.shadowBlur = 10;
+
+        // Cellule Apollo-Vector
+        ctx.beginPath();
+        ctx.moveTo(0, -12);
+        ctx.lineTo(8, -4);
+        ctx.lineTo(9, 6);
+        ctx.lineTo(5, 10);
+        ctx.lineTo(-5, 10);
+        ctx.lineTo(-9, 6);
+        ctx.lineTo(-8, -4);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // Hublot de visée
+        ctx.fillStyle = '#00f0ff';
+        ctx.beginPath();
+        ctx.arc(0, -1, 3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Train d'atterrissage
+        ctx.strokeStyle = '#00ffcc';
+        ctx.beginPath();
+        ctx.moveTo(-6, 8); ctx.lineTo(-12, 15); ctx.lineTo(-16, 15);
+        ctx.moveTo(6, 8); ctx.lineTo(12, 15); ctx.lineTo(16, 15);
+        ctx.stroke();
+
+        ctx.restore();
+    }
+}
+
+// --- 6. PRÉDICTEUR D'ORBITE RUNGE-KUTTA EN DIRECT ---
+function drawOrbitPrediction(ctx, lander, asteroid) {
+    if (lander.state !== 'FLYING') return;
+
+    let simX = lander.x;
+    let simY = lander.y;
+    let simVx = lander.vx;
+    let simVy = lander.vy;
+    const simDt = 0.35;
+    const GM = 145000;
+
+    ctx.save();
+    ctx.strokeStyle = 'rgba(0, 240, 255, 0.45)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 6]);
+    ctx.beginPath();
+    ctx.moveTo(simX, simY);
+
+    let impactFound = false;
+
+    for (let s = 0; s < 180; s++) {
+        const dx = simX - asteroid.cx;
+        const dy = simY - asteroid.cy;
+        const r = Math.sqrt(dx * dx + dy * dy);
+
+        // Collision prédictive avec la surface déformée
+        const angle = Math.atan2(dy, dx);
+        const surfaceR = asteroid.getRadiusAt(angle);
+
+        if (r <= surfaceR + 10) {
+            impactFound = true;
+            ctx.lineTo(simX, simY);
+            break;
+        }
+
+        const g = GM / (r * r + 100);
+        simVx += -(dx / r) * g * simDt;
+        simVy += -(dy / r) * g * simDt;
+        simX += simVx * simDt;
+        simY += simVy * simDt;
+
+        ctx.lineTo(simX, simY);
+    }
+    ctx.stroke();
+    ctx.restore();
+
+    // Point d'impact futur
+    if (impactFound) {
+        ctx.save();
+        ctx.fillStyle = '#ff3344';
+        ctx.shadowColor = '#ff3344';
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.arc(simX, simY, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+// --- 7. VÉRIFICATION COLLISION R(θ) EN O(1) ---
+function checkAsteroidCollision(lander, asteroid, particles) {
+    if (lander.state !== 'FLYING') return;
+
+    const dx = lander.x - asteroid.cx;
+    const dy = lander.y - asteroid.cy;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    let angle = Math.atan2(dy, dx);
+    if (angle < 0) angle += Math.PI * 2;
+
+    const groundR = asteroid.getRadiusAt(angle);
+
+    // Si les patins franchissent l'enveloppe
+    if (dist <= groundR + 14) {
+        // Vélocité radiale (v_dot_r) et vélocité tangentielle
+        const r_hat_x = dx / dist;
+        const r_hat_y = dy / dist;
+        const t_hat_x = -r_hat_y;
+        const t_hat_y = r_hat_x;
+
+        const vRadial = lander.vx * r_hat_x + lander.vy * r_hat_y; // positif = s'éloigne, négatif = s'écrase
+        const vTangential = lander.vx * t_hat_x + lander.vy * t_hat_y;
+
+        // Angle d'alignement avec la normale locale (radiale)
+        const localZenith = Math.atan2(dy, dx) + Math.PI / 2;
+        let angleError = (lander.angle - localZenith) % (Math.PI * 2);
+        if (angleError < -Math.PI) angleError += Math.PI * 2;
+        if (angleError > Math.PI) angleError -= Math.PI * 2;
+
+        // Chercher si on touche sur un PAD
+        const activePad = asteroid.targetPads.find(p => {
+            let dTh = Math.abs(angle - p.angle);
+            if (dTh > Math.PI) dTh = Math.PI * 2 - dTh;
+            return dTh <= p.halfWidth;
+        });
+
+        const safeRadial = Math.abs(vRadial) <= 0.65;
+        const safeTangential = Math.abs(vTangential) <= 0.45;
+        const safeAngle = Math.abs(angleError) <= 0.18; // ~10°
+
+        if (activePad && safeRadial && safeTangential && safeAngle) {
+            lander.state = 'LANDED';
+            audio.win();
+            outcomeMessage = {
+                title: "TOUCHDOWN ORBITAL RÉUSSI !",
+                sub: `${activePad.label} — V-RAD: ${(vRadial*10).toFixed(1)} m/s`,
+                color: "#00ffaa"
+            };
+        } else {
+            lander.state = 'CRASHED';
+            audio.crash();
+            for (let i = 0; i < 90; i++) {
+                const ang = Math.random() * Math.PI * 2;
+                const spd = 1.5 + Math.random() * 6;
+                particles.push(new Particle(lander.x, lander.y, Math.cos(ang) * spd, Math.sin(ang) * spd, '#ff4400', 2, 45, 1));
+            }
+            outcomeMessage = {
+                title: "DISLOCATION ORBITALE !",
+                sub: !activePad ? "IMPACT HORS ZONE PLATE" : (!safeRadial ? "V-RADIALE EXCESSIVE" : "ASSIETTE NON ALIGNÉE"),
+                color: "#ff3344"
+            };
+        }
+    }
+}
+
+// --- BOUCLE PRINCIPALE & INITIALISATION ---
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+let asteroid = new DeformableAsteroid(canvas.width / 2, canvas.height / 2, 175, 420);
+let lander = new OrbitalLander(canvas.width / 2, 90, asteroid);
+let particles = [];
+let outcomeMessage = null;
+
+const keys = { up: false, left: false, right: false };
+
+window.addEventListener('keydown', (e) => {
+    audio.init();
+    if (e.code === 'ArrowUp' || e.code === 'KeyW') keys.up = true;
+    if (e.code === 'ArrowLeft' || e.code === 'KeyA') keys.left = true;
+    if (e.code === 'ArrowRight' || e.code === 'KeyD') keys.right = true;
+    if (e.code === 'KeyT') {
+        const modes = ['OFF', 'RATE', 'ZENITH'];
+        const next = (modes.indexOf(lander.sasMode) + 1) % modes.length;
+        lander.sasMode = modes[next];
+        document.getElementById('sas-status').innerText = lander.sasMode;
+    }
+    if (e.code === 'KeyZ') {
+        lander.sasMode = 'ZENITH';
+        document.getElementById('sas-status').innerText = 'ZENITH';
+    }
+    if (e.code === 'Space') {
+        asteroid = new DeformableAsteroid(canvas.width / 2, canvas.height / 2, 175, 420);
+        lander = new OrbitalLander(canvas.width / 2, 90, asteroid);
+        particles = [];
+        outcomeMessage = null;
+    }
+});
+
+window.addEventListener('keyup', (e) => {
+    if (e.code === 'ArrowUp' || e.code === 'KeyW') keys.up = false;
+    if (e.code === 'ArrowLeft' || e.code === 'KeyA') keys.left = false;
+    if (e.code === 'ArrowRight' || e.code === 'KeyD') keys.right = false;
+});
+
+let lastTime = performance.now();
+
+function mainLoop(now) {
+    const dt = Math.min(0.05, (now - lastTime) / 1000 * 60);
+    lastTime = now;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 1. Trace de trajectoire orbitale prédictive
+    drawOrbitPrediction(ctx, lander, asteroid);
+
+    // 2. Mise à jour du vaisseau
+    lander.update(dt, keys, particles);
+
+    // 3. Collision avec le terrain R(θ)
+    checkAsteroidCollision(lander, asteroid, particles);
+
+    // 4. Rendu de l'astéroïde déformé
+    asteroid.draw(ctx);
+
+    // 5. Particules
+    for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw(ctx);
+        if (p.life <= 0) particles.splice(i, 1);
+    }
+
+    // 6. Rendu du vaisseau
+    lander.draw(ctx);
+
+    // 7. Télémétrie Orbitale
+    drawTelemetry(ctx, lander, asteroid);
+
+    // 8. Bilan
+    if (outcomeMessage) {
+        ctx.save();
+        ctx.fillStyle = 'rgba(2, 4, 8, 0.82)';
+        ctx.fillRect(canvas.width / 2 - 260, canvas.height / 2 - 60, 520, 120);
+        ctx.strokeStyle = outcomeMessage.color;
+        ctx.lineWidth = 2;
+        ctx.strokeRect(canvas.width / 2 - 260, canvas.height / 2 - 60, 520, 120);
+        ctx.fillStyle = outcomeMessage.color;
+        ctx.font = 'bold 20px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(outcomeMessage.title, canvas.width / 2, canvas.height / 2 - 15);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '13px monospace';
+        ctx.fillText(outcomeMessage.sub, canvas.width / 2, canvas.height / 2 + 15);
+        ctx.fillStyle = '#00f0ff';
+        ctx.font = '11px monospace';
+        ctx.fillText("[ ESPACE POUR RÉINITIALISER L'ORBITE ]", canvas.width / 2, canvas.height / 2 + 42);
+        ctx.restore();
+    }
+
+    requestAnimationFrame(mainLoop);
+}
+
+function drawTelemetry(ctx, lander, asteroid) {
+    ctx.save();
+    ctx.font = '12px Courier New';
+    ctx.fillStyle = '#6cb7e6';
+
+    const dx = lander.x - asteroid.cx;
+    const dy = lander.y - asteroid.cy;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    let angle = Math.atan2(dy, dx);
+    if (angle < 0) angle += Math.PI * 2;
+    const alt = Math.max(0, dist - asteroid.getRadiusAt(angle) - 14);
+
+    const vTotal = Math.sqrt(lander.vx * lander.vx + lander.vy * lander.vy);
+
+    ctx.fillText(`ALTITUDE : ${(alt * 10).toFixed(0)} m`, 25, 30);
+    ctx.fillText(`V-ORBIT  : ${(vTotal * 50).toFixed(1)} m/s`, 25, 50);
+    ctx.fillText(`OMEGA    : ${(lander.omega * 57.3).toFixed(1)} °/s`, 25, 70);
+
+    // Jauge Fuel
+    ctx.fillText(`FUEL : ${Math.round(lander.fuel)}`, 25, 90);
+
+    // Mode SAS
+    ctx.fillStyle = lander.sasMode === 'OFF' ? '#ff4444' : (lander.sasMode === 'ZENITH' ? '#00ffaa' : '#ffaa00');
+    ctx.fillText(`SAS MODE : [${lander.sasMode}]`, 25, 110);
+
+    ctx.restore();
+}
+
+requestAnimationFrame(mainLoop);
+</script>
+
+</body>
+</html>

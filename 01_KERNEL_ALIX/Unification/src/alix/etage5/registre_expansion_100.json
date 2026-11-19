@@ -1,0 +1,807 @@
+{
+  "socle_origine": 117,
+  "nouveaux_theoremes_total": 100,
+  "total_univers": 217,
+  "theoremes_expansion": [
+    {
+      "id_th": "TH118",
+      "titre": "Loi de THERMO_0_1",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Alpha-0",
+      "generation": 0,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Alpha-0 (Gen 0) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH119",
+      "titre": "Loi de RESONANCE_1_2",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G1_2",
+      "generation": 1,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G1_2 (Gen 1) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH120",
+      "titre": "Loi de TOPOLOGIE_1_3",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G1_3",
+      "generation": 1,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G1_3 (Gen 1) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH121",
+      "titre": "Loi de TOPOLOGIE_2_4",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G2_4",
+      "generation": 2,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G2_4 (Gen 2) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH122",
+      "titre": "Loi de GARDIEN_CYBER_2_5",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G2_5",
+      "generation": 2,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G2_5 (Gen 2) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH123",
+      "titre": "Loi de GARDIEN_CYBER_2_6",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G2_6",
+      "generation": 2,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G2_6 (Gen 2) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH124",
+      "titre": "Loi de THERMO_2_7",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G2_7",
+      "generation": 2,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G2_7 (Gen 2) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH125",
+      "titre": "Loi de GARDIEN_CYBER_3_8",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G3_8",
+      "generation": 3,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G3_8 (Gen 3) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH126",
+      "titre": "Loi de THERMO_3_9",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G3_9",
+      "generation": 3,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G3_9 (Gen 3) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH127",
+      "titre": "Loi de THERMO_3_10",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G3_10",
+      "generation": 3,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G3_10 (Gen 3) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH128",
+      "titre": "Loi de RESONANCE_3_11",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G3_11",
+      "generation": 3,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G3_11 (Gen 3) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH129",
+      "titre": "Loi de THERMO_3_12",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G3_12",
+      "generation": 3,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G3_12 (Gen 3) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH130",
+      "titre": "Loi de RESONANCE_3_13",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G3_13",
+      "generation": 3,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G3_13 (Gen 3) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH131",
+      "titre": "Loi de RESONANCE_3_14",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G3_14",
+      "generation": 3,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G3_14 (Gen 3) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH132",
+      "titre": "Loi de TOPOLOGIE_3_15",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G3_15",
+      "generation": 3,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G3_15 (Gen 3) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH133",
+      "titre": "Loi de THERMO_4_16",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G4_16",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G4_16 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH134",
+      "titre": "Loi de RESONANCE_4_17",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G4_17",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G4_17 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH135",
+      "titre": "Loi de RESONANCE_4_18",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G4_18",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G4_18 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH136",
+      "titre": "Loi de TOPOLOGIE_4_19",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G4_19",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G4_19 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH137",
+      "titre": "Loi de RESONANCE_4_20",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G4_20",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G4_20 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH138",
+      "titre": "Loi de TOPOLOGIE_4_21",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G4_21",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G4_21 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH139",
+      "titre": "Loi de TOPOLOGIE_4_22",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G4_22",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G4_22 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH140",
+      "titre": "Loi de GARDIEN_CYBER_4_23",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G4_23",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G4_23 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH141",
+      "titre": "Loi de RESONANCE_4_24",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G4_24",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G4_24 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH142",
+      "titre": "Loi de TOPOLOGIE_4_25",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G4_25",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G4_25 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH143",
+      "titre": "Loi de TOPOLOGIE_4_26",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G4_26",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G4_26 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH144",
+      "titre": "Loi de GARDIEN_CYBER_4_27",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G4_27",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G4_27 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH145",
+      "titre": "Loi de TOPOLOGIE_4_28",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G4_28",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G4_28 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH146",
+      "titre": "Loi de GARDIEN_CYBER_4_29",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G4_29",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G4_29 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH147",
+      "titre": "Loi de GARDIEN_CYBER_4_30",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G4_30",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G4_30 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH148",
+      "titre": "Loi de THERMO_4_31",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G4_31",
+      "generation": 4,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G4_31 (Gen 4) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH149",
+      "titre": "Loi de RESONANCE_5_32",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G5_32",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G5_32 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH150",
+      "titre": "Loi de TOPOLOGIE_5_33",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G5_33",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G5_33 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH151",
+      "titre": "Loi de TOPOLOGIE_5_34",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G5_34",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G5_34 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH152",
+      "titre": "Loi de GARDIEN_CYBER_5_35",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_35",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_35 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH153",
+      "titre": "Loi de TOPOLOGIE_5_36",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G5_36",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G5_36 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH154",
+      "titre": "Loi de GARDIEN_CYBER_5_37",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_37",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_37 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH155",
+      "titre": "Loi de GARDIEN_CYBER_5_38",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_38",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_38 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH156",
+      "titre": "Loi de THERMO_5_39",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_39",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_39 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH157",
+      "titre": "Loi de TOPOLOGIE_5_40",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G5_40",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G5_40 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH158",
+      "titre": "Loi de GARDIEN_CYBER_5_41",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_41",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_41 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH159",
+      "titre": "Loi de GARDIEN_CYBER_5_42",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_42",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_42 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH160",
+      "titre": "Loi de THERMO_5_43",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_43",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_43 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH161",
+      "titre": "Loi de GARDIEN_CYBER_5_44",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_44",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_44 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH162",
+      "titre": "Loi de THERMO_5_45",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_45",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_45 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH163",
+      "titre": "Loi de THERMO_5_46",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_46",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_46 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH164",
+      "titre": "Loi de RESONANCE_5_47",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G5_47",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G5_47 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH165",
+      "titre": "Loi de TOPOLOGIE_5_48",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G5_48",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G5_48 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH166",
+      "titre": "Loi de GARDIEN_CYBER_5_49",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_49",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_49 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH167",
+      "titre": "Loi de GARDIEN_CYBER_5_50",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_50",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_50 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH168",
+      "titre": "Loi de THERMO_5_51",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_51",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_51 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH169",
+      "titre": "Loi de GARDIEN_CYBER_5_52",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_52",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_52 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH170",
+      "titre": "Loi de THERMO_5_53",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_53",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_53 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH171",
+      "titre": "Loi de THERMO_5_54",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_54",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_54 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH172",
+      "titre": "Loi de RESONANCE_5_55",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G5_55",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G5_55 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH173",
+      "titre": "Loi de GARDIEN_CYBER_5_56",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G5_56",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G5_56 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH174",
+      "titre": "Loi de THERMO_5_57",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_57",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_57 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH175",
+      "titre": "Loi de THERMO_5_58",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_58",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_58 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH176",
+      "titre": "Loi de RESONANCE_5_59",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G5_59",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G5_59 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH177",
+      "titre": "Loi de THERMO_5_60",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G5_60",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G5_60 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH178",
+      "titre": "Loi de RESONANCE_5_61",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G5_61",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G5_61 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH179",
+      "titre": "Loi de RESONANCE_5_62",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G5_62",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G5_62 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH180",
+      "titre": "Loi de TOPOLOGIE_5_63",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G5_63",
+      "generation": 5,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G5_63 (Gen 5) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH181",
+      "titre": "Loi de TOPOLOGIE_6_64",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G6_64",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G6_64 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH182",
+      "titre": "Loi de GARDIEN_CYBER_6_65",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G6_65",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G6_65 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH183",
+      "titre": "Loi de GARDIEN_CYBER_6_66",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G6_66",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G6_66 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH184",
+      "titre": "Loi de THERMO_6_67",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_67",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_67 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH185",
+      "titre": "Loi de GARDIEN_CYBER_6_68",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G6_68",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G6_68 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH186",
+      "titre": "Loi de THERMO_6_69",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_69",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_69 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH187",
+      "titre": "Loi de THERMO_6_70",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_70",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_70 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH188",
+      "titre": "Loi de RESONANCE_6_71",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_71",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_71 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH189",
+      "titre": "Loi de GARDIEN_CYBER_6_72",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G6_72",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G6_72 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH190",
+      "titre": "Loi de THERMO_6_73",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_73",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_73 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH191",
+      "titre": "Loi de THERMO_6_74",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_74",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_74 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH192",
+      "titre": "Loi de RESONANCE_6_75",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_75",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_75 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH193",
+      "titre": "Loi de THERMO_6_76",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_76",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_76 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH194",
+      "titre": "Loi de RESONANCE_6_77",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_77",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_77 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH195",
+      "titre": "Loi de RESONANCE_6_78",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_78",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_78 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH196",
+      "titre": "Loi de TOPOLOGIE_6_79",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G6_79",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G6_79 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH197",
+      "titre": "Loi de GARDIEN_CYBER_6_80",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G6_80",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G6_80 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH198",
+      "titre": "Loi de THERMO_6_81",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_81",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_81 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH199",
+      "titre": "Loi de THERMO_6_82",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_82",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_82 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH200",
+      "titre": "Loi de RESONANCE_6_83",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_83",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_83 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH201",
+      "titre": "Loi de THERMO_6_84",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_84",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_84 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH202",
+      "titre": "Loi de RESONANCE_6_85",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_85",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_85 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH203",
+      "titre": "Loi de RESONANCE_6_86",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_86",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_86 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH204",
+      "titre": "Loi de TOPOLOGIE_6_87",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G6_87",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G6_87 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH205",
+      "titre": "Loi de THERMO_6_88",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_88",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_88 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH206",
+      "titre": "Loi de RESONANCE_6_89",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_89",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_89 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH207",
+      "titre": "Loi de RESONANCE_6_90",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_90",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_90 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH208",
+      "titre": "Loi de TOPOLOGIE_6_91",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G6_91",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G6_91 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH209",
+      "titre": "Loi de RESONANCE_6_92",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_92",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_92 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH210",
+      "titre": "Loi de TOPOLOGIE_6_93",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G6_93",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G6_93 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH211",
+      "titre": "Loi de TOPOLOGIE_6_94",
+      "domaine": "Topologie Simpliciale des Essaims Stigmergiques",
+      "decouvreur": "Agent_G6_94",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Topologie Simpliciale des Essaims Stigmergiques', l'agent Agent_G6_94 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH212",
+      "titre": "Loi de GARDIEN_CYBER_6_95",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G6_95",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G6_95 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH213",
+      "titre": "Loi de GARDIEN_CYBER_6_96",
+      "domaine": "Cybernétique des Défenses & Intégrité du Gardien",
+      "decouvreur": "Agent_G6_96",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Cybernétique des Défenses & Intégrité du Gardien', l'agent Agent_G6_96 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH214",
+      "titre": "Loi de THERMO_6_97",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_97",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_97 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH215",
+      "titre": "Loi de THERMO_6_98",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_98",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_98 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH216",
+      "titre": "Loi de RESONANCE_6_99",
+      "domaine": "Résonance Bilatérale & Loquets Chégaux",
+      "decouvreur": "Agent_G6_99",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Résonance Bilatérale & Loquets Chégaux', l'agent Agent_G6_99 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    },
+    {
+      "id_th": "TH217",
+      "titre": "Loi de THERMO_6_100",
+      "domaine": "Thermodynamique de la Finitude & Entropie du Vivant",
+      "decouvreur": "Agent_G6_100",
+      "generation": 6,
+      "enonce": "Dans le domaine 'Thermodynamique de la Finitude & Entropie du Vivant', l'agent Agent_G6_100 (Gen 6) démontre la convergence des loquets sous mémoire stigmergique partagée."
+    }
+  ]
+}

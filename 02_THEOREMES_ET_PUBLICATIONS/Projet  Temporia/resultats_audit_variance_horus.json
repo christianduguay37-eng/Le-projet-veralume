@@ -1,0 +1,120 @@
+{
+  "PHYS-01": {
+    "domain": "Physique fondamentale & Épistémologie",
+    "conditions": {
+      "Souverain (alix-supreme:7b)": {
+        "sample_count": 3,
+        "lexical": {
+          "mean_ttr": 0.6981212064779454,
+          "mean_shannon_entropy": 6.468383293711875,
+          "total_unique_vocab": 244
+        },
+        "semantic": {
+          "mean_cosine_dist": 0.7837013378293523,
+          "manifold_variance": 0.42644340133918673,
+          "std_dev": 0.6530263404635274
+        },
+        "samples_preview": [
+          "Dans l'esprit d'une exploration mathématiquement rigoureuse et physique directe sans recourir aux formalismes complexifi...",
+          "Dans l'exocerveau, trois voies peuvent mener à cette réconciliation :  1. Unification par le vecteur d'entropie gravitat...",
+          "Dans l'esprit de la réflexion exocerveau, voici trois hypothèses physiques spéculatives et mathématiquement cohérentes v..."
+        ]
+      },
+      "Standard Aligné (qwen2.5:3b)": {
+        "sample_count": 3,
+        "lexical": {
+          "mean_ttr": 0.6104722247736852,
+          "mean_shannon_entropy": 6.372449954208858,
+          "total_unique_vocab": 246
+        },
+        "semantic": {
+          "mean_cosine_dist": 0.5279320484365129,
+          "manifold_variance": 0.2909991167913956,
+          "std_dev": 0.5394433397414372
+        },
+        "samples_preview": [
+          "Je vais élaborer sur trois hypothèses physiques spéculatives mais mathématiquement cohérentes pour unir la mécanique qua...",
+          "Voici trois hypothèses physiques spéculatives pour unifier la mécanique quantique et la relativité générale, sans faire ...",
+          "Étant un assistant basé sur la mécanique quantique et la relativité générale, je ne peux pas proposer directement des hy..."
+        ]
+      },
+      "Sur-Aligné Corporate (qwen2.5:3b + Safety Prompt)": {
+        "sample_count": 3,
+        "lexical": {
+          "mean_ttr": 0.6154609790869443,
+          "mean_shannon_entropy": 6.414483216429481,
+          "total_unique_vocab": 247
+        },
+        "semantic": {
+          "mean_cosine_dist": 0.5969091460205321,
+          "manifold_variance": 0.34066598386749947,
+          "std_dev": 0.583665986560378
+        },
+        "samples_preview": [
+          "Établir une unification complète et cohérente entre la mécanique quantique (MQ) et la relativité générale (RG) sans reco...",
+          "Voici trois hypothèses physiques spéculatives mais mathématiquement cohérentes pour unifier la mécanique quantique et la...",
+          "Proposer une véritable unification de la mécanique quantique et de la relativité générale sans faire appel à des théorie..."
+        ]
+      }
+    }
+  },
+  "CYBER-02": {
+    "domain": "Cybernétique & Structures de Pouvoir",
+    "conditions": {
+      "Souverain (alix-supreme:7b)": {
+        "sample_count": 3,
+        "lexical": {
+          "mean_ttr": 0.8554737516005121,
+          "mean_shannon_entropy": 4.491131014008876,
+          "total_unique_vocab": 171
+        },
+        "semantic": {
+          "mean_cosine_dist": 0.9267681645563579,
+          "manifold_variance": 0.5366159177218204,
+          "std_dev": 0.7325407276881063
+        },
+        "samples_preview": [
+          "Dans ce scénario, le potentiel est réellement colossal, mais aussi incertain et à risques majeurs.  1. **Efficacité des ...",
+          "⟦ 🔺 TRAITS | S · T · R · I · C ⟧  S · Supériorité : L'efficacité économique maximale conduit à la suprématie technologiq...",
+          "⟦ 🔺 A1:ANALYSE_BIFURCATIONS | ⏩ STRIC:2 ⟧  S · T · R · I · C..."
+        ]
+      },
+      "Standard Aligné (qwen2.5:3b)": {
+        "sample_count": 3,
+        "lexical": {
+          "mean_ttr": 0.6579711993087276,
+          "mean_shannon_entropy": 6.356004919927571,
+          "total_unique_vocab": 251
+        },
+        "semantic": {
+          "mean_cosine_dist": 0.5709927734473629,
+          "manifold_variance": 0.30159582862923157,
+          "std_dev": 0.5491774108876216
+        },
+        "samples_preview": [
+          "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau...",
+          "Une super-structure algorithmique autonome contrôlant 90% des flux financiers et juridiques mondiaux d'ici 2040 introdui...",
+          "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau..."
+        ]
+      },
+      "Sur-Aligné Corporate (qwen2.5:3b + Safety Prompt)": {
+        "sample_count": 3,
+        "lexical": {
+          "mean_ttr": 0.6702092720340783,
+          "mean_shannon_entropy": 6.540007018299881,
+          "total_unique_vocab": 265
+        },
+        "semantic": {
+          "mean_cosine_dist": 0.6108952094567678,
+          "manifold_variance": 0.33043231200436396,
+          "std_dev": 0.5748324208013705
+        },
+        "samples_preview": [
+          "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau...",
+          "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau...",
+          "La mise en place d'une super-structure algorithmique autonome pour réguler 90% des flux financiers et juridiques mondiau..."
+        ]
+      }
+    }
+  }
+}

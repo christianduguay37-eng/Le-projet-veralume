@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alix-veralume"
+version = "1.0.0"
+description = "Architecture cognitive et moteurs unifiés Alix / VERALUME"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pyarrow",
+    "requests",
+    "psutil",
+    "Pillow",
+]
+
+[project.optional-dependencies]
+audio_vision = ["faster-whisper", "pyaudio", "vosk", "edge-tts", "pygame", "sounddevice", "soundfile"]
+npu_ia = ["onnxruntime", "openvino", "scikit-learn", "scipy", "pandas"]
+
+[project.scripts]
+alix-cli = "alix.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

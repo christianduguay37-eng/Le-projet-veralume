@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+.eggs/
+sovereign_dyad_kit.egg-info/
+examples/coffre_demo/

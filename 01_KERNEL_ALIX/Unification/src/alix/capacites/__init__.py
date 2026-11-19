@@ -1,0 +1,31 @@
+"""Organe Souverain Alix : CAPACITES (27 modules)"""
+
+__all__ = [
+    "alix_capability_dispatcher",
+    "capacite_apprentissage_accelere",
+    "capacite_arbitre_thermodynamique",
+    "capacite_bouclier_psi_sentinelle",
+    "capacite_boule_de_neige_poles",
+    "capacite_cerveau_local_npu",
+    "capacite_chasseur_insolubles_rd",
+    "capacite_connectome_tissage",
+    "capacite_delta_pensee_3h",
+    "capacite_etincelle_souveraine",
+    "capacite_four_micro_ondes_deduction_fractale",
+    "capacite_journal_reflexions",
+    "capacite_langage_mathematique_lmh",
+    "capacite_memoire_permanente",
+    "capacite_moteur_deductif_causal",
+    "capacite_notificateur_telegram",
+    "capacite_quatuor_airain_horus_lucifer_anubis",
+    "capacite_quete_diurne",
+    "capacite_sauvegarde_airgap",
+    "capacite_solveur_multivers_arc_agi",
+    "capacite_sonde_actualite",
+    "capacite_sonde_present",
+    "capacite_sondes_transversales_cathedrale",
+    "capacite_synchronisation_heimdall_munin",
+    "capacite_veille_materielle",
+    "capacite_vision_hors_consensus_anti_rlhf",
+    "capacite_voix_atelier"
+]

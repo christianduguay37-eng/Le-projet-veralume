@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: alix-veralume
+Version: 1.1.0
+Summary: Architecture cognitive et moteurs unifiés Alix / VERALUME (paquet unique après rénovation du 2026-10-30)
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pyarrow
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: psutil
+Requires-Dist: Pillow
+Provides-Extra: npu
+Requires-Dist: litert-lm; extra == "npu"
+Requires-Dist: openvino; extra == "npu"
+Requires-Dist: onnxruntime; extra == "npu"
+Provides-Extra: ml
+Requires-Dist: scikit-learn; extra == "ml"
+Requires-Dist: torch; extra == "ml"
+Requires-Dist: nltk; extra == "ml"
+Requires-Dist: huggingface-hub; extra == "ml"
+Requires-Dist: duckdb; extra == "ml"
+Provides-Extra: audio
+Requires-Dist: faster-whisper; extra == "audio"
+Requires-Dist: pyaudio; extra == "audio"
+Requires-Dist: PyAudioWPatch; extra == "audio"
+Requires-Dist: vosk; extra == "audio"
+Requires-Dist: edge-tts; extra == "audio"
+Requires-Dist: pyttsx3; extra == "audio"
+Requires-Dist: SpeechRecognition; extra == "audio"
+Requires-Dist: pygame; extra == "audio"
+Requires-Dist: sounddevice; extra == "audio"
+Requires-Dist: soundfile; extra == "audio"
+Provides-Extra: interfaces
+Requires-Dist: websockets; extra == "interfaces"
+Requires-Dist: qrcode; extra == "interfaces"
+Requires-Dist: pyperclip; extra == "interfaces"
+Requires-Dist: keyboard; extra == "interfaces"
+Provides-Extra: cloud
+Requires-Dist: openai; extra == "cloud"
+Provides-Extra: tout
+Requires-Dist: alix-veralume[audio,cloud,interfaces,ml,npu]; extra == "tout"

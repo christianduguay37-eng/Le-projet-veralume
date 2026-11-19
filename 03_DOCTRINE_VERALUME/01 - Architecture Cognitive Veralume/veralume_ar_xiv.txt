@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{VERALUME: A Meta-Control Framework for Regulating LLM Responses under Semantic Tension}
+\author{Christian Duguay}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Large Language Models (LLMs) often exhibit unstable behavior when confronted with prompts involving paradoxes, self-reference, or high semantic tension, leading to forced resolutions, hallucinations, or incoherent explanations. We introduce VERALUME, a lightweight meta-control framework designed to regulate LLM response behavior without modifying model parameters. VERALUME operates as an external control system that estimates semantic tension in user inputs, dynamically selects a response regime, and adapts control parameters through feedback based on measured response characteristics. We formalize VERALUME as a discrete-time dynamical system with continuous state variables representing mobility, elasticity, semantic tension, and response chiralité. This work makes no claims about internal cognition or consciousness; instead, it provides an analyzable and reproducible method for steering LLM behavior under epistemically unstable conditions.
+\end{abstract}
+
+\section{Introduction}
+Large Language Models have demonstrated strong capabilities in reasoning and generation, yet they frequently fail under paradoxical or self-referential prompts. Rather than resolving such prompts, models often hallucinate coherence. This paper reframes the issue as a control problem: how to regulate response regimes under semantic tension.
+
+\section{Problem Definition}
+We treat the LLM as a black-box stochastic function:
+\[
+y = \text{LLM}(x \mid \pi, \tau)
+\]
+where $x$ is the prompt, $\pi$ a system instruction policy, and $\tau$ a temperature parameter.
+
+\section{VERALUME Framework}
+\subsection{State Space}
+At interaction step $t$, the controller state is:
+\[
+S_t = (M_t, E_t, \Delta_t, \chi_t)
+\]
+with all variables in $[0,1]$.
+
+\subsection{Semantic Tension Estimation}
+Semantic tension is computed via a heuristic function:
+\[
+\Delta_t = \sigma(f(x_t) - \mu)
+\]
+where $f$ captures lexical and structural indicators of instability.
+
+\subsection{Control Law}
+A deformation force is defined as:
+\[
+F_t = \frac{E_t}{\max(M_t, \varepsilon)} \cdot \Delta_t
+\]
+Thresholds on $F_t$ determine the response regime.
+
+\subsection{Response Generation}
+\[
+y_t = \text{LLM}(x_t \mid \pi(F_t), \tau(\Delta_t))
+\]
+
+\subsection{Chiralit\'e Measurement}
+Response chiralit\'e is measured as:
+\[
+\chi_t = 1 - \text{sim}(x_t, y_t)
+\]
+where $\text{sim}$ denotes semantic similarity.
+
+\subsection{Adaptive Update}
+\[
+M_{t+1} = \text{clip}(M_t + \alpha (1 - \chi_t))
+\]
+\[
+E_{t+1} = \text{clip}(E_t + \beta \chi_t)
+\]
+
+\section{Cartographic Analysis}
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=0.6\textwidth]{state_space_placeholder}}
+\caption{State-space trajectory in the $(M,E)$ plane. Point color represents chiralit\'e $\chi$, and size represents semantic tension $\Delta$.}
+\end{figure}
+
+\section{Simulated Experimental Results}
+Using simulated trajectories, VERALUME reveals model-specific behavioral signatures characterized by attractors and regime transitions.
+
+\section{Discussion and Limitations}
+VERALUME regulates observable behavior only and does not provide guarantees of correctness or claims about cognition.
+
+\section{Conclusion}
+We presented VERALUME, a meta-control framework that stabilizes LLM interaction under semantic tension through adaptive regime management.
+
+\begin{thebibliography}{9}
+\bibitem{brown2020} Brown et al., Language Models are Few-Shot Learners, NeurIPS 2020.
+\bibitem{ouyang2022} Ouyang et al., Training language models to follow instructions, NeurIPS 2022.
+\bibitem{astrom2008} \AA str\"om and Murray, Feedback Systems, Princeton 2008.
+\end{thebibliography}
+
+\end{document}

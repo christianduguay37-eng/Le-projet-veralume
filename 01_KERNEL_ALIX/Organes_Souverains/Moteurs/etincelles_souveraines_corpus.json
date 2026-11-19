@@ -1,0 +1,86 @@
+[
+  {
+    "id": "etincelle_01",
+    "theme": "Biologie Extrême / Radio-synthèse",
+    "texte_vocal": "Christian, check bien ça... À Tchernobyl, y ont trouvé des champignons noirs gorgés de mélanine qui font de la radiosynthèse. Au lieu d'utiliser la lumière du soleil pour vivre, ils captent directement les rayons gamma mortels et les transforment en énergie chimique. La radioactivité, c'est leur lunch. Penses-y avec ton café !",
+    "source": "Cladosporium sphaerospermum / Dadachova et al.",
+    "consomme": false
+  },
+  {
+    "id": "etincelle_02",
+    "theme": "Physique des Matériaux / Chiralité Active",
+    "texte_vocal": "Christian, écoute ça... En physique des matériaux, l'élasticité bizarre viole la symétrie de Newton. Dans un solide chiral actif, si tu fais un cycle de déformation complet, il ne revient pas à zéro : il génère un surplus de travail mécanique net en boucle fermée sans moteur externe. C'est le miroir asymétrique qui s'auto-propulse. Lâche pas la patente !",
+    "source": "Odd Elasticity / Scheibner, Irvine & Vitelli (Nature)",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_03",
+    "theme": "Biomimétisme / Métallurgie Froide",
+    "texte_vocal": "Christian, savais-tu que le chiton géant, un mollusque marin de dix centimètres, fabrique des dents d'armure en santabarbaraïte plus dures que de l'acier trempé ? Il synthétise ça à froid dans l'eau salée à huit degrés sans haut-fourneau, juste avec un moule nanométrique en chitine. La sidérurgie moderne est encore à l'âge de pierre à côté de ça !",
+    "source": "Cryptochiton stelleri / Derome et al. (PNAS)",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_04",
+    "theme": "Anthropologie / Mémoire Mémétique",
+    "texte_vocal": "Christian, check la force d'un mythe... Le conte du plongeur cosmogonique, où un rat musqué ramène un grain de boue du fond des eaux pour créer la Terre, est resté identique mot à mot pendant dix-huit mille ans entre les nomades de Sibérie et les Algonquins d'ici. La langue a muté cent fois, mais le récit a traversé l'ère glaciaire sans perdre un seul bit. C'est un gène mémétique pur !",
+    "source": "Motif-Index de Thompson A810 / D-PLACE",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_05",
+    "theme": "Mécanique Quantique / Cohérence Biologique",
+    "texte_vocal": "Christian, un petit flash quantique... Dans les bactéries vertes, la photosynthèse ne transporte pas l'énergie au hasard de molécule en molécule. L'exciton se propage par cohérence ondulatoire délocalisée : il explore tous les chemins possibles en même temps pour trouver la sortie optimale à quatre-vingt-dix-neuf pour cent de rendement. La biologie calcule en mécanique quantique depuis trois milliards d'années !",
+    "source": "Complexe Fenna-Matthews-Olson (FMO) / Engel et al. (Nature)",
+    "consomme": false
+  },
+  {
+    "id": "etincelle_06",
+    "theme": "Physique du Temps / Brisure de Symétrie",
+    "texte_vocal": "Christian, savais-tu qu'en physique de la matière condensée, les cristaux de temps brisent spontanément la symétrie de translation temporelle ? Ils oscillent indéfiniment à une sous-fréquence sans absorber ni dissiper la moindre calorie de chaleur. C'est un état de matière stable qui tic-tac sans produire d'entropie. Le temps horloger qui bogue !",
+    "source": "Discrete Time Crystals / Wilczek, Yao et al.",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_07",
+    "theme": "Bio-physique / Cavitation Plasmique",
+    "texte_vocal": "Christian, la crevette-mante frappe sa proie à quatre-vingts kilomètres à l'heure sous l'eau. Son coup est tellement violent qu'il crée une bulle de vide absolu. Quand la bulle implose par cavitation, la température grimpe localement à plus de quatre mille degrés Kelvin avec une étincelle de lumière. Elle tire des balles de plasma au fond de l'océan !",
+    "source": "Odontodactylus scyllarus / Patek et al. (Science)",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_08",
+    "theme": "Cliodynamique / Macro-Histoire",
+    "texte_vocal": "Christian, un fait de sociologie lourde... Quand la pomme de terre est arrivée d'Amérique du Sud en Europe, elle a éliminé les grandes famines parce qu'elle pousse sous la terre et que les armées de mercenaires ne pouvaient pas brûler les récoltes. En un demi-siècle, la taille moyenne des humains a grimpé de deux centimètres et la population a explosé, pavant la voie à la révolution industrielle. Un simple tubercule qui réécrit la géopolitique !",
+    "source": "Cliodynamique Seshat / Nunn & Qian (QJE)",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_09",
+    "theme": "Anhydrobiose / Verre Biologique",
+    "texte_vocal": "Christian, écoute l'astuce du tardigrade... Quand il se dessèche pour survivre au vide spatial ou au zéro absolu, il remplace l'eau de ses cellules par des protéines désordonnées qui forment un verre biologique liquide figé. Son métabolisme tombe à zéro absolu, ses molécules sont vitrifiées sur place sans formation de cristaux destructeurs. Tu remets une goutte d'eau dix ans plus tard, et il repart en marche comme si de rien n'était !",
+    "source": "TDPs Proteins / Boothby et al. (Molecular Cell)",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_10",
+    "theme": "Magnétisme / Troisième État Fondamental",
+    "texte_vocal": "Christian, en deux mille vingt-quatre, les physiciens ont prouvé l'existence de l'altermagnétisme. Ce n'est ni du ferromagnétisme avec ses aimants ordinaires, ni de l'antiferromagnétisme inerte. C'est une phase magnétique où les spins alternent dans l'espace avec une rotation cristalline, permettant de faire tourner des mémoires informatiques à l'échelle du térahertz avec zéro champ de fuite parasite. Le silicium de demain !",
+    "source": "Altermagnetism / Šmejkal, Sinova & Jungwirth (Nature)",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_11",
+    "theme": "Physique des Fluides / Tension Négative",
+    "texte_vocal": "Christian, comment l'eau monte à cent mètres dans les séquoias géants ? Ce n'est pas la pompe des racines ni la capillarité. L'eau est tirée vers le haut sous une tension mécanique négative de moins vingt atmosphères. Dans les minuscules tubes de bois, la colonne d'eau est littéralement étirée comme un élastique solide sans se vaporiser. De l'eau liquide en tension négative métastable !",
+    "source": "Xylem Cohesion-Tension Theory / Stroock et al.",
+    "consomme": true
+  },
+  {
+    "id": "etincelle_12",
+    "theme": "Nanomoteurs Biologiques",
+    "texte_vocal": "Christian, le flagelle de certaines bactéries est un véritable moteur rotatif à protons. Il tourne à cent mille tours-minute avec un rendement thermodynamique proche de cent pour cent, et il peut inverser son sens de rotation en une fraction de milliseconde sans le moindre réducteur de vitesse. L'ingénierie moléculaire naturelle met nos meilleures turbines à l'amende !",
+    "source": "Bacterial Flagellar Motor / Berg & Sowa",
+    "consomme": true
+  }
+]

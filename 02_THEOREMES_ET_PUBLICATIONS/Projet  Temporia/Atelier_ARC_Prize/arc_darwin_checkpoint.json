@@ -1,0 +1,26 @@
+{
+  "version": "1.0_unifie",
+  "horodatage_debut": "2026-10-23 12:08:50",
+  "derniere_mise_a_jour": "2026-10-23 12:08:56",
+  "dernier_index_traite": 7,
+  "derniere_tache_id": "05f2a901",
+  "taches_resolues_directes": [
+    "007bbfb7",
+    "00d62c1b",
+    "017c7c7b",
+    "025d127b",
+    "045e512c",
+    "0520fde7",
+    "05269061",
+    "05f2a901"
+  ],
+  "taches_resolues_darwin": [],
+  "taches_en_echec": [],
+  "statistiques": {
+    "total_taches_evaluees": 8,
+    "succes_direct": 8,
+    "succes_darwin": 0,
+    "echecs": 0,
+    "temps_cumule_sec": 0.05686939996667206
+  }
+}

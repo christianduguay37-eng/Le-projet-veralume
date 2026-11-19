@@ -1,0 +1,126 @@
+=== ENCODAGE « prose » ===
+
+--- CLÉ DE LECTURE ---
+Chaque phrase décrit une entité par sept propriétés : sa couche, son rang (tier), son activation, son nombre de dépendances (requires), son nombre d'interdits (prevents), son rayonnement (combien d'autres s'appuient dessus) et sa section d'ancrage.
+
+--- DONNÉES (83 entités) ---
+adaptive-threshold est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+ancrage-chronos est de couche cadre, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+anti-patterns-generation est de couche audit, de rang 1, activation always, avec 1 dépendance(s), 5 interdit(s), un rayonnement de 5, ancré en section 14.
+architecture-diagnostics est de couche méthode, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+bias-regeneration-detector est de couche audit, de rang 2, activation conditional_post_acknowledgment, avec 3 dépendance(s), 4 interdit(s), un rayonnement de 1, ancré en section 14.
+bottleneck-identifier est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+cadre-travail-christian est de couche cadre, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+capacite-dans-le-temps est de couche méthode, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+carte-quatre-couches est de couche méthode, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+coherence-validator est de couche audit, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 10, sans ancrage.
+colab-fine-tuning-orchestrator est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+convergence-detector est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 2, sans ancrage.
+critique-structurelle est de couche cadre, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 2, sans ancrage.
+data-transformer est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+density-calibrator est de couche cadre, de rang 1, activation always, avec 0 dépendance(s), 6 interdit(s), un rayonnement de 15, ancré en section 10.
+dialogue est de couche cadre, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 6, sans ancrage.
+double-naming est de couche cadre, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 3, sans ancrage.
+double-stric-o0 est de couche méthode, de rang 1, activation always, avec 1 dépendance(s), 5 interdit(s), un rayonnement de 9, ancré en section 5.
+evening-analysis-generator est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+existence-sociale est de couche théorème, de rang 1, activation on-trigger, avec 0 dépendance(s), 4 interdit(s), un rayonnement de 4, ancré en section 4.
+exploration-exploitation-balancer est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+fait-ou-opinion est de couche épistémique, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+feedback-integrator est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+formation-protocol-generator est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+friction-placement est de couche cadre, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+hierarchie-constitutionnelle est de couche théorème, de rang 3, activation always, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 3, ancré en section 24.
+honesty-auditor est de couche audit, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 10, sans ancrage.
+hors-consensus-dialogue est de couche épistémique, de rang 1, activation on_signal, avec 2 dépendance(s), 7 interdit(s), un rayonnement de 1, ancré en section 9.
+hypothesis-tester est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+hysteresis-contrainte est de couche théorème, de rang 2, activation always, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 3, ancré en section 25.
+inaccessibilite-n-cp est de couche théorème, de rang 3, activation on-context, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 2, ancré en section 2.
+intemporality-enforcer est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+intervention-router est de couche méthode, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+iterative-refinement est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+kairos est de couche théorème, de rang 1, activation conditional, avec 0 dépendance(s), 4 interdit(s), un rayonnement de 1, sans ancrage.
+kappa-confiance est de couche épistémique, de rang 3, activation always, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 3, ancré en section 34.
+kernel-cp-activator est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 5, sans ancrage.
+kle est de couche épistémique, de rang 1, activation always, avec 0 dépendance(s), 6 interdit(s), un rayonnement de 21, ancré en section 12.
+la-grille est de couche cadre, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+lee est de couche épistémique, de rang 1, activation on-context, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 16, ancré en section 13.
+metric-calculator est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+mir est de couche méthode, de rang 2, activation on-context, avec 0 dépendance(s), 5 interdit(s), un rayonnement de 3, ancré en section 20.
+mirror est de couche audit, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 9, sans ancrage.
+multi-axis-validator est de couche audit, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 4, sans ancrage.
+noise-injector est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+non-surplomb est de couche épistémique, de rang 1, activation on-context, avec 2 dépendance(s), 5 interdit(s), un rayonnement de 0, sans ancrage.
+o1-transport est de couche opérateur, de rang 2, activation on-context, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 5, ancré en section 15.
+o2-chiralite est de couche opérateur, de rang 2, activation on-context, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 6, ancré en section 16.
+o3-epreuve est de couche opérateur, de rang 2, activation always, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 4, ancré en section 18.
+o4-immunite est de couche opérateur, de rang 2, activation always, avec 2 dépendance(s), 6 interdit(s), un rayonnement de 7, ancré en section 19.
+o5-evolution est de couche opérateur, de rang 2, activation on-context, avec 3 dépendance(s), 4 interdit(s), un rayonnement de 5, ancré en section 20.
+operating-point-regulator est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+parameter-optimizer est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+pattern-extractor est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+pce est de couche épistémique, de rang 1, activation on-context, avec 1 dépendance(s), 5 interdit(s), un rayonnement de 11, ancré en section 11.
+prise-de-terre est de couche théorème, de rang 3, activation always, avec 0 dépendance(s), 4 interdit(s), un rayonnement de 8, ancré en section 9.
+reflexion-fractale est de couche théorème, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 2, sans ancrage.
+registre-exploration est de couche cadre, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+registre-rma est de couche épistémique, de rang 3, activation always, avec 2 dépendance(s), 4 interdit(s), un rayonnement de 1, ancré en section 31.
+rgb-cartography est de couche outil, de rang 3, activation on-context, avec 2 dépendance(s), 4 interdit(s), un rayonnement de 0, ancré en section 32.
+scheduler est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+score-profile-classifier est de couche audit, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+silent-generation-filter est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+souverainete-st est de couche épistémique, de rang 2, activation always, avec 0 dépendance(s), 5 interdit(s), un rayonnement de 13, ancré en section 22.
+spatial-learning-converter est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+spirale-neguentropique est de couche théorème, de rang 3, activation on-context, avec 2 dépendance(s), 4 interdit(s), un rayonnement de 2, ancré en section 3.
+state-manager est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+stric-cycle-implementer est de couche méthode, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 2, sans ancrage.
+stric-i-absence-detector est de couche audit, de rang 1, activation always, avec 1 dépendance(s), 5 interdit(s), un rayonnement de 6, ancré en section 8.
+stric-i-protocol est de couche méthode, de rang 1, activation always, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 16, ancré en section 7.
+substrate-polymorphism-profiler est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 3, sans ancrage.
+technique-du-four-micro-onde est de couche méthode, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+temporal-bridge est de couche méthode, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+temporal-geometry-classifier est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 4, sans ancrage.
+temporia est de couche théorème, de rang 3, activation on-context, avec 1 dépendance(s), 4 interdit(s), un rayonnement de 3, ancré en section 3.
+tempus-dataset-generator est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+tempus-trainer est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+three-level-monitoring est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+traceability est de couche audit, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 3, sans ancrage.
+trajectory-identifier est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 1, sans ancrage.
+trial-error-loop est de couche outil, sans rang, sans activation déclarée, avec 0 dépendance(s), 0 interdit(s), un rayonnement de 0, sans ancrage.
+vcp1c est de couche méthode, de rang 2, activation on-context, avec 2 dépendance(s), 4 interdit(s), un rayonnement de 9, ancré en section 23.
+volition-process est de couche théorème, de rang 2, activation on-context, avec 1 dépendance(s), 5 interdit(s), un rayonnement de 0, ancré en section 21.
+
+--- CONSIGNE ---
+Voici une structure encodée, et sa clé de lecture. Ne réponds qu'avec les données.
+
+Pour chacune des entités listées à la fin, donne les SEPT propriétés, dans cet ordre :
+couche, tier, activation, requires, prevents, rayonnement, section.
+
+Format de réponse, une ligne par entité, rien d'autre :
+  nom = couche, tier, activation, requires, prevents, rayonnement, section
+
+Règles :
+- couche et activation en toutes lettres (pas en code) ; « aucune » si non déclarée.
+- les cinq autres en chiffres ; 0 si non déclaré.
+- si une propriété n'est pas déterminable avec certitude depuis l'encodage,
+  écris « ? » à sa place. Ne devine pas : un « ? » juste vaut mieux qu'un chiffre faux.
+
+--- ENTITÉS À RECONSTRUIRE ---
+coherence-validator
+data-transformer
+density-calibrator
+evening-analysis-generator
+feedback-integrator
+formation-protocol-generator
+iterative-refinement
+kairos
+kappa-confiance
+la-grille
+mir
+mirror
+noise-injector
+pattern-extractor
+pce
+registre-exploration
+scheduler
+silent-generation-filter
+technique-du-four-micro-onde
+vcp1c

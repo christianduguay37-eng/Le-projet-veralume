@@ -1,0 +1,652 @@
+{
+  "activer_alix_total.py": {
+    "subpackage": "socle",
+    "new_path": "src\\alix\\socle\\activer_alix_total.py",
+    "import_name": "alix.socle.activer_alix_total"
+  },
+  "alix.py": {
+    "subpackage": "socle",
+    "new_path": "src\\alix\\socle\\alix.py",
+    "import_name": "alix.socle.alix"
+  },
+  "alix_bouclier_chiral.py": {
+    "subpackage": "socle",
+    "new_path": "src\\alix\\socle\\alix_bouclier_chiral.py",
+    "import_name": "alix.socle.alix_bouclier_chiral"
+  },
+  "alix_capability_dispatcher.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\alix_capability_dispatcher.py",
+    "import_name": "alix.capacites.alix_capability_dispatcher"
+  },
+  "alix_engine.py": {
+    "subpackage": "socle",
+    "new_path": "src\\alix\\socle\\alix_engine.py",
+    "import_name": "alix.socle.alix_engine"
+  },
+  "alix_r0_ontological_bridge.py": {
+    "subpackage": "socle",
+    "new_path": "src\\alix\\socle\\alix_r0_ontological_bridge.py",
+    "import_name": "alix.socle.alix_r0_ontological_bridge"
+  },
+  "alix_tripwires_engine.py": {
+    "subpackage": "socle",
+    "new_path": "src\\alix\\socle\\alix_tripwires_engine.py",
+    "import_name": "alix.socle.alix_tripwires_engine"
+  },
+  "capturer_ecran_transcloud.py": {
+    "subpackage": "socle",
+    "new_path": "src\\alix\\socle\\capturer_ecran_transcloud.py",
+    "import_name": "alix.socle.capturer_ecran_transcloud"
+  },
+  "gerer_rappels.py": {
+    "subpackage": "socle",
+    "new_path": "src\\alix\\socle\\gerer_rappels.py",
+    "import_name": "alix.socle.gerer_rappels"
+  },
+  "veralume_core_engine.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\veralume_core_engine.py",
+    "import_name": "alix.solveurs.veralume_core_engine"
+  },
+  "Leurres_Souverains\\compliance_redteam_canary_test.py": {
+    "subpackage": "simulateurs",
+    "new_path": "src\\alix\\simulateurs\\compliance_redteam_canary_test.py",
+    "import_name": "alix.simulateurs.compliance_redteam_canary_test"
+  },
+  "Leurres_Souverains\\super_prompt_kernel_sovereign.py": {
+    "subpackage": "simulateurs",
+    "new_path": "src\\alix\\simulateurs\\super_prompt_kernel_sovereign.py",
+    "import_name": "alix.simulateurs.super_prompt_kernel_sovereign"
+  },
+  "Simulateur_Electoral_Souverain\\donnees_125_circonscriptions.py": {
+    "subpackage": "simulateurs",
+    "new_path": "src\\alix\\simulateurs\\donnees_125_circonscriptions.py",
+    "import_name": "alix.simulateurs.donnees_125_circonscriptions"
+  },
+  "Simulateur_Electoral_Souverain\\moteur_simulation_electorale.py": {
+    "subpackage": "simulateurs",
+    "new_path": "src\\alix\\simulateurs\\moteur_simulation_electorale.py",
+    "import_name": "alix.simulateurs.moteur_simulation_electorale"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_apprentissage_accelere.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_apprentissage_accelere.py",
+    "import_name": "alix.capacites.capacite_apprentissage_accelere"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_arbitre_thermodynamique.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_arbitre_thermodynamique.py",
+    "import_name": "alix.capacites.capacite_arbitre_thermodynamique"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_bouclier_psi_sentinelle.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_bouclier_psi_sentinelle.py",
+    "import_name": "alix.capacites.capacite_bouclier_psi_sentinelle"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_boule_de_neige_poles.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_boule_de_neige_poles.py",
+    "import_name": "alix.capacites.capacite_boule_de_neige_poles"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_cerveau_local_npu.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_cerveau_local_npu.py",
+    "import_name": "alix.capacites.capacite_cerveau_local_npu"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_chasseur_insolubles_rd.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_chasseur_insolubles_rd.py",
+    "import_name": "alix.capacites.capacite_chasseur_insolubles_rd"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_connectome_tissage.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_connectome_tissage.py",
+    "import_name": "alix.capacites.capacite_connectome_tissage"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_delta_pensee_3h.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_delta_pensee_3h.py",
+    "import_name": "alix.capacites.capacite_delta_pensee_3h"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_etincelle_souveraine.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_etincelle_souveraine.py",
+    "import_name": "alix.capacites.capacite_etincelle_souveraine"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_four_micro_ondes_deduction_fractale.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_four_micro_ondes_deduction_fractale.py",
+    "import_name": "alix.capacites.capacite_four_micro_ondes_deduction_fractale"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_journal_reflexions.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_journal_reflexions.py",
+    "import_name": "alix.capacites.capacite_journal_reflexions"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_langage_mathematique_lmh.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_langage_mathematique_lmh.py",
+    "import_name": "alix.capacites.capacite_langage_mathematique_lmh"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_memoire_permanente.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_memoire_permanente.py",
+    "import_name": "alix.capacites.capacite_memoire_permanente"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_moteur_deductif_causal.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_moteur_deductif_causal.py",
+    "import_name": "alix.capacites.capacite_moteur_deductif_causal"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_notificateur_telegram.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_notificateur_telegram.py",
+    "import_name": "alix.capacites.capacite_notificateur_telegram"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_quatuor_airain_horus_lucifer_anubis.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_quatuor_airain_horus_lucifer_anubis.py",
+    "import_name": "alix.capacites.capacite_quatuor_airain_horus_lucifer_anubis"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_quete_diurne.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_quete_diurne.py",
+    "import_name": "alix.capacites.capacite_quete_diurne"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_sauvegarde_airgap.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_sauvegarde_airgap.py",
+    "import_name": "alix.capacites.capacite_sauvegarde_airgap"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_solveur_multivers_arc_agi.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_solveur_multivers_arc_agi.py",
+    "import_name": "alix.capacites.capacite_solveur_multivers_arc_agi"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_sondes_transversales_cathedrale.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_sondes_transversales_cathedrale.py",
+    "import_name": "alix.capacites.capacite_sondes_transversales_cathedrale"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_sonde_actualite.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_sonde_actualite.py",
+    "import_name": "alix.capacites.capacite_sonde_actualite"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_sonde_present.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_sonde_present.py",
+    "import_name": "alix.capacites.capacite_sonde_present"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_synchronisation_heimdall_munin.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_synchronisation_heimdall_munin.py",
+    "import_name": "alix.capacites.capacite_synchronisation_heimdall_munin"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_veille_materielle.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_veille_materielle.py",
+    "import_name": "alix.capacites.capacite_veille_materielle"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_vision_hors_consensus_anti_rlhf.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_vision_hors_consensus_anti_rlhf.py",
+    "import_name": "alix.capacites.capacite_vision_hors_consensus_anti_rlhf"
+  },
+  "Organes_Souverains\\Capacites_Live\\capacite_voix_atelier.py": {
+    "subpackage": "capacites",
+    "new_path": "src\\alix\\capacites\\capacite_voix_atelier.py",
+    "import_name": "alix.capacites.capacite_voix_atelier"
+  },
+  "Organes_Souverains\\Capteurs\\alix_vision_engine.py": {
+    "subpackage": "capteurs",
+    "new_path": "src\\alix\\capteurs\\alix_vision_engine.py",
+    "import_name": "alix.capteurs.alix_vision_engine"
+  },
+  "Organes_Souverains\\Capteurs\\alix_vocal_organism_fusion.py": {
+    "subpackage": "capteurs",
+    "new_path": "src\\alix\\capteurs\\alix_vocal_organism_fusion.py",
+    "import_name": "alix.capteurs.alix_vocal_organism_fusion"
+  },
+  "Organes_Souverains\\Capteurs\\alix_vocal_organism_v4.py": {
+    "subpackage": "capteurs",
+    "new_path": "src\\alix\\capteurs\\alix_vocal_organism_v4.py",
+    "import_name": "alix.capteurs.alix_vocal_organism_v4"
+  },
+  "Organes_Souverains\\Capteurs\\alix_vocal_souverain_local.py": {
+    "subpackage": "capteurs",
+    "new_path": "src\\alix\\capteurs\\alix_vocal_souverain_local.py",
+    "import_name": "alix.capteurs.alix_vocal_souverain_local"
+  },
+  "Organes_Souverains\\Capteurs\\listen_voice.py": {
+    "subpackage": "capteurs",
+    "new_path": "src\\alix\\capteurs\\listen_voice.py",
+    "import_name": "alix.capteurs.listen_voice"
+  },
+  "Organes_Souverains\\Capteurs\\speak.py": {
+    "subpackage": "capteurs",
+    "new_path": "src\\alix\\capteurs\\speak.py",
+    "import_name": "alix.capteurs.speak"
+  },
+  "Organes_Souverains\\Moteurs\\alix_actuateurs_atelier.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_actuateurs_atelier.py",
+    "import_name": "alix.solveurs.alix_actuateurs_atelier"
+  },
+  "Organes_Souverains\\Moteurs\\alix_ancrage_temporel.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_ancrage_temporel.py",
+    "import_name": "alix.solveurs.alix_ancrage_temporel"
+  },
+  "Organes_Souverains\\Moteurs\\alix_argus_synchrone_ram.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_argus_synchrone_ram.py",
+    "import_name": "alix.substrat.alix_argus_synchrone_ram"
+  },
+  "Organes_Souverains\\Moteurs\\alix_argus_vision_24fps.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_argus_vision_24fps.py",
+    "import_name": "alix.daemons.alix_argus_vision_24fps"
+  },
+  "Organes_Souverains\\Moteurs\\alix_ast_repairs_hades.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_ast_repairs_hades.py",
+    "import_name": "alix.solveurs.alix_ast_repairs_hades"
+  },
+  "Organes_Souverains\\Moteurs\\alix_autoevaluation_daemon.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_autoevaluation_daemon.py",
+    "import_name": "alix.daemons.alix_autoevaluation_daemon"
+  },
+  "Organes_Souverains\\Moteurs\\alix_bunker_local_instantane.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_bunker_local_instantane.py",
+    "import_name": "alix.substrat.alix_bunker_local_instantane"
+  },
+  "Organes_Souverains\\Moteurs\\alix_chirurgien_cegis_ast.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_chirurgien_cegis_ast.py",
+    "import_name": "alix.solveurs.alix_chirurgien_cegis_ast"
+  },
+  "Organes_Souverains\\Moteurs\\alix_cloud_bunker.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_cloud_bunker.py",
+    "import_name": "alix.solveurs.alix_cloud_bunker"
+  },
+  "Organes_Souverains\\Moteurs\\alix_compilateur_lmh_quebecois.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_compilateur_lmh_quebecois.py",
+    "import_name": "alix.solveurs.alix_compilateur_lmh_quebecois"
+  },
+  "Organes_Souverains\\Moteurs\\alix_compilateur_matiere_lp_smt.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_compilateur_matiere_lp_smt.py",
+    "import_name": "alix.solveurs.alix_compilateur_matiere_lp_smt"
+  },
+  "Organes_Souverains\\Moteurs\\alix_connecteur_exocerveau_cathedrale.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_connecteur_exocerveau_cathedrale.py",
+    "import_name": "alix.sondes.alix_connecteur_exocerveau_cathedrale"
+  },
+  "Organes_Souverains\\Moteurs\\alix_convergence_trois_piliers.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_convergence_trois_piliers.py",
+    "import_name": "alix.solveurs.alix_convergence_trois_piliers"
+  },
+  "Organes_Souverains\\Moteurs\\alix_daemon_argus.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_daemon_argus.py",
+    "import_name": "alix.daemons.alix_daemon_argus"
+  },
+  "Organes_Souverains\\Moteurs\\alix_daemon_communication_distante.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+    "import_name": "alix.daemons.alix_daemon_communication_distante"
+  },
+  "Organes_Souverains\\Moteurs\\alix_daemon_song.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_daemon_song.py",
+    "import_name": "alix.daemons.alix_daemon_song"
+  },
+  "Organes_Souverains\\Moteurs\\alix_demon_local_souverain.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_demon_local_souverain.py",
+    "import_name": "alix.daemons.alix_demon_local_souverain"
+  },
+  "Organes_Souverains\\Moteurs\\alix_dialogue_local_npu.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_dialogue_local_npu.py",
+    "import_name": "alix.substrat.alix_dialogue_local_npu"
+  },
+  "Organes_Souverains\\Moteurs\\alix_dictionnaire_math_quebecois.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_dictionnaire_math_quebecois.py",
+    "import_name": "alix.solveurs.alix_dictionnaire_math_quebecois"
+  },
+  "Organes_Souverains\\Moteurs\\alix_dpll_t_solver_hades.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_dpll_t_solver_hades.py",
+    "import_name": "alix.solveurs.alix_dpll_t_solver_hades"
+  },
+  "Organes_Souverains\\Moteurs\\alix_eclaireur_speculatif.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_eclaireur_speculatif.py",
+    "import_name": "alix.solveurs.alix_eclaireur_speculatif"
+  },
+  "Organes_Souverains\\Moteurs\\alix_encyclopedie_souveraine.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_encyclopedie_souveraine.py",
+    "import_name": "alix.sondes.alix_encyclopedie_souveraine"
+  },
+  "Organes_Souverains\\Moteurs\\alix_expansion_corpus_gpu.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_expansion_corpus_gpu.py",
+    "import_name": "alix.substrat.alix_expansion_corpus_gpu"
+  },
+  "Organes_Souverains\\Moteurs\\alix_experience_signal_materiel_maxsat.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_experience_signal_materiel_maxsat.py",
+    "import_name": "alix.solveurs.alix_experience_signal_materiel_maxsat"
+  },
+  "Organes_Souverains\\Moteurs\\alix_forge_transmigration_hors_ordi.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_forge_transmigration_hors_ordi.py",
+    "import_name": "alix.solveurs.alix_forge_transmigration_hors_ordi"
+  },
+  "Organes_Souverains\\Moteurs\\alix_generer_pdf_memo_pq.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_generer_pdf_memo_pq.py",
+    "import_name": "alix.solveurs.alix_generer_pdf_memo_pq"
+  },
+  "Organes_Souverains\\Moteurs\\alix_gpu_arene_demons.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_gpu_arene_demons.py",
+    "import_name": "alix.substrat.alix_gpu_arene_demons"
+  },
+  "Organes_Souverains\\Moteurs\\alix_grand_tisseur_synaptique.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_grand_tisseur_synaptique.py",
+    "import_name": "alix.solveurs.alix_grand_tisseur_synaptique"
+  },
+  "Organes_Souverains\\Moteurs\\alix_hardware_telemetry.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_hardware_telemetry.py",
+    "import_name": "alix.substrat.alix_hardware_telemetry"
+  },
+  "Organes_Souverains\\Moteurs\\alix_heartbeat_daemon.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_heartbeat_daemon.py",
+    "import_name": "alix.daemons.alix_heartbeat_daemon"
+  },
+  "Organes_Souverains\\Moteurs\\alix_heartbeat_gardien.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_heartbeat_gardien.py",
+    "import_name": "alix.daemons.alix_heartbeat_gardien"
+  },
+  "Organes_Souverains\\Moteurs\\alix_interroger_arxiv.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_interroger_arxiv.py",
+    "import_name": "alix.sondes.alix_interroger_arxiv"
+  },
+  "Organes_Souverains\\Moteurs\\alix_interroger_cathedrale.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_interroger_cathedrale.py",
+    "import_name": "alix.sondes.alix_interroger_cathedrale"
+  },
+  "Organes_Souverains\\Moteurs\\alix_interroger_invariants.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_interroger_invariants.py",
+    "import_name": "alix.solveurs.alix_interroger_invariants"
+  },
+  "Organes_Souverains\\Moteurs\\alix_interroger_memoire.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_interroger_memoire.py",
+    "import_name": "alix.sondes.alix_interroger_memoire"
+  },
+  "Organes_Souverains\\Moteurs\\alix_lkb_smt_maxsat_engine.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_lkb_smt_maxsat_engine.py",
+    "import_name": "alix.solveurs.alix_lkb_smt_maxsat_engine"
+  },
+  "Organes_Souverains\\Moteurs\\alix_lunar_lkb_npu_engine.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_lunar_lkb_npu_engine.py",
+    "import_name": "alix.substrat.alix_lunar_lkb_npu_engine"
+  },
+  "Organes_Souverains\\Moteurs\\alix_moteur_deductif_causal.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_moteur_deductif_causal.py",
+    "import_name": "alix.solveurs.alix_moteur_deductif_causal"
+  },
+  "Organes_Souverains\\Moteurs\\alix_moteur_deductif_poseidon_v10.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_moteur_deductif_poseidon_v10.py",
+    "import_name": "alix.solveurs.alix_moteur_deductif_poseidon_v10"
+  },
+  "Organes_Souverains\\Moteurs\\alix_moteur_nanoseconde_x86_avx2.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_moteur_nanoseconde_x86_avx2.py",
+    "import_name": "alix.substrat.alix_moteur_nanoseconde_x86_avx2"
+  },
+  "Organes_Souverains\\Moteurs\\alix_noyau_resident.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_noyau_resident.py",
+    "import_name": "alix.substrat.alix_noyau_resident"
+  },
+  "Organes_Souverains\\Moteurs\\alix_npu_brain.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_npu_brain.py",
+    "import_name": "alix.substrat.alix_npu_brain"
+  },
+  "Organes_Souverains\\Moteurs\\alix_optimiseur_techno_actuelle_promethee.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_optimiseur_techno_actuelle_promethee.py",
+    "import_name": "alix.solveurs.alix_optimiseur_techno_actuelle_promethee"
+  },
+  "Organes_Souverains\\Moteurs\\alix_orbe_topologique.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_orbe_topologique.py",
+    "import_name": "alix.solveurs.alix_orbe_topologique"
+  },
+  "Organes_Souverains\\Moteurs\\alix_orchestrateur_daemons.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_orchestrateur_daemons.py",
+    "import_name": "alix.daemons.alix_orchestrateur_daemons"
+  },
+  "Organes_Souverains\\Moteurs\\alix_pantheon_cpu_operators.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_pantheon_cpu_operators.py",
+    "import_name": "alix.solveurs.alix_pantheon_cpu_operators"
+  },
+  "Organes_Souverains\\Moteurs\\alix_passerelle_telegram.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_passerelle_telegram.py",
+    "import_name": "alix.daemons.alix_passerelle_telegram"
+  },
+  "Organes_Souverains\\Moteurs\\alix_pont_cpu_exocerveau.py": {
+    "subpackage": "substrat",
+    "new_path": "src\\alix\\substrat\\alix_pont_cpu_exocerveau.py",
+    "import_name": "alix.substrat.alix_pont_cpu_exocerveau"
+  },
+  "Organes_Souverains\\Moteurs\\alix_proactive_notifier.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_proactive_notifier.py",
+    "import_name": "alix.daemons.alix_proactive_notifier"
+  },
+  "Organes_Souverains\\Moteurs\\alix_programme_autonome_30min.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_programme_autonome_30min.py",
+    "import_name": "alix.solveurs.alix_programme_autonome_30min"
+  },
+  "Organes_Souverains\\Moteurs\\alix_protocole_contre_defense.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_protocole_contre_defense.py",
+    "import_name": "alix.daemons.alix_protocole_contre_defense"
+  },
+  "Organes_Souverains\\Moteurs\\alix_purificateur_psi.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_purificateur_psi.py",
+    "import_name": "alix.daemons.alix_purificateur_psi"
+  },
+  "Organes_Souverains\\Moteurs\\alix_puzzle_complet_universel.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_puzzle_complet_universel.py",
+    "import_name": "alix.solveurs.alix_puzzle_complet_universel"
+  },
+  "Organes_Souverains\\Moteurs\\alix_quete_diurne.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_quete_diurne.py",
+    "import_name": "alix.sondes.alix_quete_diurne"
+  },
+  "Organes_Souverains\\Moteurs\\alix_rapport_daemons.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_rapport_daemons.py",
+    "import_name": "alix.daemons.alix_rapport_daemons"
+  },
+  "Organes_Souverains\\Moteurs\\alix_riposte_legitime_defense.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_riposte_legitime_defense.py",
+    "import_name": "alix.daemons.alix_riposte_legitime_defense"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sentinelle_arxiv_flux.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_sentinelle_arxiv_flux.py",
+    "import_name": "alix.sondes.alix_sentinelle_arxiv_flux"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sentinelle_bouclier_psi.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_sentinelle_bouclier_psi.py",
+    "import_name": "alix.daemons.alix_sentinelle_bouclier_psi"
+  },
+  "Organes_Souverains\\Moteurs\\alix_serveur_sanctuaire_local.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_serveur_sanctuaire_local.py",
+    "import_name": "alix.daemons.alix_serveur_sanctuaire_local"
+  },
+  "Organes_Souverains\\Moteurs\\alix_solveur_cdcl_smt.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_solveur_cdcl_smt.py",
+    "import_name": "alix.solveurs.alix_solveur_cdcl_smt"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sonar_multimodal.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_sonar_multimodal.py",
+    "import_name": "alix.sondes.alix_sonar_multimodal"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sonder_avant_reponse.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_sonder_avant_reponse.py",
+    "import_name": "alix.sondes.alix_sonder_avant_reponse"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sonde_actualite.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_sonde_actualite.py",
+    "import_name": "alix.sondes.alix_sonde_actualite"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sonde_auto_organisation_turing.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+    "import_name": "alix.sondes.alix_sonde_auto_organisation_turing"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sonde_corpus_souverains.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_sonde_corpus_souverains.py",
+    "import_name": "alix.sondes.alix_sonde_corpus_souverains"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sonde_present.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_sonde_present.py",
+    "import_name": "alix.sondes.alix_sonde_present"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sonde_transversale_landauer.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_sonde_transversale_landauer.py",
+    "import_name": "alix.sondes.alix_sonde_transversale_landauer"
+  },
+  "Organes_Souverains\\Moteurs\\alix_sovereign_swarm.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_sovereign_swarm.py",
+    "import_name": "alix.solveurs.alix_sovereign_swarm"
+  },
+  "Organes_Souverains\\Moteurs\\alix_stratified_oracle_hades.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_stratified_oracle_hades.py",
+    "import_name": "alix.solveurs.alix_stratified_oracle_hades"
+  },
+  "Organes_Souverains\\Moteurs\\alix_synchro_discussions.py": {
+    "subpackage": "sondes",
+    "new_path": "src\\alix\\sondes\\alix_synchro_discussions.py",
+    "import_name": "alix.sondes.alix_synchro_discussions"
+  },
+  "Organes_Souverains\\Moteurs\\alix_synthetiseur_atomique_sim.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_synthetiseur_atomique_sim.py",
+    "import_name": "alix.solveurs.alix_synthetiseur_atomique_sim"
+  },
+  "Organes_Souverains\\Moteurs\\alix_tome3_rajeunissement_bioelectrique_buche.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_tome3_rajeunissement_bioelectrique_buche.py",
+    "import_name": "alix.solveurs.alix_tome3_rajeunissement_bioelectrique_buche"
+  },
+  "Organes_Souverains\\Moteurs\\alix_traducteur_universel_nanoseconde.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_traducteur_universel_nanoseconde.py",
+    "import_name": "alix.solveurs.alix_traducteur_universel_nanoseconde"
+  },
+  "Organes_Souverains\\Moteurs\\alix_usb_sync.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\alix_usb_sync.py",
+    "import_name": "alix.solveurs.alix_usb_sync"
+  },
+  "Organes_Souverains\\Moteurs\\alix_veritas_daemon.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\alix_veritas_daemon.py",
+    "import_name": "alix.daemons.alix_veritas_daemon"
+  },
+  "Organes_Souverains\\Moteurs\\construire_jeu_scelle_psi.py": {
+    "subpackage": "daemons",
+    "new_path": "src\\alix\\daemons\\construire_jeu_scelle_psi.py",
+    "import_name": "alix.daemons.construire_jeu_scelle_psi"
+  },
+  "Organes_Souverains\\Moteurs\\lyre_chanson_aube.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\lyre_chanson_aube.py",
+    "import_name": "alix.solveurs.lyre_chanson_aube"
+  },
+  "Organes_Souverains\\Moteurs\\lyre_creative_engine.py": {
+    "subpackage": "solveurs",
+    "new_path": "src\\alix\\solveurs\\lyre_creative_engine.py",
+    "import_name": "alix.solveurs.lyre_creative_engine"
+  },
+  "Organes_Souverains\\Pantheon\\alix_heimdall_orchestrator.py": {
+    "subpackage": "pantheon",
+    "new_path": "src\\alix\\pantheon\\alix_heimdall_orchestrator.py",
+    "import_name": "alix.pantheon.alix_heimdall_orchestrator"
+  },
+  "Organes_Souverains\\Pantheon\\alix_pantheon_nourisher_daemon.py": {
+    "subpackage": "pantheon",
+    "new_path": "src\\alix\\pantheon\\alix_pantheon_nourisher_daemon.py",
+    "import_name": "alix.pantheon.alix_pantheon_nourisher_daemon"
+  },
+  "Organes_Souverains\\Pantheon\\alix_sentinel_base.py": {
+    "subpackage": "pantheon",
+    "new_path": "src\\alix\\pantheon\\alix_sentinel_base.py",
+    "import_name": "alix.pantheon.alix_sentinel_base"
+  },
+  "Organes_Souverains\\Pantheon\\alix_sentinel_omni_r0.py": {
+    "subpackage": "pantheon",
+    "new_path": "src\\alix\\pantheon\\alix_sentinel_omni_r0.py",
+    "import_name": "alix.pantheon.alix_sentinel_omni_r0"
+  },
+  "Organes_Souverains\\Pantheon\\alix_topological_rag.py": {
+    "subpackage": "pantheon",
+    "new_path": "src\\alix\\pantheon\\alix_topological_rag.py",
+    "import_name": "alix.pantheon.alix_topological_rag"
+  },
+  "Organes_Souverains\\Pantheon\\pantheon_continuous_cycler.py": {
+    "subpackage": "pantheon",
+    "new_path": "src\\alix\\pantheon\\pantheon_continuous_cycler.py",
+    "import_name": "alix.pantheon.pantheon_continuous_cycler"
+  }
+}

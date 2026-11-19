@@ -1,0 +1,14 @@
+{
+  "active_provider": "groq",
+  "active_model": "qwen/qwen3.8-27b",
+  "temperature": 0.6,
+  "max_tokens": 4096,
+  "api_keys": {
+    "openrouter": "sk-MASQUED_API_KEY",
+    "groq": "gsk_CLE_GROQ_MASQUEE",
+    "deepseek": "",
+    "cerebras": "",
+    "google": "",
+    "ollama": "ollama"
+  }
+}

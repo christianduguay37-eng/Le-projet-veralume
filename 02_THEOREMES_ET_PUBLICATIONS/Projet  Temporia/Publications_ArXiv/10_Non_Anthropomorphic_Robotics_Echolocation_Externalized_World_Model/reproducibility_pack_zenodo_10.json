@@ -1,0 +1,44 @@
+{
+  "benchmark_id": "HORUS-ROBOTICS-2026-10",
+  "timestamp": "2026-09-22T15:20:00",
+  "authors": "Christian Duguay & Alix",
+  "conditions": {
+    "anthropomorphic_vlm": {
+      "name": "Standard Humanoïde (Optimus/Figure VLM)",
+      "camera_fps": 30,
+      "camera_latency_ms": 33.3,
+      "vlm_inference_ms": 120.0,
+      "llm_action_ms": 250.0,
+      "total_loop_latency_ms": 403.3,
+      "power_draw_watts": 380.0,
+      "depth_accuracy_sigma_mm": 24.5,
+      "failure_under_specular_reflectance": true,
+      "failure_in_total_darkness": true
+    },
+    "heimdall_echo_sovereign": {
+      "name": "Architecture Découplée Heimdall-Echo (VERALUME)",
+      "sampling_freq_hz": 2000,
+      "transducer_pmut_mhz": 0.1,
+      "tof_hardware_latency_ms": 0.35,
+      "impedance_back_emf_loop_ms": 0.2,
+      "total_loop_latency_ms": 0.55,
+      "power_draw_watts": 6.8,
+      "depth_accuracy_sigma_mm": 0.42,
+      "failure_under_specular_reflectance": false,
+      "failure_in_total_darkness": false
+    }
+  },
+  "simulation_runs": [],
+  "metrics_summary": {
+    "latence_vlm_ms": 403.3,
+    "latence_heimdall_ms": 7.1970845481049555,
+    "conso_cerveau_vlm_watts": 380.0,
+    "conso_cerveau_heimdall_watts": 6.8,
+    "autonomie_vlm_heures": 2.0547945205479454,
+    "autonomie_heimdall_heures": 4.2040358744394615,
+    "gain_autonomie_pourcent": 104.59641255605376,
+    "energie_llm_joules": 120.0,
+    "energie_api_joules": 0.0042,
+    "facteur_efficacite_thermodynamique": 28571.428571428572
+  }
+}

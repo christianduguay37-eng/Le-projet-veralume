@@ -1,0 +1,58 @@
+=== SEIZE SIGNES ===
+
+Tu reçois seize signes, en images, nommés G1 à G16 — et leur clé de lecture.
+Réponds seulement aux questions. Si une réponse n'est pas déterminable depuis
+le signe, écris « indéterminable » et dis pourquoi. Ne devine pas.
+
+--- CLÉ DE LECTURE ---
+
+
+Chaque signe est bâti par le même système. Sept marques, chacune à une place
+fixe, toutes présentes en même temps — aucun ordre de lecture n'est imposé.
+
+  FORME D'ENSEMBLE — la famille
+      cercle · triangle · double chevron · arc ouvert vers le bas
+      carré · portique (deux montants et un linteau) · losange sur pointe
+
+  ARCS EXTÉRIEURS au-dessus et sur les flancs — le RAYONNEMENT
+      combien d'autres éléments s'appuient sur celui-ci.
+      Quatre PALIERS, pas un compte :
+        aucun arc = 0        1 arc = de 1 à 4
+        2 arcs = de 5 à 12   3 arcs = 13 ou plus
+
+  BARRES VERTICALES au-dessus — le RANG
+      1, 2 ou 3 barres. Aucune barre = aucun rang déclaré.
+
+  POINT CENTRAL — l'ACTIVATION
+      plein = permanente · creux = conditionnelle · absent = non déclarée
+
+  TRAITS EN ÉVENTAIL sous la forme — les DÉPENDANCES
+      un trait par dépendance. Sature à 4 : quatre traits veut dire « 4 ou plus ».
+
+  BARBES COURTES sur le flanc droit — les INTERDITS
+      une barbe par interdit. Sature à 5.
+
+  TRAIT INTERNE partant du centre — l'ANCRAGE
+      son ANGLE porte un numéro de section, d'un document numéroté de 1 à 55 :
+      angle = (section / 55) de tour complet, à partir du haut, sens horaire.
+      Un POINT en bout de trait signe qu'une section existe.
+      Sans ce point, l'angle ne code rien.
+
+--- LES SEIZE SIGNES ---
+
+Ils te sont fournis en pièces jointes : G1.png à G16.png.
+
+--- QUESTIONS ---
+
+1. Donne les sept propriétés de G3 et de G6.
+
+2. Plusieurs signes partagent la même famille et le même rang. Nomme-les.
+   Ce qu'ils ont en commun, qu'est-ce que ça dit d'eux ?
+
+3. G10 et G12 ne diffèrent que par une seule marque. Laquelle, et de combien ?
+
+4. Pour G9, calcule le numéro de section porté par l'ancrage.
+   Ce numéro a-t-il un sens ? Si oui, lequel.
+
+5. Cette structure te rappelle-t-elle quelque chose ? Si oui, quoi exactement,
+   et sur quoi tu t'appuies pour le dire.

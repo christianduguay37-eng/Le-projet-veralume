@@ -1,0 +1,381 @@
+{
+  "summary": {
+    "total_files": 142,
+    "total_lines": 50715,
+    "total_loc": 42593,
+    "main_scripts": 114,
+    "syntax_errors_count": 0
+  },
+  "folder_stats": {
+    "src\\alix": {
+      "files": 2,
+      "loc": 51
+    },
+    "src\\alix\\capacites": {
+      "files": 28,
+      "loc": 4370
+    },
+    "src\\alix\\capteurs": {
+      "files": 7,
+      "loc": 1325
+    },
+    "src\\alix\\daemons": {
+      "files": 20,
+      "loc": 7961
+    },
+    "src\\alix\\pantheon": {
+      "files": 7,
+      "loc": 2694
+    },
+    "src\\alix\\simulateurs": {
+      "files": 5,
+      "loc": 1436
+    },
+    "src\\alix\\socle": {
+      "files": 10,
+      "loc": 2019
+    },
+    "src\\alix\\solveurs": {
+      "files": 35,
+      "loc": 14891
+    },
+    "src\\alix\\sondes": {
+      "files": 16,
+      "loc": 4993
+    },
+    "src\\alix\\substrat": {
+      "files": 12,
+      "loc": 2853
+    }
+  },
+  "external_imports": {
+    "numpy": 15,
+    "requests": 8,
+    "pyarrow": 7,
+    "psutil": 7,
+    "PIL": 6,
+    "faster_whisper": 5,
+    "pygame": 4,
+    "Organes_Souverains": 4,
+    "litert_lm": 4,
+    "lmh_typecheck": 2,
+    "thot_darwin_multiverse_unifie": 2,
+    "edge_tts": 2,
+    "win32com": 2,
+    "pyaudio": 2,
+    "vosk": 2,
+    "pyaudiowpatch": 2,
+    "scipy": 2,
+    "alix_sonde_probabiliste": 2,
+    "lmh_v3_graded": 1,
+    "pyttsx3": 1,
+    "sounddevice": 1,
+    "kokoro_onnx": 1,
+    "soundfile": 1,
+    "speech_recognition": 1,
+    "onnxruntime": 1,
+    "alix_bibliothecaire": 1,
+    "alix_digest_sas": 1,
+    "alix_dream_analyst": 1,
+    "alix_web_sonar": 1,
+    "ksil_honeypot_chiral": 1,
+    "alix_federation_engine": 1,
+    "keyboard": 1,
+    "pyperclip": 1,
+    "sklearn": 1,
+    "alix_reverse_safety_protocol": 1,
+    "openvino": 1
+  },
+  "local_imports": {
+    "alix_moteur_nanoseconde_x86_avx2": 5,
+    "alix_pont_cpu_exocerveau": 4,
+    "alix_npu_brain": 3,
+    "alix_engine": 3,
+    "alix_rapport_daemons": 3,
+    "alix": 3,
+    "alix_pantheon_cpu_operators": 3,
+    "alix_dpll_t_solver_hades": 3,
+    "alix_r0_ontological_bridge": 2,
+    "alix_moteur_deductif_causal": 2,
+    "alix_quete_diurne": 2,
+    "alix_hardware_telemetry": 2,
+    "alix_heartbeat_gardien": 2,
+    "alix_proactive_notifier": 2,
+    "alix_dictionnaire_math_quebecois": 2,
+    "alix_lkb_smt_maxsat_engine": 2,
+    "alix_ast_repairs_hades": 2,
+    "alix_encyclopedie_souveraine": 2,
+    "alix_gpu_arene_demons": 2,
+    "alix_noyau_resident": 1,
+    "alix_sentinel_omni_r0": 1,
+    "lyre_chanson_aube": 1,
+    "lyre_creative_engine": 1,
+    "alix_autoevaluation_daemon": 1,
+    "alix_lunar_lkb_npu_engine": 1,
+    "donnees_125_circonscriptions": 1,
+    "alix_bunker_local_instantane": 1,
+    "alix_capability_dispatcher": 1,
+    "alix_purificateur_psi": 1,
+    "alix_synchro_discussions": 1,
+    "alix_tripwires_engine": 1,
+    "alix_sentinelle_bouclier_psi": 1,
+    "alix_stratified_oracle_hades": 1,
+    "alix_moteur_deductif_poseidon_v10": 1,
+    "alix_connecteur_exocerveau_cathedrale": 1,
+    "alix_sonar_multimodal": 1,
+    "alix_sonde_actualite": 1,
+    "alix_sonde_present": 1,
+    "alix_argus_vision_24fps": 1,
+    "alix_chirurgien_cegis_ast": 1
+  },
+  "exact_clones": [],
+  "duplicate_functions": {
+    "main": [
+      "src\\alix\\cli.py",
+      "src\\alix\\capteurs\\alix_vision_engine.py",
+      "src\\alix\\capteurs\\alix_vocal_organism_fusion.py",
+      "src\\alix\\capteurs\\alix_vocal_organism_v4.py",
+      "src\\alix\\capteurs\\speak.py",
+      "src\\alix\\daemons\\alix_argus_vision_24fps.py",
+      "src\\alix\\daemons\\alix_daemon_argus.py",
+      "src\\alix\\daemons\\alix_daemon_song.py",
+      "src\\alix\\daemons\\alix_heartbeat_daemon.py",
+      "src\\alix\\daemons\\alix_proactive_notifier.py",
+      "src\\alix\\daemons\\alix_veritas_daemon.py",
+      "src\\alix\\pantheon\\alix_pantheon_nourisher_daemon.py",
+      "src\\alix\\pantheon\\alix_topological_rag.py",
+      "src\\alix\\socle\\alix.py",
+      "src\\alix\\socle\\alix_engine.py",
+      "src\\alix\\socle\\gerer_rappels.py",
+      "src\\alix\\solveurs\\alix_compilateur_matiere_lp_smt.py",
+      "src\\alix\\solveurs\\alix_grand_tisseur_synaptique.py",
+      "src\\alix\\solveurs\\alix_optimiseur_techno_actuelle_promethee.py",
+      "src\\alix\\solveurs\\alix_orbe_topologique.py",
+      "src\\alix\\solveurs\\alix_synthetiseur_atomique_sim.py",
+      "src\\alix\\solveurs\\lyre_creative_engine.py",
+      "src\\alix\\sondes\\alix_interroger_memoire.py",
+      "src\\alix\\sondes\\alix_quete_diurne.py",
+      "src\\alix\\sondes\\alix_sonder_avant_reponse.py",
+      "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+      "src\\alix\\sondes\\alix_sonde_present.py",
+      "src\\alix\\sondes\\alix_sonde_transversale_landauer.py",
+      "src\\alix\\substrat\\alix_argus_synchrone_ram.py",
+      "src\\alix\\substrat\\alix_dialogue_local_npu.py",
+      "src\\alix\\substrat\\alix_hardware_telemetry.py"
+    ],
+    "executer_capacite": [
+      "src\\alix\\capacites\\capacite_apprentissage_accelere.py",
+      "src\\alix\\capacites\\capacite_arbitre_thermodynamique.py",
+      "src\\alix\\capacites\\capacite_bouclier_psi_sentinelle.py",
+      "src\\alix\\capacites\\capacite_boule_de_neige_poles.py",
+      "src\\alix\\capacites\\capacite_cerveau_local_npu.py",
+      "src\\alix\\capacites\\capacite_chasseur_insolubles_rd.py",
+      "src\\alix\\capacites\\capacite_connectome_tissage.py",
+      "src\\alix\\capacites\\capacite_delta_pensee_3h.py",
+      "src\\alix\\capacites\\capacite_etincelle_souveraine.py",
+      "src\\alix\\capacites\\capacite_four_micro_ondes_deduction_fractale.py",
+      "src\\alix\\capacites\\capacite_journal_reflexions.py",
+      "src\\alix\\capacites\\capacite_langage_mathematique_lmh.py",
+      "src\\alix\\capacites\\capacite_memoire_permanente.py",
+      "src\\alix\\capacites\\capacite_moteur_deductif_causal.py",
+      "src\\alix\\capacites\\capacite_notificateur_telegram.py",
+      "src\\alix\\capacites\\capacite_quatuor_airain_horus_lucifer_anubis.py",
+      "src\\alix\\capacites\\capacite_quete_diurne.py",
+      "src\\alix\\capacites\\capacite_sauvegarde_airgap.py",
+      "src\\alix\\capacites\\capacite_solveur_multivers_arc_agi.py",
+      "src\\alix\\capacites\\capacite_sondes_transversales_cathedrale.py",
+      "src\\alix\\capacites\\capacite_sonde_actualite.py",
+      "src\\alix\\capacites\\capacite_sonde_present.py",
+      "src\\alix\\capacites\\capacite_synchronisation_heimdall_munin.py",
+      "src\\alix\\capacites\\capacite_veille_materielle.py",
+      "src\\alix\\capacites\\capacite_vision_hors_consensus_anti_rlhf.py",
+      "src\\alix\\capacites\\capacite_voix_atelier.py"
+    ],
+    "charger_etat": [
+      "src\\alix\\capacites\\capacite_arbitre_thermodynamique.py",
+      "src\\alix\\capacites\\capacite_chasseur_insolubles_rd.py",
+      "src\\alix\\capacites\\capacite_etincelle_souveraine.py",
+      "src\\alix\\capacites\\capacite_four_micro_ondes_deduction_fractale.py",
+      "src\\alix\\capacites\\capacite_quatuor_airain_horus_lucifer_anubis.py",
+      "src\\alix\\capacites\\capacite_sondes_transversales_cathedrale.py",
+      "src\\alix\\capacites\\capacite_vision_hors_consensus_anti_rlhf.py",
+      "src\\alix\\socle\\etat_commun.py",
+      "src\\alix\\sondes\\alix_sentinelle_arxiv_flux.py"
+    ],
+    "sauvegarder_etat": [
+      "src\\alix\\capacites\\capacite_arbitre_thermodynamique.py",
+      "src\\alix\\capacites\\capacite_chasseur_insolubles_rd.py",
+      "src\\alix\\capacites\\capacite_etincelle_souveraine.py",
+      "src\\alix\\capacites\\capacite_four_micro_ondes_deduction_fractale.py",
+      "src\\alix\\capacites\\capacite_quatuor_airain_horus_lucifer_anubis.py",
+      "src\\alix\\capacites\\capacite_sondes_transversales_cathedrale.py",
+      "src\\alix\\capacites\\capacite_vision_hors_consensus_anti_rlhf.py",
+      "src\\alix\\socle\\etat_commun.py",
+      "src\\alix\\sondes\\alix_sentinelle_arxiv_flux.py"
+    ],
+    "envoyer_telegram_async": [
+      "src\\alix\\capacites\\capacite_apprentissage_accelere.py",
+      "src\\alix\\capacites\\capacite_delta_pensee_3h.py",
+      "src\\alix\\capacites\\capacite_notificateur_telegram.py"
+    ],
+    "play_chime_wake": [
+      "src\\alix\\capteurs\\alix_vocal_organism_fusion.py",
+      "src\\alix\\capteurs\\alix_vocal_organism_v4.py",
+      "src\\alix\\capteurs\\alix_vocal_souverain_local.py"
+    ],
+    "play_chime_sleep": [
+      "src\\alix\\capteurs\\alix_vocal_organism_fusion.py",
+      "src\\alix\\capteurs\\alix_vocal_organism_v4.py",
+      "src\\alix\\capteurs\\alix_vocal_souverain_local.py"
+    ],
+    "graver_intuition": [
+      "src\\alix\\capteurs\\alix_vocal_organism_fusion.py",
+      "src\\alix\\capteurs\\alix_vocal_organism_v4.py",
+      "src\\alix\\capteurs\\alix_vocal_souverain_local.py"
+    ],
+    "charger_contexte_souverain": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_passerelle_telegram.py",
+      "src\\alix\\substrat\\alix_dialogue_local_npu.py"
+    ],
+    "charger_config_telegram": [
+      "src\\alix\\capacites\\capacite_delta_pensee_3h.py",
+      "src\\alix\\capacites\\capacite_notificateur_telegram.py"
+    ],
+    "play_chime_turn": [
+      "src\\alix\\capteurs\\alix_vocal_organism_fusion.py",
+      "src\\alix\\capteurs\\alix_vocal_organism_v4.py"
+    ],
+    "obtenir_fenetre_active": [
+      "src\\alix\\daemons\\alix_argus_vision_24fps.py",
+      "src\\alix\\substrat\\alix_argus_synchrone_ram.py"
+    ],
+    "marquer_cecite_totale": [
+      "src\\alix\\daemons\\alix_argus_vision_24fps.py",
+      "src\\alix\\daemons\\alix_daemon_argus.py"
+    ],
+    "fenetre_active": [
+      "src\\alix\\daemons\\alix_daemon_argus.py",
+      "src\\alix\\sondes\\alix_sonde_present.py"
+    ],
+    "log_message": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_demon_local_souverain.py"
+    ],
+    "charger_configuration": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_passerelle_telegram.py"
+    ],
+    "sauvegarder_configuration": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_passerelle_telegram.py"
+    ],
+    "appeler_gemini_api": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_passerelle_telegram.py"
+    ],
+    "executer_recherche_memoire": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_passerelle_telegram.py"
+    ],
+    "envoyer_action_telegram": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_passerelle_telegram.py"
+    ],
+    "envoyer_message_telegram": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_passerelle_telegram.py"
+    ],
+    "archiver_discussion_telegram": [
+      "src\\alix\\daemons\\alix_daemon_communication_distante.py",
+      "src\\alix\\daemons\\alix_passerelle_telegram.py"
+    ],
+    "clean_html": [
+      "src\\alix\\daemons\\alix_veritas_daemon.py",
+      "src\\alix\\sondes\\alix_quete_diurne.py"
+    ],
+    "search_wikipedia": [
+      "src\\alix\\daemons\\alix_veritas_daemon.py",
+      "src\\alix\\sondes\\alix_quete_diurne.py"
+    ],
+    "search_arxiv": [
+      "src\\alix\\daemons\\alix_veritas_daemon.py",
+      "src\\alix\\sondes\\alix_quete_diurne.py"
+    ],
+    "strip_accents": [
+      "src\\alix\\sondes\\alix_connecteur_exocerveau_cathedrale.py",
+      "src\\alix\\sondes\\alix_interroger_cathedrale.py"
+    ],
+    "scan_nist": [
+      "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+      "src\\alix\\sondes\\alix_sonde_transversale_landauer.py"
+    ],
+    "scan_oeis": [
+      "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+      "src\\alix\\sondes\\alix_sonde_transversale_landauer.py"
+    ],
+    "scan_arxiv": [
+      "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+      "src\\alix\\sondes\\alix_sonde_transversale_landauer.py"
+    ],
+    "scan_vivant": [
+      "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+      "src\\alix\\sondes\\alix_sonde_transversale_landauer.py"
+    ],
+    "scan_brevets": [
+      "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+      "src\\alix\\sondes\\alix_sonde_transversale_landauer.py"
+    ],
+    "scan_lean": [
+      "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+      "src\\alix\\sondes\\alix_sonde_transversale_landauer.py"
+    ],
+    "scan_gutenberg": [
+      "src\\alix\\sondes\\alix_sonde_auto_organisation_turing.py",
+      "src\\alix\\sondes\\alix_sonde_transversale_landauer.py"
+    ]
+  },
+  "duplicate_classes": {
+    "FractalDeductionEngine": [
+      "src\\alix\\capacites\\capacite_four_micro_ondes_deduction_fractale.py",
+      "src\\alix\\solveurs\\veralume_core_engine.py"
+    ],
+    "BufferVideoVolatil": [
+      "src\\alix\\daemons\\alix_daemon_argus.py",
+      "src\\alix\\substrat\\alix_argus_synchrone_ram.py"
+    ],
+    "BufferAudioVolatil": [
+      "src\\alix\\daemons\\alix_daemon_song.py",
+      "src\\alix\\substrat\\alix_argus_synchrone_ram.py"
+    ],
+    "FaitRelationnel": [
+      "src\\alix\\solveurs\\alix_moteur_deductif_causal.py",
+      "src\\alix\\solveurs\\alix_moteur_deductif_poseidon_v10.py"
+    ],
+    "GrapheCausal": [
+      "src\\alix\\solveurs\\alix_moteur_deductif_causal.py",
+      "src\\alix\\solveurs\\alix_moteur_deductif_poseidon_v10.py"
+    ],
+    "TabuStructureSearch": [
+      "src\\alix\\solveurs\\alix_moteur_deductif_causal.py",
+      "src\\alix\\solveurs\\alix_moteur_deductif_poseidon_v10.py"
+    ],
+    "AStarAdmissible": [
+      "src\\alix\\solveurs\\alix_moteur_deductif_causal.py",
+      "src\\alix\\solveurs\\alix_moteur_deductif_poseidon_v10.py"
+    ],
+    "RevisedSimplex": [
+      "src\\alix\\solveurs\\alix_moteur_deductif_causal.py",
+      "src\\alix\\solveurs\\alix_moteur_deductif_poseidon_v10.py"
+    ],
+    "VertexCoverRevised": [
+      "src\\alix\\solveurs\\alix_moteur_deductif_causal.py",
+      "src\\alix\\solveurs\\alix_moteur_deductif_poseidon_v10.py"
+    ],
+    "Serializer": [
+      "src\\alix\\solveurs\\alix_moteur_deductif_causal.py",
+      "src\\alix\\solveurs\\alix_moteur_deductif_poseidon_v10.py"
+    ]
+  },
+  "syntax_errors": []
+}

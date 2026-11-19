@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUNAR LANDER // Sanctuaire Kairos Edition</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+        body {
+            background-color: #05070c;
+            color: #d1f7ff;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #game-container {
+            position: relative;
+            border: 2px solid #1a324a;
+            box-shadow: 0 0 40px rgba(0, 220, 255, 0.15), inset 0 0 30px rgba(0, 0, 0, 0.8);
+            border-radius: 6px;
+            background: radial-gradient(circle at 50% 20%, #080f1d 0%, #03060a 100%);
+        }
+        canvas {
+            display: block;
+        }
+        .instructions {
+            margin-top: 10px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #5d84a6;
+            text-shadow: 0 0 5px rgba(93, 132, 166, 0.5);
+            display: flex;
+            gap: 24px;
+        }
+        .key {
+            color: #00f0ff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <canvas id="canvas" width="1024" height="640"></canvas>
+</div>
+
+<div class="instructions">
+    <div><span class="key">[▲] / [W]</span> Poussée Principale</div>
+    <div><span class="key">[◀] [▶] / [A] [D]</span> Rotation RCS</div>
+    <div><span class="key">[ESPACE] / [R]</span> Redémarrer</div>
+    <div><span class="key">[M]</span> Audio On/Off</div>
+</div>
+
+<script>
+/**
+ * 🚀 LUNAR LANDER — ATELIER KAIROS & FRIENDS EDITION
+ * Pure Vanilla JS + Canvas 2D + Web Audio API synth
+ */
+
+// --- AUDIO SYNTHÉTISÉ EN DIRECT (Zéro dépendance externe) ---
+class SoundController {
+    constructor() {
+        this.ctx = null;
+        this.enabled = true;
+        this.noiseNode = null;
+        this.noiseGain = null;
+        this.thrusterActive = false;
+    }
+
+    init() {
+        if (this.ctx) return;
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        this.ctx = new AudioCtx();
+
+        // Générateur de bruit blanc pour réacteurs
+        const bufferSize = this.ctx.sampleRate * 2;
+        const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+            output[i] = Math.random() * 2 - 1;
+        }
+
+        const whiteNoise = this.ctx.createBufferSource();
+        whiteNoise.buffer = noiseBuffer;
+        whiteNoise.loop = true;
+
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = 450;
+
+        this.noiseGain = this.ctx.createGain();
+        this.noiseGain.gain.setValueAtTime(0, this.ctx.currentTime);
+
+        whiteNoise.connect(filter);
+        filter.connect(this.noiseGain);
+        this.noiseGain.connect(this.ctx.destination);
+        whiteNoise.start(0);
+    }
+
+    setThrust(active) {
+        if (!this.ctx || !this.enabled) return;
+        if (active && !this.thrusterActive) {
+            this.noiseGain.gain.setTargetAtTime(0.18, this.ctx.currentTime, 0.05);
+            this.thrusterActive = true;
+        } else if (!active && this.thrusterActive) {
+            this.noiseGain.gain.setTargetAtTime(0.0, this.ctx.currentTime, 0.08);
+            this.thrusterActive = false;
+        }
+    }
+
+    playCrash() {
+        if (!this.ctx || !this.enabled) return;
+        this.setThrust(false);
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(140, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(25, this.ctx.currentTime + 0.8);
+        gain.gain.setValueAtTime(0.35, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.8);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.8);
+    }
+
+    playSuccess() {
+        if (!this.ctx || !this.enabled) return;
+        this.setThrust(false);
+        const freqs = [330, 440, 554, 659];
+        freqs.forEach((f, idx) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            const startT = this.ctx.currentTime + idx * 0.12;
+            osc.frequency.setValueAtTime(f, startT);
+            gain.gain.setValueAtTime(0.15, startT);
+            gain.gain.exponentialRampToValueAtTime(0.001, startT + 0.4);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(startT);
+            osc.stop(startT + 0.4);
+        });
+    }
+
+    toggle() {
+        this.enabled = !this.enabled;
+        if (!this.enabled && this.noiseGain) {
+            this.noiseGain.gain.setValueAtTime(0, this.ctx.currentTime);
+            this.thrusterActive = false;
+        }
+        return this.enabled;
+    }
+}
+
+const audio = new SoundController();
+
+// --- GESTION DU CLAVIER ---
+const keys = {
+    up: false,
+    left: false,
+    right: false,
+    reset: false
+};
+
+window.addEventListener('keydown', (e) => {
+    audio.init();
+    if (e.code === 'ArrowUp' || e.code === 'KeyW') keys.up = true;
+    if (e.code === 'ArrowLeft' || e.code === 'KeyA') keys.left = true;
+    if (e.code === 'ArrowRight' || e.code === 'KeyD') keys.right = true;
+    if (e.code === 'Space' || e.code === 'KeyR') resetGame();
+    if (e.code === 'KeyM') audio.toggle();
+});
+
+window.addEventListener('keyup', (e) => {
+    if (e.code === 'ArrowUp' || e.code === 'KeyW') keys.up = false;
+    if (e.code === 'ArrowLeft' || e.code === 'KeyA') keys.left = false;
+    if (e.code === 'ArrowRight' || e.code === 'KeyD') keys.right = false;
+});
+
+// --- PARTICULES (Échappement & Explosion) ---
+class Particle {
+    constructor(x, y, vx, vy, color, size, life, decay, isSmoke = false) {
+        this.x = x;
+        this.y = y;
+        this.vx = vx;
+        this.vy = vy;
+        this.color = color;
+        this.size = size;
+        this.life = life;
+        this.maxLife = life;
+        this.decay = decay;
+        this.isSmoke = isSmoke;
+    }
+
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.isSmoke) {
+            this.vx *= 0.96;
+            this.vy *= 0.96;
+            this.size += 0.15;
+        }
+        this.life -= this.decay;
+    }
+
+    draw(ctx) {
+        const alpha = Math.max(0, this.life / this.maxLife);
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = this.isSmoke ? 2 : 8;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, Math.max(0.5, this.size), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+// --- CLASSE DU VAISSEAU (Lander) ---
+class Lander {
+    constructor(x, y) {
+        this.spawnX = x;
+        this.spawnY = y;
+        this.reset();
+        this.radius = 12; // Boîte englobante
+    }
+
+    reset() {
+        this.x = this.spawnX;
+        this.y = this.spawnY;
+        this.vx = 0.5 + Math.random() * 0.5;
+        this.vy = 0;
+        this.angle = 0; // en radians
+        this.angularVel = 0;
+        this.fuel = 1000;
+        this.maxFuel = 1000;
+        this.state = 'FLYING'; // 'FLYING', 'LANDED', 'CRASHED'
+        this.stats = { vx: 0, vy: 0, angleDeg: 0 };
+    }
+
+    update(dt, particles) {
+        if (this.state !== 'FLYING') return;
+
+        // Gravité lunaire douce
+        const gravity = 0.035;
+        this.vy += gravity;
+
+        // Rotation RCS
+        const rotPower = 0.0028;
+        if (keys.left) this.angularVel -= rotPower;
+        if (keys.right) this.angularVel += rotPower;
+
+        // Amortissement angulaire (stabilisateur gyroscopique)
+        this.angularVel *= 0.94;
+        this.angle += this.angularVel;
+
+        // Poussée Réacteur Principal
+        const thrustPower = 0.088;
+        let isThrusting = false;
+
+        if (keys.up && this.fuel > 0) {
+            isThrusting = true;
+            this.fuel = Math.max(0, this.fuel - 1.2);
+
+            // Vecteur de poussée orienté selon l'angle
+            const thrustX = Math.sin(this.angle) * thrustPower;
+            const thrustY = -Math.cos(this.angle) * thrustPower;
+
+            this.vx += thrustX;
+            this.vy += thrustY;
+
+            // Éjection de particules à la tuyère
+            const nozzleDist = 14;
+            const nozzleX = this.x - Math.sin(this.angle) * nozzleDist;
+            const nozzleY = this.y + Math.cos(this.angle) * nozzleDist;
+
+            for (let i = 0; i < 3; i++) {
+                const spread = (Math.random() - 0.5) * 0.45;
+                const pSpeed = 2.5 + Math.random() * 3.5;
+                const pAngle = this.angle + Math.PI / 2 + (Math.random() - 0.5) * 0.3;
+                const pvx = -Math.sin(this.angle + spread) * pSpeed + this.vx * 0.4;
+                const pvy = Math.cos(this.angle + spread) * pSpeed + this.vy * 0.4;
+
+                const colors = ['#00ffff', '#39ff14', '#ffffff', '#ff9900'];
+                const col = colors[Math.floor(Math.random() * colors.length)];
+                particles.push(new Particle(nozzleX, nozzleY, pvx, pvy, col, 2.2 + Math.random() * 1.5, 25, 1));
+            }
+        }
+
+        // Petites étincelles RCS latérales
+        if (keys.left && this.fuel > 0) {
+            const rx = this.x + Math.cos(this.angle) * 10;
+            const ry = this.y + Math.sin(this.angle) * 10;
+            particles.push(new Particle(rx, ry, Math.cos(this.angle) * 1.8, Math.sin(this.angle) * 1.8, '#00ffff', 1.2, 12, 1));
+        }
+        if (keys.right && this.fuel > 0) {
+            const lx = this.x - Math.cos(this.angle) * 10;
+            const ly = this.y - Math.sin(this.angle) * 10;
+            particles.push(new Particle(lx, ly, -Math.cos(this.angle) * 1.8, -Math.sin(this.angle) * 1.8, '#00ffff', 1.2, 12, 1));
+        }
+
+        audio.setThrust(isThrusting);
+
+        // Déplacement par inertie
+        this.x += this.vx;
+        this.y += this.vy;
+
+        // Enregistrer les stats courantes
+        this.stats = {
+            vx: this.vx,
+            vy: this.vy,
+            angleDeg: (this.angle * 180 / Math.PI) % 360
+        };
+    }
+
+    draw(ctx) {
+        if (this.state === 'CRASHED') return;
+
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+
+        ctx.shadowColor = '#00f0ff';
+        ctx.shadowBlur = 10;
+        ctx.strokeStyle = '#ffffff';
+        ctx.fillStyle = '#0a1926';
+        ctx.lineWidth = 1.8;
+
+        // 1. Corps principal (Capsule / Module de descente)
+        ctx.beginPath();
+        ctx.moveTo(0, -12);      // Sommet
+        ctx.lineTo(8, -4);       // Épaule droite
+        ctx.lineTo(9, 6);        // Hanche droite
+        ctx.lineTo(5, 10);       // Base droite
+        ctx.lineTo(-5, 10);      // Base gauche
+        ctx.lineTo(-9, 6);       // Hanche gauche
+        ctx.lineTo(-8, -4);      // Épaule gauche
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // 2. Hublot cockpit
+        ctx.fillStyle = '#00f0ff';
+        ctx.beginPath();
+        ctx.arc(0, -1, 3.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 3. Pieds d'atterrissage (Train amortisseur)
+        ctx.strokeStyle = '#5df0d0';
+        ctx.lineWidth = 1.6;
+
+        // Jambe gauche
+        ctx.beginPath();
+        ctx.moveTo(-6, 8);
+        ctx.lineTo(-13, 16);
+        ctx.lineTo(-17, 16); // Patin
+        ctx.moveTo(-13, 16);
+        ctx.lineTo(-9, 16);
+        ctx.stroke();
+
+        // Jambe droite
+        ctx.beginPath();
+        ctx.moveTo(6, 8);
+        ctx.lineTo(13, 16);
+        ctx.lineTo(17, 16); // Patin
+        ctx.moveTo(13, 16);
+        ctx.lineTo(9, 16);
+        ctx.stroke();
+
+        // 4. Tuyère principale
+        ctx.strokeStyle = '#ff9900';
+        ctx.beginPath();
+        ctx.moveTo(-4, 10);
+        ctx.lineTo(-6, 13);
+        ctx.lineTo(6, 13);
+        ctx.lineTo(4, 10);
+        ctx.stroke();
+
+        ctx.restore();
+    }
+
+    explode(particles) {
+        this.state = 'CRASHED';
+        audio.playCrash();
+        for (let i = 0; i < 90; i++) {
+            const speed = 1 + Math.random() * 6.5;
+            const ang = Math.random() * Math.PI * 2;
+            const vx = Math.cos(ang) * speed + this.vx * 0.2;
+            const vy = Math.sin(ang) * speed + this.vy * 0.2;
+            const cols = ['#ff3300', '#ff9900', '#ffff00', '#ffffff', '#00f0ff'];
+            const col = cols[Math.floor(Math.random() * cols.length)];
+            particles.push(new Particle(this.x, this.y, vx, vy, col, 1.5 + Math.random() * 2.5, 45 + Math.random() * 30, 0.8));
+        }
+    }
+
+    land() {
+        this.state = 'LANDED';
+        audio.playSuccess();
+    }
+}
+
+// --- GÉNÉRATION PROCÉDURALE DU RELIEF LUNAIRE ---
+class LunarTerrain {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+        this.points = [];
+        this.pads = [];
+        this.generate();
+    }
+
+    generate() {
+        this.points = [];
+        this.pads = [];
+
+        const segments = 32;
+        const step = this.width / segments;
+        const groundBase = this.height * 0.78;
+        const roughness = 65;
+
+        // Définir deux plateformes d'atterrissage stratégiques
+        const pad1Index = 6 + Math.floor(Math.random() * 4);   // Zone gauche (Large x2)
+        const pad2Index = 20 + Math.floor(Math.random() * 5);  // Zone droite (Étroite x3)
+
+        let currentY = groundBase + (Math.random() - 0.5) * roughness;
+
+        for (let i = 0; i <= segments; i++) {
+            const x = i * step;
+
+            if (i === pad1Index || i === pad1Index + 1) {
+                // Première plateforme plate
+                if (i === pad1Index) {
+                    currentY = groundBase + 15;
+                    this.pads.push({ x1: x, x2: x + step, y: currentY, multiplier: 2, label: 'ZONE ALPHA [2X]' });
+                }
+            } else if (i === pad2Index) {
+                // Seconde plateforme plus délicate sur un promontoire
+                currentY = groundBase - 35;
+                this.pads.push({ x1: x, x2: x + step, y: currentY, multiplier: 3, label: 'PIC KAIROS [3X]' });
+            } else {
+                currentY = groundBase + Math.sin(i * 0.6) * 45 + (Math.random() - 0.5) * roughness;
+                currentY = Math.min(this.height - 35, Math.max(this.height * 0.45, currentY));
+            }
+
+            this.points.push({ x, y: currentY });
+        }
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.strokeStyle = '#32709e';
+        ctx.lineWidth = 2.2;
+        ctx.shadowColor = '#00aaff';
+        ctx.shadowBlur = 12;
+
+        // Tracé du sol filaire
+        ctx.beginPath();
+        ctx.moveTo(this.points[0].x, this.points[0].y);
+        for (let i = 1; i < this.points.length; i++) {
+            ctx.lineTo(this.points[i].x, this.points[i].y);
+        }
+        ctx.stroke();
+
+        // Remplissage sombre du sous-sol
+        ctx.lineTo(this.width, this.height);
+        ctx.lineTo(0, this.height);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(3, 8, 16, 0.95)';
+        ctx.fill();
+
+        // Mise en évidence des plateformes
+        this.pads.forEach(pad => {
+            ctx.save();
+            ctx.strokeStyle = pad.multiplier === 3 ? '#ffdd00' : '#00ffcc';
+            ctx.lineWidth = 3.5;
+            ctx.shadowColor = pad.multiplier === 3 ? '#ffdd00' : '#00ffcc';
+            ctx.shadowBlur = 15;
+
+            ctx.beginPath();
+            ctx.moveTo(pad.x1, pad.y);
+            ctx.lineTo(pad.x2, pad.y);
+            ctx.stroke();
+
+            // Label de la plateforme
+            ctx.fillStyle = pad.multiplier === 3 ? '#ffdd00' : '#00ffcc';
+            ctx.font = 'bold 10px monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(pad.label, (pad.x1 + pad.x2) / 2, pad.y + 18);
+            ctx.restore();
+        });
+
+        ctx.restore();
+    }
+
+    checkCollision(lander) {
+        // Détection de collision segment par segment
+        for (let i = 0; i < this.points.length - 1; i++) {
+            const p1 = this.points[i];
+            const p2 = this.points[i + 1];
+
+            if (lander.x >= p1.x && lander.x <= p2.x) {
+                // Interpolation de la hauteur du sol sous le vaisseau
+                const t = (lander.x - p1.x) / (p2.x - p1.x);
+                const groundY = p1.y + t * (p2.y - p1.y);
+
+                // Si les patins touchent le sol
+                if (lander.y + 16 >= groundY) {
+                    // Vérifier si on est sur un pad d'atterrissage
+                    const activePad = this.pads.find(pad => lander.x >= pad.x1 + 6 && lander.x <= pad.x2 - 6);
+
+                    const maxSafeVy = 1.25;
+                    const maxSafeVx = 0.85;
+                    const maxSafeAngle = 10 * Math.PI / 180; // +/- 10 degrés
+
+                    const safeVy = lander.vy <= maxSafeVy;
+                    const safeVx = Math.abs(lander.vx) <= maxSafeVx;
+                    const safeAngle = Math.abs(lander.angle) <= maxSafeAngle;
+
+                    if (activePad && safeVy && safeVx && safeAngle) {
+                        lander.y = groundY - 16;
+                        lander.vx = 0;
+                        lander.vy = 0;
+                        lander.angularVel = 0;
+                        lander.angle = 0;
+                        return { type: 'LANDED', pad: activePad };
+                    } else {
+                        return { type: 'CRASH', reason: !activePad ? "SURFACE INSTABLE" : (!safeVy ? "VITESSE VERTICALE EXCESSIVE" : (!safeVx ? "DÉRIVE HORIZONTALE" : "ANGLE INCORRECT")) };
+                    }
+                }
+            }
+        }
+
+        // Limites d'écran latérales et plafond
+        if (lander.x < 10 || lander.x > this.width - 10) {
+            return { type: 'CRASH', reason: "SORTIE DU PÉRIMÈTRE RADAR" };
+        }
+
+        return null;
+    }
+}
+
+// --- ÉTOILES DU FOND ---
+const stars = [];
+for (let i = 0; i < 90; i++) {
+    stars.push({
+        x: Math.random() * 1024,
+        y: Math.random() * 450,
+        size: Math.random() * 1.8,
+        brightness: Math.random()
+    });
+}
+
+// --- INSTANCIATION DU JEU ---
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+let terrain = new LunarTerrain(canvas.width, canvas.height);
+let lander = new Lander(120, 80);
+let particles = [];
+let outcomeMessage = null;
+let score = 0;
+
+function resetGame() {
+    terrain = new LunarTerrain(canvas.width, canvas.height);
+    lander = new Lander(120, 80);
+    particles = [];
+    outcomeMessage = null;
+    audio.setThrust(false);
+}
+
+// --- BOUCLE PRINCIPALE (requestAnimationFrame) ---
+function gameLoop() {
+    // 1. Fond cosmique
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Dessin des étoiles avec scintillement
+    ctx.save();
+    stars.forEach(st => {
+        st.brightness += (Math.random() - 0.5) * 0.05;
+        st.brightness = Math.max(0.2, Math.min(1.0, st.brightness));
+        ctx.fillStyle = `rgba(200, 240, 255, ${st.brightness})`;
+        ctx.fillRect(st.x, st.y, st.size, st.size);
+    });
+    ctx.restore();
+
+    // 2. Mise à jour du vaisseau
+    lander.update(1.0, particles);
+
+    // 3. Détection des collisions
+    if (lander.state === 'FLYING') {
+        const col = terrain.checkCollision(lander);
+        if (col) {
+            if (col.type === 'LANDED') {
+                lander.land();
+                const bonus = Math.round(col.pad.multiplier * (lander.fuel * 0.5 + 500));
+                score += bonus;
+                outcomeMessage = {
+                    title: "TOUCHDOWN RÉUSSI !",
+                    subtitle: `${col.pad.label} SÉCURISÉ — +${bonus} PTS`,
+                    color: "#00ffcc"
+                };
+            } else if (col.type === 'CRASH') {
+                lander.explode(particles);
+                outcomeMessage = {
+                    title: "IMPACT CRITIQUE !",
+                    subtitle: `ÉCHEC : ${col.reason}`,
+                    color: "#ff3344"
+                };
+            }
+        }
+    }
+
+    // 4. Dessin du terrain
+    terrain.draw(ctx);
+
+    // 5. Particules
+    for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw(ctx);
+        if (p.life <= 0) particles.splice(i, 1);
+    }
+
+    // 6. Dessin du vaisseau
+    lander.draw(ctx);
+
+    // 7. HUD & Télémétrie Vectorielle
+    drawHUD(ctx, lander);
+
+    // 8. Écran de fin de partie / Bilan
+    if (outcomeMessage) {
+        drawOutcome(ctx, outcomeMessage);
+    }
+
+    requestAnimationFrame(gameLoop);
+}
+
+// --- AFFICHAGE DE L'INTERFACE TÉLÉMÉTRIQUE (HUD) ---
+function drawHUD(ctx, lander) {
+    ctx.save();
+    ctx.font = '12px Courier New';
+    ctx.fillStyle = '#6ab8ed';
+    ctx.shadowColor = '#00aaff';
+    ctx.shadowBlur = 6;
+
+    // A. Jauge de Carburant
+    ctx.fillText('CARBURANT', 25, 30);
+    ctx.strokeStyle = '#1b3f5c';
+    ctx.strokeRect(110, 20, 160, 12);
+    const fuelPercent = lander.fuel / lander.maxFuel;
+    const fuelColor = fuelPercent > 0.25 ? '#00f0ff' : '#ff3344';
+    ctx.fillStyle = fuelColor;
+    ctx.fillRect(112, 22, 156 * fuelPercent, 8);
+
+    // B. Vélocités
+    const vxColor = Math.abs(lander.vx) <= 0.85 ? '#00ffcc' : '#ff5566';
+    const vyColor = lander.vy <= 1.25 ? '#00ffcc' : '#ff5566';
+    const angColor = Math.abs(lander.angle * 180 / Math.PI) <= 10 ? '#00ffcc' : '#ff5566';
+
+    ctx.fillStyle = '#6ab8ed';
+    ctx.fillText(`V-HORIZ : `, 310, 30);
+    ctx.fillStyle = vxColor;
+    ctx.fillText(`${(lander.vx * 10).toFixed(1)} m/s`, 385, 30);
+
+    ctx.fillStyle = '#6ab8ed';
+    ctx.fillText(`V-VERT  : `, 480, 30);
+    ctx.fillStyle = vyColor;
+    ctx.fillText(`${(lander.vy * 10).toFixed(1)} m/s`, 555, 30);
+
+    ctx.fillStyle = '#6ab8ed';
+    ctx.fillText(`ANGLE   : `, 650, 30);
+    ctx.fillStyle = angColor;
+    ctx.fillText(`${(lander.angle * 180 / Math.PI).toFixed(0)}°`, 715, 30);
+
+    // C. Score
+    ctx.fillStyle = '#ffdd00';
+    ctx.fillText(`SCORE : ${score}`, 860, 30);
+
+    ctx.restore();
+}
+
+function drawOutcome(ctx, msg) {
+    ctx.save();
+    ctx.textAlign = 'center';
+
+    ctx.fillStyle = 'rgba(3, 6, 12, 0.75)';
+    ctx.fillRect(canvas.width / 2 - 280, canvas.height / 2 - 80, 560, 150);
+
+    ctx.strokeStyle = msg.color;
+    ctx.lineWidth = 2;
+    ctx.shadowColor = msg.color;
+    ctx.shadowBlur = 20;
+    ctx.strokeRect(canvas.width / 2 - 280, canvas.height / 2 - 80, 560, 150);
+
+    ctx.font = 'bold 24px Courier New';
+    ctx.fillStyle = msg.color;
+    ctx.fillText(msg.title, canvas.width / 2, canvas.height / 2 - 25);
+
+    ctx.font = '14px Courier New';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(msg.subtitle, canvas.width / 2, canvas.height / 2 + 10);
+
+    ctx.font = '12px Courier New';
+    ctx.fillStyle = '#6ab8ed';
+    ctx.fillText("[ APPUYEZ SUR ESPACE OU R POUR RELANCER ]", canvas.width / 2, canvas.height / 2 + 45);
+
+    ctx.restore();
+}
+
+// Lancement automatique du jeu
+requestAnimationFrame(gameLoop);
+</script>
+
+</body>
+</html>

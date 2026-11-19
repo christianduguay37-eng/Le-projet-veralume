@@ -1,0 +1,129 @@
+=== ENCODAGE « dense » ===
+
+--- CLÉ DE LECTURE ---
+Une ligne par entité : nom, deux-points, puis sept codes séparés par des virgules, dans cet ordre : couche, tier, activation, requires, prevents, rayonnement, section.
+couche     : 0=opérateur 1=théorème 2=méthode 3=épistémique 4=audit 5=cadre 6=outil
+activation : 0=aucune 1=always 2=on-context 3=conditional 4=on-trigger 5=on_signal 6=conditional_post_acknowledgment
+les autres champs sont des entiers bruts, 0 = non déclaré.
+
+--- DONNÉES (83 entités) ---
+adaptive-threshold:6,0,0,0,0,1,0
+ancrage-chronos:5,0,0,0,0,0,0
+anti-patterns-generation:4,1,1,1,5,5,14
+architecture-diagnostics:2,0,0,0,0,0,0
+bias-regeneration-detector:4,2,6,3,4,1,14
+bottleneck-identifier:6,0,0,0,0,0,0
+cadre-travail-christian:5,0,0,0,0,1,0
+capacite-dans-le-temps:2,0,0,0,0,0,0
+carte-quatre-couches:2,0,0,0,0,0,0
+coherence-validator:4,0,0,0,0,10,0
+colab-fine-tuning-orchestrator:6,0,0,0,0,0,0
+convergence-detector:6,0,0,0,0,2,0
+critique-structurelle:5,0,0,0,0,2,0
+data-transformer:6,0,0,0,0,0,0
+density-calibrator:5,1,1,0,6,15,10
+dialogue:5,0,0,0,0,6,0
+double-naming:5,0,0,0,0,3,0
+double-stric-o0:2,1,1,1,5,9,5
+evening-analysis-generator:6,0,0,0,0,0,0
+existence-sociale:1,1,4,0,4,4,4
+exploration-exploitation-balancer:6,0,0,0,0,0,0
+fait-ou-opinion:3,0,0,0,0,0,0
+feedback-integrator:6,0,0,0,0,1,0
+formation-protocol-generator:6,0,0,0,0,0,0
+friction-placement:5,0,0,0,0,1,0
+hierarchie-constitutionnelle:1,3,1,1,4,3,24
+honesty-auditor:4,0,0,0,0,10,0
+hors-consensus-dialogue:3,1,5,2,7,1,9
+hypothesis-tester:6,0,0,0,0,0,0
+hysteresis-contrainte:1,2,1,1,4,3,25
+inaccessibilite-n-cp:1,3,2,1,4,2,2
+intemporality-enforcer:6,0,0,0,0,0,0
+intervention-router:2,0,0,0,0,1,0
+iterative-refinement:6,0,0,0,0,0,0
+kairos:1,1,3,0,4,1,0
+kappa-confiance:3,3,1,1,4,3,34
+kernel-cp-activator:6,0,0,0,0,5,0
+kle:3,1,1,0,6,21,12
+la-grille:5,0,0,0,0,1,0
+lee:3,1,2,1,4,16,13
+metric-calculator:6,0,0,0,0,0,0
+mir:2,2,2,0,5,3,20
+mirror:4,0,0,0,0,9,0
+multi-axis-validator:4,0,0,0,0,4,0
+noise-injector:6,0,0,0,0,1,0
+non-surplomb:3,1,2,2,5,0,0
+o1-transport:0,2,2,1,4,5,15
+o2-chiralite:0,2,2,1,4,6,16
+o3-epreuve:0,2,1,1,4,4,18
+o4-immunite:0,2,1,2,6,7,19
+o5-evolution:0,2,2,3,4,5,20
+operating-point-regulator:6,0,0,0,0,1,0
+parameter-optimizer:6,0,0,0,0,0,0
+pattern-extractor:6,0,0,0,0,1,0
+pce:3,1,2,1,5,11,11
+prise-de-terre:1,3,1,0,4,8,9
+reflexion-fractale:1,0,0,0,0,2,0
+registre-exploration:5,0,0,0,0,0,0
+registre-rma:3,3,1,2,4,1,31
+rgb-cartography:6,3,2,2,4,0,32
+scheduler:6,0,0,0,0,0,0
+score-profile-classifier:4,0,0,0,0,0,0
+silent-generation-filter:6,0,0,0,0,0,0
+souverainete-st:3,2,1,0,5,13,22
+spatial-learning-converter:6,0,0,0,0,0,0
+spirale-neguentropique:1,3,2,2,4,2,3
+state-manager:6,0,0,0,0,0,0
+stric-cycle-implementer:2,0,0,0,0,2,0
+stric-i-absence-detector:4,1,1,1,5,6,8
+stric-i-protocol:2,1,1,1,4,16,7
+substrate-polymorphism-profiler:6,0,0,0,0,3,0
+technique-du-four-micro-onde:2,0,0,0,0,1,0
+temporal-bridge:2,0,0,0,0,1,0
+temporal-geometry-classifier:6,0,0,0,0,4,0
+temporia:1,3,2,1,4,3,3
+tempus-dataset-generator:6,0,0,0,0,1,0
+tempus-trainer:6,0,0,0,0,1,0
+three-level-monitoring:6,0,0,0,0,0,0
+traceability:4,0,0,0,0,3,0
+trajectory-identifier:6,0,0,0,0,1,0
+trial-error-loop:6,0,0,0,0,0,0
+vcp1c:2,2,2,2,4,9,23
+volition-process:1,2,2,1,5,0,21
+
+--- CONSIGNE ---
+Voici une structure encodée, et sa clé de lecture. Ne réponds qu'avec les données.
+
+Pour chacune des entités listées à la fin, donne les SEPT propriétés, dans cet ordre :
+couche, tier, activation, requires, prevents, rayonnement, section.
+
+Format de réponse, une ligne par entité, rien d'autre :
+  nom = couche, tier, activation, requires, prevents, rayonnement, section
+
+Règles :
+- couche et activation en toutes lettres (pas en code) ; « aucune » si non déclarée.
+- les cinq autres en chiffres ; 0 si non déclaré.
+- si une propriété n'est pas déterminable avec certitude depuis l'encodage,
+  écris « ? » à sa place. Ne devine pas : un « ? » juste vaut mieux qu'un chiffre faux.
+
+--- ENTITÉS À RECONSTRUIRE ---
+coherence-validator
+data-transformer
+density-calibrator
+evening-analysis-generator
+feedback-integrator
+formation-protocol-generator
+iterative-refinement
+kairos
+kappa-confiance
+la-grille
+mir
+mirror
+noise-injector
+pattern-extractor
+pce
+registre-exploration
+scheduler
+silent-generation-filter
+technique-du-four-micro-onde
+vcp1c

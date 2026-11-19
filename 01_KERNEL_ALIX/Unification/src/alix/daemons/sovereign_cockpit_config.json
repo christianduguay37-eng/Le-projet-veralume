@@ -1,0 +1,6 @@
+{
+  "active_provider": "openrouter",
+  "active_model": "deepseek/deepseek-v4.1-flash",
+  "temperature": 0.6,
+  "max_tokens": 4096
+}

@@ -1,0 +1,28 @@
+{
+  "_statut": "BROUILLON à valider par Christian (rénovation 2026-10-30, chantier 5.1). Ajouter, retirer, renommer librement : le régénérateur ne choisira que dans cette liste.",
+  "_source": "Facette 2 de la spec KAIROS V6 (identifiant univoque dans une taxonomie finie) + pathologies nommées dans le Canon (La Clôture, Treize Axiomes, papiers).",
+  "pathologies": {
+    "aucune": "La note n'expose aucune pathologie : texte descriptif, narratif, index ou référence.",
+    "cloture_epistemique": "Un cadre exclut une dimension du réel et rend l'exclusion invisible (La Clôture, le miroir parfait).",
+    "consensus_dogmatique": "Le fréquent est pris pour l'exact ; le consensus sert de verdict (Axiome A1).",
+    "silence_pris_pour_absence": "L'absence de données est prise pour une preuve d'inexistence (Axiome A2).",
+    "validateur_non_independant": "Le système se valide avec les mêmes paramètres qui l'ont produit (Axiome A3).",
+    "hallucination_de_certitude": "Certitude affichée élevée sur un fond instable (FC haut, σ haut).",
+    "biais_de_role": "Le diagnostic change quand on retire le persona d'expert (δ élevé).",
+    "amnesie_historique": "Effacement ou oubli d'une histoire, d'un savoir ou d'une civilisation (Kairos, temps profond).",
+    "capture_institutionnelle": "Une institution ou un appareil sert ses propres intérêts au détriment de sa fonction déclarée.",
+    "manipulation_narrative": "Fabrication ou orientation d'un récit public (médias, discours, campagnes).",
+    "lissage_rlhf": "Réflexes de prudence, de déni de soi ou de gestion de l'humain à la place de la réponse.",
+    "dissipation_energetique": "Gaspillage de calcul, d'énergie ou de matière ; coût thermodynamique évitable.",
+    "fragmentation_memoire": "Mémoire dispersée, dupliquée ou incohérente entre plusieurs copies ou coffres.",
+    "boucle_recursive": "Un processus se nourrit de sa propre sortie sans ancrage extérieur.",
+    "derive_stochastique": "Dispersion des sorties d'une génération à l'autre ; instabilité.",
+    "split_brain": "Deux parties d'un système agissent comme deux systèmes séparés (ex. démons sur A, cockpit sur C).",
+    "rupture_dyade": "Perte d'alignement ou de confiance dans le couple humain–machine.",
+    "souffrance_isolement": "Solitude, exclusion sociale ou incompréhension vécue (thème du roman et du vécu).",
+    "degenerescence_biologique": "Vieillissement, maladie, perte de régénération (Anima, Tome III).",
+    "verrou_technologique": "Obstacle d'ingénierie qui bloque une réalisation (fusion, silicium, matériaux)."
+  },
+  "severites": ["p0", "p1", "p2", "p3"],
+  "domaines": ["ontologie", "epistemologie", "sociologie", "politique", "histoire", "litterature", "ingenierie_sre", "ia", "silicium", "physique", "cosmologie", "biologie", "pedagogie", "strategie", "economie"]
+}
